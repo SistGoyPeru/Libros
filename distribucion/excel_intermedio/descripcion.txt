@@ -1,0 +1,17 @@
+EXCEL INTERMEDIO — Domina el Análisis de Datos en Excel
+
+¿De qué trata?
+Sofía ha logrado salvar el taller, pero ahora enfrenta nuevos
+desafíos: expansión del negocio, análisis de ventas, informes
+gerenciales y decisiones estratégicas. Para crecer, deberá dominar
+tablas dinámicas, formato condicional, búsquedas y gráficos
+avanzados. La aventura continúa.
+
+¿Para qué nos ayuda?
+- Dominar tablas dinámicas y segmentación de datos
+- Usar BUSCARV, BUSCARX y funciones condicionales
+- Crear dashboards y reportes profesionales
+- Limpiar y transformar datos para análisis
+- Ideal para quienes ya saben lo básico y quieren más
+
+Nivel: Intermedio

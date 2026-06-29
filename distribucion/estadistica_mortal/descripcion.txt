@@ -1,0 +1,16 @@
+ESTADÍSTICA MORTAL — Aprende Estadística Resolviendo un Crimen
+
+¿De qué trata?
+Una enfermera es acusada de asesinar a cuatro pacientes en un
+hospital de Lima. Tú deberás usar estadística para demostrar su
+inocencia o culpabilidad. Medias, medianas, desviación estándar,
+probabilidades, chi-cuadrado y más en una carrera contrarreloj
+por la verdad.
+
+¿Para qué nos ayuda?
+- Aprender estadística descriptiva e inferencial con casos reales
+- Entender probabilidad, distribuciones, pruebas de hipótesis
+- Aplicar conceptos estadísticos a la toma de decisiones
+- Ideal para estudiantes, investigadores y profesionales de datos
+
+Nivel: Intermedio

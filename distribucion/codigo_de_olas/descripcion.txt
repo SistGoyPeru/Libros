@@ -1,0 +1,16 @@
+CÓDIGO DE OLAS — Aprende Python Descifrando el Océano Digital
+
+¿De qué trata?
+Mateo, un joven programador, hereda un misterioso mensaje codificado
+de su abuelo biólogo marino. Para descubrir la verdad, deberá usar
+Python para analizar datos oceanográficos, descifrar frecuencias de
+radio ocultas y explorar listas, tuplas y conjuntos en un viaje
+desde el Callao hasta el fondo del mar digital.
+
+¿Para qué nos ayuda?
+- Aprender Python con listas, tuplas, conjuntos, cadenas y archivos
+- Practicar manipulación de datos y algoritmos de búsqueda
+- Desarrollar pensamiento computacional con una historia de misterio
+- Perfecto para quienes ya tienen lo básico y quieren avanzar
+
+Nivel: Principiante a Intermedio

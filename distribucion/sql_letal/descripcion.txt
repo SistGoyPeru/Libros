@@ -1,0 +1,17 @@
+SQL LETAL — Aprende SQL Resolviendo un Asesinato
+
+¿De qué trata?
+Un asesinato en el Instituto Tecnológico de Ciberseguridad de Lima.
+La única pista: una base de datos con 20,000 registros. Usando SQL,
+deberás consultar, filtrar, unir tablas y encontrar al asesino antes
+de que sea demasiado tarde. Cada consulta SQL te acerca más a la
+verdad.
+
+¿Para qué nos ayuda?
+- Aprender SQL desde cero con ejercicios prácticos
+- Dominar SELECT, WHERE, JOIN, GROUP BY, subconsultas
+- Entender bases de datos relacionales
+- Resolver problemas reales de análisis de datos
+- Perfecto para quien quiere aprender SQL de forma divertida
+
+Nivel: Principiante a Intermedio

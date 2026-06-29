@@ -1,0 +1,19 @@
+EXCEL PARA CONTADORES — Domina Excel en el Mundo Contable
+
+¿De qué trata?
+María, una joven contadora, lucha por dominar Excel mientras
+enfrenta el día a día en un estudio contable. Con la guía del
+experto Don Alberto, aprenderá desde configuración de Excel para
+contabilidad hasta macros VBA para automatizar cierres mensuales.
+Cada capítulo resuelve un problema contable real.
+
+¿Para qué nos ayuda?
+- Configurar Excel para workflows contables
+- Manejar catálogo de cuentas y plan contable
+- Crear libro diario, mayor y estados financieros
+- Usar funciones financieras (VAN, TIR, PAGO)
+- Consolidar balances y auditar datos
+- Automatizar tareas contables con VBA
+- Ideal para contadores, auditores y financieros
+
+Nivel: Intermedio a Avanzado

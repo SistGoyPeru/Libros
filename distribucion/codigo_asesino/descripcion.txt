@@ -1,0 +1,18 @@
+CÓDIGO ASESINO — Aprende Python resolviendo un asesinato
+
+¿De qué trata?
+Una novela interactiva donde eres el detective. El Dr. Inti Quispe,
+guardián del conocimiento inca digital, aparece asesinado en su
+laboratorio de Neo-Cusco. Tú deberás usar Python para analizar
+pistas, interrogar sospechosos y descifrar el código oculto en
+los antiguos quipus peruanos.
+
+¿Para qué nos ayuda?
+- Aprender Python desde cero con ejemplos prácticos y reales
+- Entender variables, listas, diccionarios, funciones, clases y más
+- Resolver problemas de lógica y programación mientras avanzas
+  en una historia atrapante
+- Ideal para quienes quieren programar pero se aburren con los
+  tutoriales tradicionales
+
+Nivel: Principiante a Intermedio

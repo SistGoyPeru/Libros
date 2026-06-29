@@ -1,0 +1,17 @@
+EXCEL AVANZADO — El Poder del Análisis de Datos
+
+¿De qué trata?
+Un thriller financiero donde Sofía descubre irregularidades en los
+estados financieros de una gran corporación. Para destapar la verdad
+usará Power Query, Power Pivot, DAX, VBA y macros. El libro más
+completo de la trilogía Excel.
+
+¿Para qué nos ayuda?
+- Dominar Power Query para transformar datos
+- Crear modelos de datos con Power Pivot y DAX
+- Automatizar tareas con macros VBA
+- Usar Solver para optimización
+- Preparar datos para Power BI
+- Ideal para analistas, contadores y profesionales de datos
+
+Nivel: Avanzado

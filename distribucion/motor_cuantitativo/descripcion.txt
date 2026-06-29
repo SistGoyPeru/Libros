@@ -1,0 +1,16 @@
+EL MOTOR CUANTITATIVO — Domina la Estadística y el Análisis de Datos
+
+¿De qué trata?
+Un viaje profundo por el mundo de los datos. Desde los fundamentos
+de probabilidad y estadística hasta modelos predictivos y series
+temporales. Con explicaciones claras, ejemplos en Python y
+ejercicios prácticos para dominar el análisis cuantitativo.
+
+¿Para qué nos ayuda?
+- Aprender probabilidad, distribuciones y estadística inferencial
+- Dominar regresión, correlación y análisis multivariable
+- Trabajar con series temporales y pronósticos
+- Usar Python para análisis de datos (NumPy, Pandas)
+- Ideal para científicos de datos, investigadores y analistas
+
+Nivel: Intermedio a Avanzado
