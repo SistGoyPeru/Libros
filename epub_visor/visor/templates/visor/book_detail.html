@@ -1,0 +1,207 @@
+{% extends 'visor/base.html' %}
+{% block title %}{{ book.title }} - BookStore{% endblock %}
+
+{% block content %}
+<nav class="breadcrumb">
+    <a href="{% url 'library' %}">Catálogo</a>
+    <span>›</span>
+    <span>{{ book.title|truncatechars:50 }}</span>
+</nav>
+
+<div style="display:grid;grid-template-columns:280px 1fr;gap:2rem;">
+    <!-- Left: Cover + Actions -->
+    <div>
+        {% if book.cover_image %}
+        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}"
+             style="width:100%;border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 8px 30px var(--shadow);">
+        {% else %}
+        <div style="aspect-ratio:16/25;background:linear-gradient(145deg,var(--bg3),var(--bg4));border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:4rem;border:1px solid var(--border);">
+            📕
+        </div>
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.6rem;">
+            <a href="{% url 'reader' book.slug %}" class="btn btn-primary btn-lg btn-block">
+                📖 Leer ahora
+            </a>
+            {% if book.epub_file %}
+            <a href="{% url 'download_epub' book.slug %}" class="btn btn-secondary btn-block">
+                ⬇ Descargar EPUB ({{ book.file_size_display }})
+            </a>
+            {% endif %}
+            {% if book.pdf_file %}
+            <a href="{% url 'download_pdf' book.slug %}" class="btn btn-secondary btn-block">
+                📄 Descargar PDF
+            </a>
+            {% endif %}
+            {% if user.is_staff and book.is_opencode_project %}
+            <a href="{% url 'run_diagnostics' book.slug %}" class="btn btn-secondary btn-block btn-sm">
+                🔍 Ejecutar diagnóstico
+            </a>
+            {% endif %}
+            {% if user.is_staff %}
+            <form method="POST" action="{% url 'delete_book' book.slug %}"
+                  onsubmit="return confirm('¿Eliminar {{ book.title|escapejs }}? Esta acción no se puede deshacer.');">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-block btn-sm">
+                    🗑 Eliminar libro
+                </button>
+            </form>
+            {% endif %}
+        </div>
+
+        <!-- Status Card -->
+        <div style="margin-top:1rem;background:var(--bg2);border-radius:var(--radius-sm);padding:1rem;border:1px solid var(--border);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                <span style="color:var(--fg2);font-size:0.8rem;">Estado</span>
+                <span class="badge" style="background:{% if book.status == 'publicado' %}#2a6a2a{% elif book.status == 'completo' %}#5a6a2a{% elif book.status == 'en_progreso' %}#6a5a2a{% else %}#6a2a2a{% endif %};color:{% if book.status == 'publicado' %}#a0e8a0{% elif book.status == 'completo' %}#d0e8a0{% elif book.status == 'en_progreso' %}#e8d0a0{% else %}#e8a0a0{% endif %};">
+                    {{ book.get_status_display }}
+                </span>
+            </div>
+            {% if book.is_opencode_project and book.progress_percentage < 100 %}
+            <div style="margin-bottom:0.3rem;">
+                <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--fg2);margin-bottom:0.2rem;">
+                    <span>Completitud</span>
+                    <span>{{ book.progress_percentage }}%</span>
+                </div>
+                <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;">
+                    <div style="height:100%;width:{{ book.progress_percentage }}%;background:var(--accent);border-radius:3px;"></div>
+                </div>
+            </div>
+            {% endif %}
+            {% if book.is_opencode_project %}
+            <div style="margin-top:0.4rem;">
+                <span class="badge" style="background:var(--accent);color:#111;">opencode</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Right: Details -->
+    <div>
+        <h1 style="font-family:var(--font-title);font-size:1.8rem;font-weight:700;margin-bottom:0.2rem;line-height:1.2;">
+            {{ book.title }}
+        </h1>
+        {% if book.author %}
+        <p style="color:var(--fg2);font-size:1.05rem;margin-bottom:1rem;">
+            por <strong style="color:var(--fg);">{{ book.author }}</strong>
+        </p>
+        {% endif %}
+
+        <!-- Stats badges row -->
+        <div style="display:flex;gap:0.6rem;margin-bottom:1.2rem;flex-wrap:wrap;">
+            <span style="background:var(--bg3);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.78rem;color:var(--fg2);border:1px solid var(--border);">
+                📄 {{ book.page_count }} páginas
+            </span>
+            <span style="background:var(--bg3);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.78rem;color:var(--fg2);border:1px solid var(--border);">
+                📝 {{ book.word_count }} palabras
+            </span>
+            <span style="background:var(--bg3);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.78rem;color:var(--fg2);border:1px solid var(--border);">
+                📖 {{ book.chapter_count }} capítulos
+            </span>
+            <span style="background:var(--bg3);padding:0.3rem 0.7rem;border-radius:20px;font-size:0.78rem;color:var(--fg2);border:1px solid var(--border);">
+                ⏱ {{ book.reading_time_display }}
+            </span>
+        </div>
+
+        <!-- Description -->
+        {% if book.description %}
+        <div style="background:var(--bg2);border-radius:var(--radius);padding:1.2rem 1.5rem;margin-bottom:1.5rem;border:1px solid var(--border);">
+            <p style="line-height:1.8;color:var(--fg2);font-style:italic;">{{ book.description }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Stats Grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:0.6rem;margin-bottom:1.5rem;">
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.page_count }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Páginas</div>
+            </div>
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.word_count }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Palabras</div>
+            </div>
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.chapter_count }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Capítulos</div>
+            </div>
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.character_count }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Caracteres</div>
+            </div>
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.reading_time_display }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Lectura</div>
+            </div>
+            <div style="background:var(--bg2);border-radius:var(--radius-sm);padding:0.7rem;text-align:center;border:1px solid var(--border);">
+                <div style="font-size:1.2rem;font-weight:700;color:var(--accent);">{{ book.file_size_display }}</div>
+                <div style="font-size:0.7rem;color:var(--fg2);margin-top:0.1rem;">Tamaño</div>
+            </div>
+        </div>
+
+        <!-- Metadata -->
+        <div style="background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.5rem;border:1px solid var(--border);">
+            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:0.6rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;">
+                Información del libro
+            </h3>
+            <table style="width:100%;font-size:0.82rem;border-collapse:collapse;">
+                {% if book.isbn %}<tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);width:120px;">ISBN</td><td style="padding:0.3rem 0;">{{ book.isbn }}</td></tr>{% endif %}
+                {% if book.publisher %}<tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);">Editorial</td><td style="padding:0.3rem 0;">{{ book.publisher }}</td></tr>{% endif %}
+                {% if book.publication_date %}<tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);">Publicación</td><td style="padding:0.3rem 0;">{{ book.publication_date }}</td></tr>{% endif %}
+                {% if book.language %}<tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);">Idioma</td><td style="padding:0.3rem 0;">{{ book.language }}</td></tr>{% endif %}
+                <tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);">Agregado</td><td style="padding:0.3rem 0;">{{ book.uploaded_at|date:"d/m/Y" }}</td></tr>
+                <tr><td style="padding:0.3rem 0.5rem 0.3rem 0;color:var(--fg2);">Última lectura</td><td style="padding:0.3rem 0;">{{ book.last_read_at|date:"d/m/Y H:i"|default:'Nunca' }}</td></tr>
+            </table>
+        </div>
+
+        <!-- Chapters -->
+        {% if chapters %}
+        <div style="background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;border:1px solid var(--border);">
+            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:0.6rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;">
+                Capítulos ({{ chapters|length }})
+            </h3>
+            <ol style="padding-left:1.2rem;font-size:0.85rem;line-height:2.2;">
+                {% for ch in chapters %}
+                <li><a href="{% url 'reader' book.slug %}?chapter={{ forloop.counter0 }}" style="color:var(--fg2);transition:color 0.2s;display:block;">{{ ch.title|default:ch.href }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
+        {% endif %}
+
+        <!-- Diagnostics (admin only) -->
+        {% if diagnostics and user.is_staff %}
+        <div style="background:var(--bg2);border-radius:var(--radius);padding:1rem 1.2rem;margin-top:1.5rem;border:1px solid var(--border);">
+            <h3 style="font-size:0.9rem;font-weight:600;margin-bottom:0.6rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;">
+                Diagnóstico opencode
+            </h3>
+            <div style="display:flex;justify-content:space-between;margin-bottom:0.3rem;">
+                <span style="font-size:0.85rem;color:var(--fg2);">Completitud</span>
+                <span style="font-weight:700;font-size:1rem;color:var(--accent);">{{ diagnostics.completeness }}%</span>
+            </div>
+            <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden;margin-bottom:0.8rem;">
+                <div style="height:100%;width:{{ diagnostics.completeness }}%;background:var(--accent);border-radius:3px;"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.3rem;font-size:0.78rem;">
+                <span style="color:var(--fg2);">.md files</span><span>{{ diagnostics.total_md_files }}</span>
+                <span style="color:var(--fg2);">Capítulos</span><span>{{ diagnostics.total_chapters }}</span>
+                <span style="color:var(--fg2);">EPUB</span><span style="color:{% if diagnostics.has_epub %}#4caf50{% else %}#f44336{% endif %};">{{ diagnostics.has_epub|yesno:"✅,❌" }}</span>
+                <span style="color:var(--fg2);">PDF</span><span style="color:{% if diagnostics.has_pdf %}#4caf50{% else %}#f44336{% endif %};">{{ diagnostics.has_pdf|yesno:"✅,❌" }}</span>
+                <span style="color:var(--fg2);">Cover</span><span style="color:{% if diagnostics.has_cover %}#4caf50{% else %}#f44336{% endif %};">{{ diagnostics.has_cover|yesno:"✅,❌" }}</span>
+                <span style="color:var(--fg2);">Metadata</span><span style="color:{% if diagnostics.has_metadata %}#4caf50{% else %}#f44336{% endif %};">{{ diagnostics.has_metadata|yesno:"✅,❌" }}</span>
+            </div>
+            {% if diagnostics.missing_items %}
+            <div style="margin-top:0.6rem;padding:0.5rem;background:#3a1515;border-radius:4px;border:1px solid #5a2020;font-size:0.78rem;">
+                <strong style="color:#e8a0a0;">Faltantes:</strong>
+                <ul style="margin-top:0.2rem;padding-left:1rem;color:#e8a0a0;">
+                    {% for item in diagnostics.missing_items %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+  "Ancón": {
+    "protegida": true,
+    "tipo": "reserva de olas"
+  },
+  "Miraflores": {
+    "protegida": false,
+    "tipo": "urbana"
+  },
+  "Tuquillo": {
+    "protegida": true,
+    "tipo": "reserva de olas"
+  }
+}

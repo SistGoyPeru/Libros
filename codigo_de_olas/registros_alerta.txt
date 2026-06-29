@@ -1,0 +1,2 @@
+Ola: 2.4m, frecuencia 18, dirección SO
+Ola: 1.2m, frecuencia 12, dirección O

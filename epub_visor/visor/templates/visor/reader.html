@@ -1,0 +1,612 @@
+{% extends 'visor/base.html' %}
+{% block title %}Leyendo: {{ book.title }}{% endblock %}
+{% block extra_head %}
+<style>
+  /* === 3D Kindle Tablet === */
+  :root {
+    --bezel-top: #5a5a5a;
+    --bezel-bottom: #3a3a3a;
+    --bezel-side: #4a4a4a;
+    --bezel-edge: #222;
+    --bezel-shadow: rgba(0,0,0,0.7);
+    --screen-bg: #f8f3e9;
+    --screen-border: #c8b99a;
+    --screen-text: #222;
+    --screen-dim: #999;
+    --accent-kindle: #c9a94e;
+    --kindle-logo: #b8952e;
+  }
+
+  body {
+    background: linear-gradient(145deg, #2a2a2a 0%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .top-bar, .cat-bar { display: none; }
+  .footer { display: none; }
+  .container { max-width: none; padding: 0; flex: 1; display: flex; flex-direction: column; }
+
+  /* === 3D Kindle Device Container === */
+  .kindle-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    perspective: 1200px;
+  }
+
+  .kindle-3d {
+    transform: rotateY(0deg) rotateX(2deg);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+  }
+  .kindle-3d:hover {
+    transform: rotateY(0deg) rotateX(2deg) scale(1.005);
+  }
+
+  /* === The Device Body (Bezel) === */
+  .kindle-body {
+    background: linear-gradient(160deg, var(--bezel-top) 0%, var(--bezel-side) 40%, var(--bezel-bottom) 100%);
+    border-radius: 28px;
+    padding: 22px;
+    box-shadow:
+      0 30px 80px rgba(0,0,0,0.7),
+      0 10px 30px rgba(0,0,0,0.5),
+      inset 0 1px 2px rgba(255,255,255,0.08),
+      inset 0 -2px 4px rgba(0,0,0,0.3),
+      0 0 0 1px rgba(0,0,0,0.4);
+    position: relative;
+    border: 1px solid #2a2a2a;
+  }
+
+  /* Bezel edge highlight (3D rim light) */
+  .kindle-body::before {
+    content: '';
+    position: absolute;
+    top: 4px; left: 4px; right: 4px; bottom: 4px;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.03);
+    pointer-events: none;
+  }
+
+  /* Bottom chin with Kindle logo */
+  .kindle-chin {
+    text-align: center;
+    padding: 10px 0 4px 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-weight: normal;
+    letter-spacing: 5px;
+    color: rgba(255,255,255,0.08);
+    text-transform: uppercase;
+    position: relative;
+  }
+  .kindle-chin::after {
+    content: 'Kindle';
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.06);
+  }
+
+  /* === The Screen (sunk into bezel) === */
+  .kindle-screen {
+    background: var(--screen-bg);
+    border-radius: 8px;
+    box-shadow:
+      inset 0 0 30px rgba(0,0,0,0.15),
+      inset 0 0 8px rgba(0,0,0,0.1),
+      0 1px 0 rgba(255,255,255,0.05);
+    border: 1px solid var(--screen-border);
+    width: 100%;
+    max-width: 720px;
+    min-height: 70vh;
+    max-height: 82vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle e-ink texture overlay */
+  .kindle-screen::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.15;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  /* Power button (top right) */
+  .power-btn {
+    position: absolute;
+    top: 8px;
+    right: -12px;
+    width: 8px;
+    height: 35px;
+    background: linear-gradient(to right, #4a4a4a, #5a5a5a, #4a4a4a);
+    border-radius: 0 4px 4px 0;
+    border: 1px solid #222;
+    border-left: none;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  }
+  .power-btn::after {
+    content: '';
+    position: absolute;
+    top: 8px; left: 1px; right: 1px; bottom: 8px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Volume rocker (left side) */
+  .vol-buttons {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vol-btn {
+    width: 8px;
+    height: 28px;
+    background: linear-gradient(to left, #4a4a4a, #5a5a5a, #4a4a4a);
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #222;
+    border-right: none;
+    box-shadow: -2px 2px 6px rgba(0,0,0,0.4);
+  }
+
+  /* Page-turn buttons (left and right bezel areas - touch zones) */
+  .page-touch-left, .page-touch-right {
+    position: absolute;
+    top: 0;
+    width: 35%;
+    height: 85%;
+    cursor: pointer;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .page-touch-left { left: 0; justify-content: flex-start; }
+  .page-touch-right { right: 0; justify-content: flex-end; }
+  .page-touch-left:hover, .page-touch-right:hover { opacity: 1; }
+  .page-touch-left::before, .page-touch-right::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 60px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 6px;
+  }
+
+  /* === Kindle Status Bar === */
+  .kindle-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem 0.3rem;
+    font-size: 0.65rem;
+    color: var(--screen-dim);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(200,185,154,0.3);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .kindle-top-bar .left { display: flex; gap: 1rem; align-items: center; }
+  .kindle-top-bar .time { font-weight: 500; }
+  .kindle-top-bar .battery { letter-spacing: 1px; }
+
+  .kindle-top-bar .back-link {
+    color: var(--screen-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .kindle-top-bar .back-link:hover { color: var(--accent-kindle); }
+
+  /* === Reading Progress Bar === */
+  .kindle-progress {
+    height: 2px;
+    background: rgba(200,185,154,0.3);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .kindle-progress .fill {
+    height: 100%;
+    background: var(--accent-kindle);
+    transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 0 4px rgba(201,169,78,0.4);
+  }
+  .kindle-progress .dot {
+    position: absolute;
+    top: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-kindle);
+    box-shadow: 0 0 6px rgba(201,169,78,0.5);
+    transition: left 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 2;
+  }
+
+  /* === Content Area === */
+  .kindle-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem 2rem 1rem;
+    font-family: 'Bookerly', 'Georgia', 'Times New Roman', serif;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--screen-text);
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 1;
+  }
+  .kindle-content::-webkit-scrollbar { width: 3px; }
+  .kindle-content::-webkit-scrollbar-track { background: transparent; }
+  .kindle-content::-webkit-scrollbar-thumb { background: rgba(200,185,154,0.4); border-radius: 2px; }
+
+  .kindle-content h1, .kindle-content h2, .kindle-content h3, .kindle-content h4 {
+    font-family: 'Bookerly', 'Georgia', serif;
+    font-weight: normal;
+    line-height: 1.3;
+    color: #111;
+    margin: 1.2em 0 0.3em;
+    page-break-after: avoid;
+    text-indent: 0;
+  }
+  .kindle-content h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-top: 0.3em;
+    font-weight: 500;
+  }
+  .kindle-content h2 { font-size: 1.2rem; }
+  .kindle-content h3 { font-size: 1.05rem; }
+
+  .kindle-content p {
+    margin: 0.25em 0;
+    text-align: justify;
+    text-indent: 1.5em;
+    orphans: 2;
+    widows: 2;
+    hyphenate: auto;
+  }
+  .kindle-content h1 + p,
+  .kindle-content h2 + p,
+  .kindle-content h3 + p,
+  .kindle-content h4 + p { text-indent: 0; }
+
+  .kindle-content img {
+    max-width: 90%;
+    height: auto;
+    margin: 1.2em auto;
+    display: block;
+    border-radius: 2px;
+  }
+
+  .kindle-content pre {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.78rem;
+    background: #ede8dd;
+    border: 1px solid #ddd6c8;
+    padding: 0.8em 1em;
+    margin: 0.8em 0;
+    overflow-x: auto;
+    line-height: 1.5;
+    border-radius: 4px;
+  }
+  .kindle-content code {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.85em;
+    background: #ede8dd;
+    padding: 0.1em 0.3em;
+    border-radius: 2px;
+  }
+  .kindle-content pre code { background: none; padding: 0; }
+
+  .kindle-content blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 3px solid var(--accent-kindle);
+    margin: 0.8em 0;
+    padding: 0.3em 1em;
+    background: #f3efe6;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .kindle-content hr {
+    border: none;
+    border-top: 1px solid rgba(200,185,154,0.4);
+    margin: 1.2em 0;
+  }
+
+  .kindle-content ul, .kindle-content ol { margin: 0.4em 0; padding-left: 1.8em; }
+  .kindle-content li { margin: 0.1em 0; line-height: 1.6; }
+  .kindle-content table {
+    border-collapse: collapse;
+    margin: 1em auto;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+  .kindle-content th, .kindle-content td {
+    border: 1px solid rgba(200,185,154,0.5);
+    padding: 0.3em 0.6em;
+    text-align: left;
+  }
+  .kindle-content th { background: #ede8dd; font-weight: 600; }
+
+  /* === Page Info Footer === */
+  .kindle-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem 1.5rem 0.5rem;
+    border-top: 1px solid rgba(200,185,154,0.3);
+    font-size: 0.65rem;
+    color: var(--screen-dim);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .kindle-foot span { letter-spacing: 0.2px; }
+
+  /* === Navigation (Kindle bottom buttons) === */
+  .kindle-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.2rem;
+    padding: 0 0.5rem;
+    width: 100%;
+    max-width: 720px;
+  }
+  .kindle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.8rem;
+    background: linear-gradient(180deg, #3a3a3a, #2a2a2a);
+    color: #bbb;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    text-decoration: none;
+    transition: all 0.2s;
+    min-width: 140px;
+    border: 1px solid #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+    cursor: pointer;
+  }
+  .kindle-btn:hover {
+    background: linear-gradient(180deg, var(--accent-kindle), #b8952e);
+    color: #1a1a1a;
+    border-color: var(--accent-kindle);
+    box-shadow: 0 4px 16px rgba(201,169,78,0.3);
+  }
+  .kindle-btn.prev { padding-left: 1.2rem; }
+  .kindle-btn.next { padding-right: 1.2rem; }
+  .kindle-btn.disabled {
+    opacity: 0.15;
+    pointer-events: none;
+    background: #2a2a2a;
+  }
+
+  /* Go to chapter */
+  .kindle-goto {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+  .kindle-goto label {
+    color: #666;
+    font-size: 0.7rem;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+  }
+  .kindle-goto input {
+    width: 40px;
+    padding: 0.25rem 0.3rem;
+    background: #3a3a3a;
+    border: 1px solid #555;
+    color: #ccc;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .kindle-goto input:focus { border-color: var(--accent-kindle); }
+  .kindle-goto button {
+    background: none;
+    border: 1px solid #555;
+    color: #aaa;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.2s;
+  }
+  .kindle-goto button:hover { background: var(--accent-kindle); color: #111; border-color: var(--accent-kindle); }
+
+  /* Loading overlay for page turn animation */
+  .page-turn-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--screen-bg);
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+  }
+  .page-turn-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Responsive */
+  @media (max-width: 800px) {
+    .kindle-body { padding: 14px; border-radius: 20px; }
+    .kindle-body::before { border-radius: 16px; }
+    .kindle-screen { border-radius: 5px; min-height: 55vh; max-height: 75vh; }
+    .kindle-content { padding: 1rem 1.2rem; font-size: 0.9rem; }
+    .kindle-top-bar { padding: 0.3rem 0.8rem 0.2rem; font-size: 0.6rem; }
+    .kindle-foot { padding: 0.3rem 0.8rem; font-size: 0.6rem; }
+    .kindle-chin { padding: 6px 0 2px; }
+    .kindle-chin::after { font-size: 0.7rem; }
+    .kindle-btn { min-width: 100px; padding: 0.5rem 1rem; font-size: 0.75rem; }
+    .kindle-buttons { gap: 0.8rem; flex-wrap: wrap; }
+    .power-btn { right: -8px; width: 6px; height: 28px; }
+    .vol-btn { width: 6px; height: 22px; }
+  }
+
+  @media (max-width: 480px) {
+    .kindle-body { padding: 10px; border-radius: 16px; }
+    .kindle-content { padding: 0.8rem 0.8rem; font-size: 0.85rem; }
+    .kindle-btn { min-width: 80px; padding: 0.4rem 0.8rem; font-size: 0.7rem; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- 3D Kindle Device -->
+<div class="kindle-wrapper">
+  <div class="kindle-3d">
+    <div class="kindle-body">
+      <!-- Hardware buttons -->
+      <div class="power-btn"></div>
+      <div class="vol-buttons">
+        <div class="vol-btn"></div>
+        <div class="vol-btn"></div>
+      </div>
+
+      <!-- Screen -->
+      <div class="kindle-screen" id="kindleScreen">
+        <!-- Page turn overlay -->
+        <div class="page-turn-overlay" id="pageOverlay"></div>
+
+        <!-- Top bar -->
+        <div class="kindle-top-bar">
+          <div class="left">
+            <a href="{% url 'book_detail' book.slug %}" class="back-link">← Biblioteca</a>
+          </div>
+          <div class="time" id="kindleTime">--:--</div>
+          <div class="battery">🔋 ████</div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="kindle-progress">
+          <div class="fill" style="width:{{ progress_value }}%;"></div>
+          <div class="dot" style="left:{{ progress_value }}%;"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="kindle-content" id="kindleContent">
+          {% if chapter_title %}
+          <h1>{{ chapter_title }}</h1>
+          {% endif %}
+          {{ content|safe }}
+        </div>
+
+        <!-- Foot -->
+        <div class="kindle-foot">
+          <span>{{ chapter_index|add:1 }} / {{ total_chapters }}</span>
+          <span>Loc {{ chapter_index|add:1001 }} · {{ progress_value }}%</span>
+          <span>{{ book.word_count|default:0|floatformat:0 }} palabras</span>
+        </div>
+      </div>
+
+      <!-- Kindle branding chin -->
+      <div class="kindle-chin"></div>
+    </div>
+
+    <!-- Navigation buttons (below device) -->
+    <div class="kindle-buttons">
+      {% if chapter_index > 0 %}
+      <a href="?chapter={{ chapter_index|add:-1 }}" class="kindle-btn prev" onclick="pageTurnOut()">← Anterior</a>
+      {% else %}
+      <span class="kindle-btn prev disabled">← Anterior</span>
+      {% endif %}
+
+      {% if chapter_index < total_chapters|add:-1 %}
+      <a href="?chapter={{ chapter_index|add:1 }}" class="kindle-btn next" onclick="pageTurnOut()">Siguiente →</a>
+      {% else %}
+      <span class="kindle-btn next disabled">Siguiente →</span>
+      {% endif %}
+    </div>
+
+    <!-- Go to chapter -->
+    <div class="kindle-buttons" style="margin-top:0.4rem;">
+      <form class="kindle-goto" method="GET" onsubmit="var v=parseInt(this.querySelector('input').value);if(v&&v>0&&v<={{ total_chapters }}){location='?chapter='+(v-1);}return false;">
+        <label for="gotoCh">Ir al capítulo:</label>
+        <input type="number" id="gotoCh" min="1" max="{{ total_chapters }}" value="{{ chapter_index|add:1 }}">
+        <button type="submit">Ir</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Update clock
+  function updateKindleTime() {
+    const now = new Date();
+    const h = String(now.getHours()).padStart(2,'0');
+    const m = String(now.getMinutes()).padStart(2,'0');
+    document.getElementById('kindleTime').textContent = h + ':' + m;
+  }
+  updateKindleTime();
+  setInterval(updateKindleTime, 10000);
+
+  // Page turn animation
+  function pageTurnOut() {
+    const overlay = document.getElementById('pageOverlay');
+    if (overlay) {
+      overlay.classList.add('active');
+      setTimeout(() => { overlay.classList.remove('active'); }, 200);
+    }
+  }
+
+  // Keyboard shortcuts
+  document.addEventListener('keydown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') {
+      const prev = document.querySelector('.kindle-btn.prev:not(.disabled)');
+      if (prev) { pageTurnOut(); window.location = prev.href; }
+    } else if (e.key === 'ArrowRight') {
+      const next = document.querySelector('.kindle-btn.next:not(.disabled)');
+      if (next) { pageTurnOut(); window.location = next.href; }
+    }
+  });
+
+  // Touch zones - tap left/right to navigate
+  document.addEventListener('DOMContentLoaded', function() {
+    const screen = document.getElementById('kindleScreen');
+    if (!screen) return;
+    screen.addEventListener('click', function(e) {
+      const rect = screen.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const width = rect.width;
+      if (x < width * 0.35) {
+        const prev = document.querySelector('.kindle-btn.prev:not(.disabled)');
+        if (prev) { pageTurnOut(); window.location = prev.href; }
+      } else if (x > width * 0.65) {
+        const next = document.querySelector('.kindle-btn.next:not(.disabled)');
+        if (next) { pageTurnOut(); window.location = next.href; }
+      }
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BookStore{% endblock %}</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #0b0d10;
+            --bg2: #12151a;
+            --bg3: #1a1e26;
+            --bg4: #222834;
+            --fg: #e4e8ed;
+            --fg2: #8892a4;
+            --accent: #d4a54a;
+            --accent2: #c4943a;
+            --accent-glow: rgba(212,165,74,0.2);
+            --border: #252b36;
+            --border2: #333b48;
+            --shadow: rgba(0,0,0,0.5);
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-title: 'Georgia', 'Times New Roman', serif;
+            --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+            --radius: 10px;
+            --radius-sm: 6px;
+        }
+        html { font-size: 15px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--fg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: #f0d070; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg2); }
+        ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--fg2); }
+
+        /* Header / Navbar */
+        .top-bar {
+            background: var(--bg2);
+            border-bottom: 1px solid var(--border);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .top-bar-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; align-items: center;
+            padding: 0.7rem 2rem; gap: 1.5rem;
+        }
+        .store-brand {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            letter-spacing: -0.5px;
+            display: flex; align-items: center; gap: 0.5rem;
+            white-space: nowrap;
+        }
+        .store-brand small {
+            font-size: 0.7rem;
+            font-weight: normal;
+            color: var(--fg2);
+            letter-spacing: 1px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            display: none;
+        }
+        @media (min-width: 640px) {
+            .store-brand small { display: inline; }
+        }
+
+        .search-box {
+            flex: 1; max-width: 480px;
+            display: flex; position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.5rem 1rem 0.5rem 2.2rem;
+            color: var(--fg);
+            font-family: inherit;
+            font-size: 0.85rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .search-box input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        .search-box input::placeholder { color: var(--fg2); }
+        .search-box .icon {
+            position: absolute; left: 0.7rem; top: 50%;
+            transform: translateY(-50%);
+            color: var(--fg2); font-size: 0.85rem;
+            pointer-events: none;
+        }
+        .search-box button {
+            position: absolute; right: 0.3rem; top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent); color: #111;
+            border: none; border-radius: 50%;
+            width: 26px; height: 26px;
+            cursor: pointer; font-size: 0.75rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .search-box button:hover { background: var(--accent2); }
+
+        .nav-links {
+            display: flex; align-items: center; gap: 1rem;
+            margin-left: auto;
+        }
+        .nav-links a {
+            color: var(--fg2);
+            font-size: 0.85rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: var(--radius-sm);
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .nav-links a:hover { color: var(--fg); background: var(--bg3); }
+        .nav-links .btn-cta {
+            background: var(--accent);
+            color: #111;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+        }
+        .nav-links .btn-cta:hover { background: var(--accent2); color: #111; }
+        .nav-links .user-badge {
+            color: var(--fg2); font-size: 0.8rem;
+            display: flex; align-items: center; gap: 0.3rem;
+        }
+
+        /* Secondary nav (categories) */
+        .cat-bar {
+            background: var(--bg3);
+            border-bottom: 1px solid var(--border);
+            overflow-x: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .cat-bar::-webkit-scrollbar { display: none; }
+        .cat-bar-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; padding: 0 2rem; gap: 0.25rem;
+        }
+        .cat-bar a {
+            color: var(--fg2);
+            font-size: 0.78rem;
+            padding: 0.5rem 0.9rem;
+            white-space: nowrap;
+            border-radius: 0;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        .cat-bar a:hover { color: var(--fg); border-bottom-color: var(--accent); }
+        .cat-bar a.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* Main container */
+        .container { flex: 1; max-width: 1280px; margin: 0 auto; padding: 1.5rem 2rem; width: 100%; }
+
+        /* Cards */
+        .card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+            padding: 0.6rem 1.3rem;
+            border: none; border-radius: var(--radius-sm);
+            cursor: pointer; font-size: 0.85rem;
+            transition: all 0.2s;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: #111;
+        }
+        .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+        .btn-secondary {
+            background: var(--bg3);
+            color: var(--fg);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { background: var(--bg4); transform: translateY(-1px); }
+        .btn-danger {
+            background: #4a1515;
+            color: #e8a0a0;
+        }
+        .btn-danger:hover { background: #6a2020; }
+        .btn-sm { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
+        .btn-lg { padding: 0.8rem 2rem; font-size: 1rem; border-radius: 8px; }
+        .btn-block { width: 100%; }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.8rem; color: var(--fg2); margin-bottom: 1.5rem;
+        }
+        .breadcrumb a { color: var(--fg2); }
+        .breadcrumb a:hover { color: var(--accent); }
+        .breadcrumb span { color: var(--fg); }
+
+        /* Message / Flash */
+        .msg {
+            padding: 0.7rem 1rem;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+        .msg-error { background: #3a1515; color: #e8a0a0; border: 1px solid #5a2020; }
+        .msg-success { background: #153a1a; color: #a0e8a0; border: 1px solid #205a2a; }
+
+        /* Footer */
+        .footer {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            padding: 2rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: var(--fg); font-size: 0.85rem;
+            margin-bottom: 0.8rem; font-weight: 600;
+        }
+        .footer-col a, .footer-col p {
+            display: block; color: var(--fg2);
+            font-size: 0.8rem; line-height: 2;
+        }
+        .footer-col a:hover { color: var(--accent); }
+        .footer-bottom {
+            max-width: 1280px; margin: 1.5rem auto 0;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--fg2);
+            font-size: 0.75rem;
+        }
+
+        /* Grid */
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            .top-bar-inner { padding: 0.5rem 1rem; gap: 0.8rem; }
+            .cat-bar-inner { padding: 0 1rem; gap: 0; }
+            .store-brand { font-size: 1.2rem; }
+            .nav-links a { font-size: 0.75rem; padding: 0.2rem 0.4rem; }
+            .nav-links .user-badge { display: none; }
+            .book-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+            .footer { padding: 1.5rem 1rem; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .book-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+            .search-box { display: none; }
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Top bar -->
+    <header class="top-bar">
+        <div class="top-bar-inner">
+            <a href="{% url 'library' %}" class="store-brand">
+                📚 BookStore <small>| Biblioteca Digital</small>
+            </a>
+            <form class="search-box" method="GET" action="{% url 'library' %}">
+                <span class="icon">🔍</span>
+                <input type="text" name="q" placeholder="Buscar por título o autor..." value="{{ query|default:'' }}">
+                <button type="submit">→</button>
+            </form>
+            <nav class="nav-links">
+                {% if user.is_authenticated %}
+                <span class="user-badge">👤 {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Salir</a>
+                {% else %}
+                <a href="{% url 'login' %}">Entrar</a>
+                <a href="{% url 'register' %}" class="btn-cta">Registro</a>
+                {% endif %}
+                {% if user.is_staff %}
+                <a href="{% url 'upload_book' %}">+ Subir</a>
+                <a href="{% url 'scan_opencode' %}">Escanear</a>
+                <a href="/admin/" style="color:#777;">Admin</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <!-- Categories bar -->
+    <nav class="cat-bar">
+        <div class="cat-bar-inner">
+            <a href="{% url 'library' %}" class="{% if not status_filter %}active{% endif %}">Todos</a>
+            <a href="?status=publicado" class="{% if status_filter == 'publicado' %}active{% endif %}">Publicados</a>
+            <a href="?status=completo" class="{% if status_filter == 'completo' %}active{% endif %}">Completos</a>
+            <a href="?status=en_progreso" class="{% if status_filter == 'en_progreso' %}active{% endif %}">En Progreso</a>
+            <a href="?status=borrador" class="{% if status_filter == 'borrador' %}active{% endif %}">Borradores</a>
+
+        </div>
+    </nav>
+
+    <!-- Messages -->
+    {% if messages %}
+    <div style="max-width:1280px;margin:0.5rem auto 0;padding:0 2rem;width:100%;">
+        {% for msg in messages %}
+        <div class="msg {% if msg.tags == 'error' %}msg-error{% elif msg.tags == 'success' %}msg-success{% endif %}">
+            {{ msg }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Content -->
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>📚 BookStore</h4>
+                <p>Biblioteca digital de libros técnicos y narrativa. Todos los libros son de acceso libre.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegar</h4>
+                <a href="{% url 'library' %}">Catálogo</a>
+                <a href="{% url 'upload_book' %}">Subir libro</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <a href="#">Términos de uso</a>
+                <a href="#">Política de privacidad</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <a href="mailto:alexgoyzueta2018@gmail.com">alexgoyzueta2018@gmail.com</a>
+                <p>Alex Goyzueta Delgado</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; {% now "Y" %} BookStore &mdash; Alex Goyzueta Delgado. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+</html>

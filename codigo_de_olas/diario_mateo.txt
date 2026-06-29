@@ -1,0 +1,13 @@
+== DIARIO DE INVESTIGACIÓN ==
+Caso: Proyecto LOCUENTO - Contaminación de olas en Ancón
+Investigador: Mateo Sánchez
+
+--- DÍA 1 ---
+Encontré patrones anómalos en las olas de Ancón.
+Descubrí el generador submarino.
+El firmware del generador tiene funciones en Python.
+
+--- DÍA 2 ---
+Identifiqué a los implicados.
+El proyecto LOCUENTO es una fachada para privatizar Ancón.
+El operador del generador sigue siendo desconocido.

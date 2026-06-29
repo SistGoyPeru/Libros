@@ -1,0 +1,9 @@
+---
+title: 'print("Sigo Aquí")'
+subtitle: "El viaje de un informático sin papeles"
+author: "Alex Goyzueta Delgado"
+lang: es
+rights: "© 2026 Alex Goyzueta Delgado"
+cover-image: "cover_pretty.jpg"
+css: "../estilo.css"
+...
