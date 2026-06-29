@@ -1,0 +1,11 @@
+﻿Codigo,Producto,Precio,Calidad,Categoria
+CAT-001,Banquito,80,B,Accesorios
+CAT-002,Cama king,680,A,Dormitorio
+CAT-003,Cama queen,450,A,Dormitorio
+CAT-004,Comoda,420,A,Dormitorio
+CAT-005,Escritorio,280,B,Sala
+CAT-006,Estante,180,C,Sala
+CAT-007,Mesa centro,250,B,Sala
+CAT-008,Mesa noche,120,B,Dormitorio
+CAT-009,Mesa comedor,520,A,Comedor
+CAT-010,Ropero,890,A,Dormitorio
