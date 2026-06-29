@@ -1,7 +1,7 @@
 import os, re
 from fpdf import FPDF
 
-BASE = os.path.dirname(os.path.abspath(__file__))
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FONT_DIR = "C:\\Windows\\Fonts"
 
 BOOKS = [
