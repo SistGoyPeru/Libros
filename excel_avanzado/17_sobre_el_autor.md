@@ -22,7 +22,6 @@ Si este libro te ayudó, si aprendiste algo nuevo, si la historia de Sofía te h
 ¿Tienes preguntas? ¿Comentarios? ¿Quieres compartir tu propio proyecto de Excel?
 
 - **Correo:** alexgoyzueta2018@gmail.com
-- **Proyecto opencode:** Este libro fue creado con la ayuda de opencode, un asistente de IA para ingeniería de software.
 
 ### Otros libros de la serie "Dominio Digital"
 

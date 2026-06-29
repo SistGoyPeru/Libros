@@ -30,7 +30,7 @@ Miró por la ventana hacia la Plaza San Martín.
 
 —¿Qué sigue? —preguntó María.
 
-—Eso depende de ti —sonrió Don Alberto—. El mundo financiero está lleno de problemas esperando ser resueltos con creatividad y Excel. Power BI, automatización con Python, inteligencia artificial... el camino sigue.
+—Eso depende de ti —sonrió Don Alberto—. El mundo financiero está lleno de problemas esperando ser resueltos con creatividad y Excel. Power BI, automatización con Python... el camino sigue.
 
 —Pero eso será otra historia.
 
