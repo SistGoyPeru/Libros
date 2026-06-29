@@ -51,7 +51,9 @@ def write_pdf(path, title, lines):
 # ═══════════════════════════════════════════════════════════════════════
 #  EXCEL BASICO
 # ═══════════════════════════════════════════════════════════════════════
-BASICO = BASE / "excel_basico"
+BASICO = BASE / "excel_basico" / "codigos"
+INTER = BASE / "excel_intermedio" / "codigos"
+AVANZ = BASE / "excel_avanzado" / "codigos"
 
 def basico_csv():
     # inventario.csv
@@ -146,8 +148,6 @@ def basico_pdf():
 # ═══════════════════════════════════════════════════════════════════════
 #  EXCEL INTERMEDIO
 # ═══════════════════════════════════════════════════════════════════════
-INTER = BASE / "excel_intermedio"
-
 def intermedio_csv():
     # transacciones.csv
     write_csv(INTER / "transacciones.csv",
@@ -241,8 +241,6 @@ def intermedio_pdf():
 # ═══════════════════════════════════════════════════════════════════════
 #  EXCEL AVANZADO
 # ═══════════════════════════════════════════════════════════════════════
-AVANZ = BASE / "excel_avanzado"
-
 def avanzado_csv():
     # datos_bancarios.csv
     write_csv(AVANZ / "datos_bancarios.csv",
