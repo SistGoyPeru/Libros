@@ -449,6 +449,226 @@ def cover_sql_letal():
 
 
 # --------------------------------------------------------------------
+# 7. EXCEL BÁSICO — Spreadsheet / Green / Foundation
+# --------------------------------------------------------------------
+def cover_excel_basico():
+    out = os.path.join(BASE, "excel_basico", "cover.jpg")
+    img = Image.new("RGB", (W, H), (10, 30, 15))
+    draw = ImageDraw.Draw(img)
+
+    # Green gradient background
+    for y in range(H):
+        r = int(12 + (y / H) * 25)
+        g = int(45 + (y / H) * 50)
+        b = int(20 + (y / H) * 20)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Spreadsheet grid pattern
+    for x in range(0, W, 60):
+        draw.line([(x, 0), (x, H)], fill=(20, 55, 30), width=1)
+    for y in range(0, H, 40):
+        draw.line([(0, y), (W, y)], fill=(20, 55, 30), width=1)
+
+    # Highlight some cells like a spreadsheet selection
+    random.seed(101)
+    for _ in range(15):
+        cell_x = random.randint(0, 25) * 60
+        cell_y = random.randint(0, 60) * 40
+        col = (random.randint(40, 80), random.randint(140, 200), random.randint(40, 80))
+        draw.rectangle([cell_x, cell_y, cell_x + 58, cell_y + 38], fill=col, outline=(60, 180, 80))
+
+    # Code snippets
+    f_code = load_font("consola.ttf", 16)
+    snippets = [
+        "=SUMA(A1:A10)", "=PROMEDIO(B1:B20)",
+        "=A1*B1", "=SI(C2>100,\"OK\",\"Revisar\")",
+        "Cédula activa: A1", "Tabla: Inventario_Taller",
+        "=CONTAR(D1:D50)", "Ordenar por Cantidad",
+        "Filtro: Producto > Madera", "Gráfico de barras",
+    ]
+    random.seed(202)
+    for line in snippets:
+        x = random.randint(30, W - 350)
+        y = random.randint(70, H - 70)
+        col = (random.randint(30, 60), random.randint(60, 100), random.randint(30, 50))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # Formula bar visual
+    bar_y = H - 250
+    draw.rectangle([200, bar_y, W - 200, bar_y + 40], fill=(20, 50, 30), outline=(50, 140, 70), width=2)
+    f_fx = load_font("consola.ttf", 22)
+    draw.text((220, bar_y + 8), "fx  =SUMA(Inventario[Precio])", fill=(100, 220, 120), font=f_fx)
+
+    f_tit = load_font("consolab.ttf", 100)
+    f_sub1 = load_font("calibri.ttf", 40)
+    f_sub2 = load_font("calibri.ttf", 30)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "EXCEL BÁSICO", f_tit, CY - 340, (80, 220, 100))
+    text_center(draw, "El Legado de las Fórmulas", f_sub1, CY - 190, (180, 230, 190))
+    text_center(draw, "Una Novela para Aprender", f_sub2, CY - 130, (150, 200, 165))
+    text_center(draw, "Excel Desde Cero", f_sub2, CY - 95, (150, 200, 165))
+
+    draw.rectangle([CX - 120, CY - 50, CX + 120, CY - 46], fill=(80, 220, 100))
+
+    quote = '"Aprende Excel, salva el taller."'
+    text_center(draw, quote, f_sub2, CY + 5, (160, 210, 175))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (160, 200, 170))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] Excel Básico -> {out}")
+
+
+# --------------------------------------------------------------------
+# 8. EXCEL INTERMEDIO — Spreadsheet / Blue / Analysis
+# --------------------------------------------------------------------
+def cover_excel_intermedio():
+    out = os.path.join(BASE, "excel_intermedio", "cover.jpg")
+    img = Image.new("RGB", (W, H), (10, 15, 40))
+    draw = ImageDraw.Draw(img)
+
+    # Blue gradient background
+    for y in range(H):
+        r = int(10 + (y / H) * 15)
+        g = int(20 + (y / H) * 30)
+        b = int(50 + (y / H) * 45)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Pivot table grid
+    for x in range(0, W, 50):
+        draw.line([(x, 0), (x, H)], fill=(15, 30, 55), width=1)
+    for y in range(0, H, 50):
+        draw.line([(0, y), (W, y)], fill=(15, 30, 55), width=1)
+
+    # Pivot table style blocks
+    random.seed(303)
+    for row in range(8):
+        for col in range(5):
+            x = 100 + col * 140
+            y = 300 + row * 60
+            if random.random() < 0.6:
+                col_bright = random.randint(30, 80)
+                draw.rectangle([x, y, x + 135, y + 55], fill=(col_bright, col_bright + 20, col_bright + 60), outline=(50, 80, 140))
+
+    # Chart visualization
+    chart_x, chart_y = W // 2, H - 380
+    bar_colors = [(80, 140, 220), (60, 180, 220), (100, 200, 180), (120, 160, 240), (70, 190, 200)]
+    bar_w = 30
+    for i, h in enumerate([80, 140, 100, 180, 120]):
+        x = chart_x - 100 + i * 45
+        draw.rectangle([x, chart_y - h, x + bar_w, chart_y], fill=bar_colors[i], outline=(150, 200, 255), width=1)
+
+    f_code = load_font("consola.ttf", 16)
+    snippets = [
+        "=BUSCARV(A2,Tabla,2,FALSO)", "=BUSCARX(A2,Tabla[ID],Tabla[Valor])",
+        "TABLA DINÁMICA: Suma de Ventas", "=INDICE(B:B,COINCIDIR(D2,A:A,0))",
+        "Filtro: Fecha > 01/01/2024", "Segmentador de datos: Producto",
+    ]
+    random.seed(404)
+    for line in snippets:
+        x = random.randint(30, W - 400)
+        y = random.randint(80, H - 80)
+        col = (random.randint(30, 60), random.randint(50, 90), random.randint(90, 140))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    f_tit = load_font("consolab.ttf", 90)
+    f_sub1 = load_font("calibri.ttf", 38)
+    f_sub2 = load_font("calibri.ttf", 28)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "EXCEL INTERMEDIO", f_tit, CY - 340, (60, 180, 240))
+    text_center(draw, "Los Secretos de la Hoja", f_sub1, CY - 200, (180, 210, 230))
+    text_center(draw, "Una Novela para Dominar", f_sub2, CY - 145, (140, 170, 200))
+    text_center(draw, "el Análisis de Datos en Excel", f_sub2, CY - 110, (140, 170, 200))
+
+    draw.rectangle([CX - 120, CY - 65, CX + 120, CY - 61], fill=(60, 180, 240))
+
+    quote = '"Los datos guardan secretos. Las fórmulas los revelan."'
+    text_center(draw, quote, f_sub2, CY - 15, (150, 190, 220))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (150, 180, 200))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] Excel Intermedio -> {out}")
+
+
+# --------------------------------------------------------------------
+# 9. EXCEL AVANZADO — Dark / Gold / Power
+# --------------------------------------------------------------------
+def cover_excel_avanzado():
+    out = os.path.join(BASE, "excel_avanzado", "cover.jpg")
+    img = Image.new("RGB", (W, H), (15, 10, 25))
+    draw = ImageDraw.Draw(img)
+
+    # Dark gradient background
+    for y in range(H):
+        r = int(15 + (y / H) * 20)
+        g = int(10 + (y / H) * 15)
+        b = int(30 + (y / H) * 30)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Power Query flow lines
+    random.seed(505)
+    for i in range(20):
+        x_start = random.randint(50, W - 50)
+        x_end = random.randint(50, W - 50)
+        y_pos = random.randint(300, H - 200)
+        col = (random.randint(40, 70), random.randint(80, 130), random.randint(140, 200))
+        draw.line([(x_start, y_pos), (x_start + 50, y_pos - 20), (x_end - 50, y_pos + 20), (x_end, y_pos)], fill=col, width=2)
+        draw.ellipse([x_end - 5, y_pos - 5, x_end + 5, y_pos + 5], fill=col)
+
+    # DAX / VBA code blocks
+    f_code = load_font("consola.ttf", 16)
+    snippets = [
+        "CALCULATE(SUM(Ventas[Monto]), FILTER(...))",
+        "Sub ProcesarDatos()", "For Each celda In Range(\"A1:A100\")",
+        "=LET(x, FILTER(Tabla, Tabla[Year]=2024), SORT(x))",
+        "Power Query: M language", "=LAMBDA(x, x*2)(5)",
+        "VAR Total = SUMX(Ventas, Ventas[Cant]*Ventas[Precio])",
+        "Solver: Max Z = 3x + 5y",
+    ]
+    random.seed(606)
+    for line in snippets:
+        x = random.randint(30, W - 450)
+        y = random.randint(60, H - 60)
+        col = (random.randint(40, 70), random.randint(50, 90), random.randint(80, 130))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # VBA window visual
+    vba_x, vba_y = 200, H - 350
+    draw.rectangle([vba_x, vba_y, vba_x + 500, vba_y + 180], fill=(5, 5, 20), outline=(100, 100, 180), width=2)
+    draw.rectangle([vba_x, vba_y, vba_x + 500, vba_y + 25], fill=(30, 30, 60), outline=(100, 100, 180), width=1)
+    f_vba = load_font("consola.ttf", 14)
+    vba_lines = [
+        "Sub AnalizarDatos()",
+        "  Dim ws As Worksheet",
+        "  Set ws = ThisWorkbook.Sheets(1)",
+        "  ws.Range(\"A1\").Value = \"Completado\"",
+        "End Sub",
+    ]
+    for i, line in enumerate(vba_lines):
+        draw.text((vba_x + 10, vba_y + 30 + i * 25), line, fill=(130, 200, 130), font=f_vba)
+
+    f_tit = load_font("consolab.ttf", 90)
+    f_sub1 = load_font("calibri.ttf", 38)
+    f_sub2 = load_font("calibri.ttf", 28)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "EXCEL AVANZADO", f_tit, CY - 340, (200, 180, 60))
+    text_center(draw, "El Poder del Análisis", f_sub1, CY - 200, (210, 200, 150))
+    text_center(draw, "Una Novela para Convertirte", f_sub2, CY - 145, (170, 170, 140))
+    text_center(draw, "en un Experto en Análisis de Datos", f_sub2, CY - 110, (170, 170, 140))
+
+    draw.rectangle([CX - 120, CY - 65, CX + 120, CY - 61], fill=(200, 180, 60))
+
+    quote = '"El conocimiento es poder. El análisis es libertad."'
+    text_center(draw, quote, f_sub2, CY - 15, (180, 175, 130))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (170, 165, 140))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] Excel Avanzado -> {out}")
+
+
+# --------------------------------------------------------------------
 if __name__ == "__main__":
     cover_codigo_asesino()
     cover_codigo_de_olas()
@@ -456,4 +676,7 @@ if __name__ == "__main__":
     cover_raices_nuevas()
     cover_estadistica_mortal()
     cover_sql_letal()
+    cover_excel_basico()
+    cover_excel_intermedio()
+    cover_excel_avanzado()
     print("\nTodas las portadas generadas.")

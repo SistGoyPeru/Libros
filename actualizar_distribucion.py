@@ -11,6 +11,9 @@ BOOKS = [
     ('raices_nuevas',      'Raices_Nuevas',               'Raices_Nuevas.epub',                  'Raices_Nuevas.pdf',                  'cover.jpg'),
     ('print_Sigo_Aqui',    'print_Sigo_Aqui',             'print_Sigo_Aqui.epub',               'print_Sigo_Aqui.pdf',               'cover_pretty.jpg'),
     ('sql_letal',          'SQL_Letal',                   'SQL_Letal_Misterio_Base_Datos.epub',  'SQL_Letal_Misterio_Base_Datos.pdf',  'cover.jpg'),
+    ('excel_basico',       'Excel_Basico',                'Excel_Basico.epub',                   'Excel_Basico.pdf',                   'cover.jpg'),
+    ('excel_intermedio',   'Excel_Intermedio',            'Excel_Intermedio.epub',               'Excel_Intermedio.pdf',               'cover.jpg'),
+    ('excel_avanzado',     'Excel_Avanzado',              'Excel_Avanzado.epub',                 'Excel_Avanzado.pdf',                 'cover.jpg'),
 ]
 
 os.makedirs(DIST, exist_ok=True)
@@ -32,6 +35,13 @@ for folder, out_name, epub_name, pdf_name, cover_name in BOOKS:
             shutil.copy2(s, d)
         else:
             print(f'  [FALTA] {os.path.basename(s)}')
+
+    codigos_src = os.path.join(src, 'codigos')
+    codigos_dst = os.path.join(dst, 'codigos')
+    if os.path.isdir(codigos_src):
+        if os.path.isdir(codigos_dst):
+            shutil.rmtree(codigos_dst)
+        shutil.copytree(codigos_src, codigos_dst)
 
     print(f'[OK] {folder}')
     ok += 1
