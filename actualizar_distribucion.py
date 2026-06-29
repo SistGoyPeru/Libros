@@ -15,6 +15,7 @@ BOOKS = [
     ('excel_intermedio',   'Excel_Intermedio',            'Excel_Intermedio.epub',               'Excel_Intermedio.pdf',               'cover.jpg'),
     ('excel_avanzado',     'Excel_Avanzado',              'Excel_Avanzado.epub',                 'Excel_Avanzado.pdf',                 'cover.jpg'),
     ('excel_contadores',   'Excel_Para_Contadores',       'Excel_Para_Contadores.epub',          'Excel_Para_Contadores.pdf',           'cover.jpg'),
+    ('excel_analisis_datos', 'Excel_Analisis_Datos',      'Excel_Analisis_Datos.epub',           'Excel_Analisis_Datos.pdf',            'cover.jpg'),
 ]
 
 os.makedirs(DIST, exist_ok=True)
@@ -40,9 +41,21 @@ for folder, out_name, epub_name, pdf_name, cover_name in BOOKS:
     codigos_src = os.path.join(src, 'codigos')
     codigos_dst = os.path.join(dst, 'codigos')
     if os.path.isdir(codigos_src):
-        if os.path.isdir(codigos_dst):
-            shutil.rmtree(codigos_dst)
-        shutil.copytree(codigos_src, codigos_dst)
+        os.makedirs(codigos_dst, exist_ok=True)
+        for item in os.listdir(codigos_src):
+            s = os.path.join(codigos_src, item)
+            d = os.path.join(codigos_dst, item)
+            if os.path.isfile(s):
+                shutil.copy2(s, d)
+            elif os.path.isdir(s):
+                if os.path.isdir(d):
+                    shutil.rmtree(d, ignore_errors=True)
+                shutil.copytree(s, d)
+
+    desc_src = os.path.join(src, 'descripcion.txt')
+    desc_dst = os.path.join(dst, 'descripcion.txt')
+    if os.path.exists(desc_src):
+        shutil.copy2(desc_src, desc_dst)
 
     print(f'[OK] {folder}')
     ok += 1

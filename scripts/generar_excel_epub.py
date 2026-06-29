@@ -137,7 +137,34 @@ BOOKS = [
             ("17_soluciones.md", "Soluciones"),
         ],
     },
+    {
+        "folder": "excel_analisis_datos",
+        "id": "excel-analisis-datos",
+        "title": "Excel para An\u00e1lisis de Datos",
+        "subtitle": "De los datos crudos a las decisiones inteligentes",
+        "author": "Alex Goyzueta Delgado",
+        "epub_filename": "Excel_Analisis_Datos.epub",
+        "chapter_map": [
+            ("00_portada.md", "Portada"),
+            ("01_creditos.md", "Créditos"),
+            ("02_dedicatoria.md", "Dedicatoria"),
+            ("03_prefacio.md", "Prefacio"),
+            ("04_introduccion.md", "Introducción"),
+            ("05_proceso_analisis_datos.md", "Capítulo 1: El Proceso del Análisis de Datos"),
+            ("06_limpieza_datos.md", "Capítulo 2: Limpieza y Preparación de Datos"),
+            ("07_eda.md", "Capítulo 3: Análisis Exploratorio de Datos (EDA)"),
+            ("08_funciones_analisis.md", "Capítulo 4: Funciones de Análisis Esenciales"),
+            ("09_tendencias.md", "Capítulo 5: Análisis de Tendencias y Patrones"),
+            ("10_tablas_dinamicas.md", "Capítulo 6: Tablas Dinámicas para Análisis"),
+            ("11_visualizacion.md", "Capítulo 7: Visualización de Datos"),
+            ("12_escenarios.md", "Capítulo 8: Análisis de Escenarios y Sensibilidad"),
+            ("13_powerquery.md", "Capítulo 9: Power Query para Análisis de Datos"),
+            ("14_proyecto_final.md", "Capítulo 10: Proyecto Final — Pipeline de Análisis"),
+        ],
+    },
 ]
+
+
 
 def md_to_html(md_text):
     html = md_text

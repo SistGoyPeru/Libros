@@ -73,6 +73,22 @@ BOOKS = [
             "16_enigmas_finales.md", "17_soluciones.md",
         ],
     },
+    {
+        "folder": "excel_analisis_datos",
+        "pdf_filename": "Excel_Analisis_Datos.pdf",
+        "title": "Excel para An\u00e1lisis de Datos",
+        "subtitle": "De los datos crudos a las decisiones inteligentes",
+        "author": "Alex Goyzueta Delgado",
+        "chapter_map": [
+            "00_portada.md", "01_creditos.md", "02_dedicatoria.md", "03_prefacio.md",
+            "04_introduccion.md", "05_proceso_analisis_datos.md",
+            "06_limpieza_datos.md", "07_eda.md",
+            "08_funciones_analisis.md", "09_tendencias.md",
+            "10_tablas_dinamicas.md", "11_visualizacion.md",
+            "12_escenarios.md", "13_powerquery.md",
+            "14_proyecto_final.md",
+        ],
+    },
 ]
 
 
