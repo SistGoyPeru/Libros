@@ -669,6 +669,323 @@ def cover_excel_avanzado():
 
 
 # --------------------------------------------------------------------
+# 10. EXCEL CON COPILOT — AI / Purple / Futuristic
+# --------------------------------------------------------------------
+def cover_excel_copilot():
+    out = os.path.join(BASE, "excel_copilot", "cover.jpg")
+    img = Image.new("RGB", (W, H), (10, 5, 25))
+    draw = ImageDraw.Draw(img)
+
+    # Purple-blue gradient background
+    for y in range(H):
+        r = int(15 + (y / H) * 40)
+        g = int(5 + (y / H) * 20)
+        b = int(40 + (y / H) * 60)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Neural network / circuit patterns
+    random.seed(707)
+    for i in range(25):
+        x1 = random.randint(50, W - 50)
+        y1 = random.randint(50, H - 50)
+        x2 = random.randint(50, W - 50)
+        y2 = random.randint(50, H - 50)
+        col = (random.randint(40, 80), random.randint(20, 60), random.randint(80, 140))
+        draw.line([(x1, y1), (x2, y2)], fill=col, width=1)
+        draw.ellipse([x1 - 4, y1 - 4, x1 + 4, y1 + 4], fill=(80, 60, 180))
+        draw.ellipse([x2 - 2, y2 - 2, x2 + 2, y2 + 2], fill=(100, 80, 200))
+
+    # Glowing circle (AI / Copilot icon representation)
+    for r in range(200, 0, -2):
+        ratio = r / 200
+        alpha = int(8 * (1 - ratio))
+        if alpha <= 0:
+            continue
+        overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        od = ImageDraw.Draw(overlay)
+        cr = int(120 + 60 * (1 - ratio))
+        cg = int(60 + 40 * (1 - ratio))
+        cb = int(200 + 55 * (1 - ratio))
+        od.ellipse([CX - r, H - 500 - r, CX + r, H - 500 + r], fill=(cr, cg, cb, alpha))
+        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        draw = ImageDraw.Draw(img)
+
+    # Code / prompt snippets
+    f_code = load_font("consola.ttf", 16)
+    snippets = [
+        "Hola, Copilot: analiza estos datos",
+        "¿Cuáles son las tendencias?",
+        "Genera un gráfico de ventas",
+        "Copilot: limpia esta tabla",
+        "=SUMAPRODUCTO((A:A)*(B:B))",
+        "Segmentar por región y mes",
+        "Dashboard interactivo con IA",
+        "Power Query + Copilot = magia",
+        "Prompt: mejora este reporte",
+    ]
+    random.seed(808)
+    for line in snippets:
+        x = random.randint(30, W - 400)
+        y = random.randint(80, H - 80)
+        col = (random.randint(60, 100), random.randint(40, 80), random.randint(100, 160))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # Chat input bar visual
+    bar_y = H - 300
+    draw.rectangle([250, bar_y, W - 250, bar_y + 45], fill=(15, 10, 40), outline=(100, 80, 200), width=2)
+    f_chat = load_font("consola.ttf", 20)
+    draw.text((270, bar_y + 10), "> Copilot: ¿En qué puedo ayudarte?", fill=(140, 120, 240), font=f_chat)
+
+    f_tit = load_font("consolab.ttf", 90)
+    f_sub1 = load_font("calibri.ttf", 40)
+    f_sub2 = load_font("calibri.ttf", 30)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "EXCEL CON COPILOT", f_tit, CY - 340, (140, 100, 240))
+    text_center(draw, "Tu Asistente Inteligente", f_sub1, CY - 200, (200, 180, 240))
+    text_center(draw, "Una Novela para Dominar Excel", f_sub2, CY - 140, (170, 150, 210))
+    text_center(draw, "con Inteligencia Artificial", f_sub2, CY - 105, (170, 150, 210))
+
+    draw.rectangle([CX - 120, CY - 60, CX + 120, CY - 56], fill=(140, 100, 240))
+
+    quote = '"La mejor pregunta es la que nunca te atreviste a hacer."'
+    text_center(draw, quote, f_sub2, CY - 5, (180, 160, 220))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (170, 160, 200))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] Excel con Copilot -> {out}")
+
+
+# --------------------------------------------------------------------
+# 11. HTML BÁSICO — Orange / Code Editor / Web
+# --------------------------------------------------------------------
+def cover_html_basico():
+    out = os.path.join(BASE, "html_basico", "cover.jpg")
+    img = Image.new("RGB", (W, H), (25, 15, 10))
+    draw = ImageDraw.Draw(img)
+
+    # Warm orange gradient
+    for y in range(H):
+        r = int(40 + (y / H) * 50)
+        g = int(20 + (y / H) * 30)
+        b = int(10 + (y / H) * 15)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Code editor line numbers (left margin)
+    f_lnum = load_font("consola.ttf", 14)
+    for i in range(0, H // 30):
+        draw.text((20, 10 + i * 30), f"{i+1:>3}", fill=(100, 60, 40), font=f_lnum)
+
+    # Angle bracket decorations scattered
+    f_code = load_font("consola.ttf", 18)
+    tags = [
+        "<html>", "<head>", "<title>La Voz del Barrio</title>",
+        "<body>", "<h1>Bienvenidos</h1>", "<p class=\"noticia\">",
+        "<a href=\"index.html\">Inicio</a>", "<img src=\"foto.jpg\" alt=\"\">",
+        "<table>", "<tr><td>Edición</td><td>2026</td></tr>",
+        "<form action=\"/suscripcion\" method=\"post\">",
+        "<input type=\"email\" name=\"correo\">",
+        "<footer>© 2026 La Voz del Barrio</footer>",
+        "</body>", "</html>",
+    ]
+    random.seed(909)
+    for line in tags:
+        x = random.randint(80, W - 400)
+        y = random.randint(80, H - 80)
+        col = (random.randint(120, 180), random.randint(60, 100), random.randint(30, 60))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # Large angle brackets as decorative element
+    f_bracket = load_font("consolab.ttf", 300)
+    draw.text((60, 1800), "< / >", fill=(180, 100, 40, 40), font=f_bracket)
+
+    # Web browser mockup bar
+    bar_y = H - 280
+    draw.rectangle([150, bar_y, W - 150, bar_y + 35], fill=(35, 25, 20), outline=(160, 100, 50), width=2)
+    f_url = load_font("consola.ttf", 18)
+    draw.text((170, bar_y + 7), "https://lavozdelbarrio.net", fill=(180, 160, 120), font=f_url)
+
+    f_tit = load_font("consolab.ttf", 100)
+    f_sub1 = load_font("calibri.ttf", 42)
+    f_sub2 = load_font("calibri.ttf", 30)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "HTML BÁSICO", f_tit, CY - 340, (220, 140, 50))
+    text_center(draw, "El Código de la Web", f_sub1, CY - 190, (230, 200, 150))
+    text_center(draw, "Una Novela para Aprender", f_sub2, CY - 130, (200, 170, 130))
+    text_center(draw, "HTML Desde Cero", f_sub2, CY - 95, (200, 170, 130))
+
+    draw.rectangle([CX - 120, CY - 50, CX + 120, CY - 46], fill=(220, 140, 50))
+
+    quote = '"Cada etiqueta es un ladrillo en la web."'
+    text_center(draw, quote, f_sub2, CY + 5, (210, 180, 140))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (200, 180, 150))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] HTML Básico -> {out}")
+
+
+# --------------------------------------------------------------------
+# 12. CSS BÁSICO — Teal / Design / Style
+# --------------------------------------------------------------------
+def cover_css_basico():
+    out = os.path.join(BASE, "css_basico", "cover.jpg")
+    img = Image.new("RGB", (W, H), (10, 25, 30))
+    draw = ImageDraw.Draw(img)
+
+    # Teal gradient background
+    for y in range(H):
+        r = int(10 + (y / H) * 20)
+        g = int(35 + (y / H) * 50)
+        b = int(45 + (y / H) * 40)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # Color swatches as decorative boxes
+    swatch_colors = [
+        (220, 80, 60), (60, 180, 220), (80, 200, 100),
+        (220, 180, 50), (180, 100, 220), (60, 200, 180),
+        (240, 140, 60), (100, 140, 240), (200, 80, 140),
+    ]
+    random.seed(1111)
+    for _ in range(20):
+        sx = random.randint(50, W - 100)
+        sy = random.randint(50, H - 100)
+        sw = random.randint(30, 80)
+        sh = random.randint(30, 80)
+        col = random.choice(swatch_colors)
+        alpha_col = (col[0], col[1], col[2])
+        draw.rectangle([sx, sy, sx + sw, sy + sh], fill=alpha_col, outline=(255, 255, 255, 80), width=1)
+
+    # CSS code snippets
+    f_code = load_font("consola.ttf", 18)
+    snippets = [
+        "body { font-family: Georgia; }",
+        ".noticia { color: #333; }",
+        "#portada { background: #f0f0f0; }",
+        "h1 { font-size: 2em; font-weight: bold; }",
+        ".menu { display: flex; gap: 1rem; }",
+        "@media (max-width: 768px) { ... }",
+        ".grid { display: grid; grid-template-columns: 1fr 1fr; }",
+        "a:hover { color: #c00; transition: 0.3s; }",
+        ".card { box-shadow: 0 2px 8px rgba(0,0,0,0.1); }",
+        "::before { content: \"<3\"; }",
+    ]
+    random.seed(1212)
+    for line in snippets:
+        x = random.randint(80, W - 400)
+        y = random.randint(80, H - 80)
+        col = (random.randint(40, 80), random.randint(80, 140), random.randint(100, 180))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # CSS braces decorative
+    f_brace = load_font("consolab.ttf", 280)
+    draw.text((W - 300, 1800), "{ }", fill=(40, 140, 160, 40), font=f_brace)
+
+    # Color picker wheel visual
+    cw_x, cw_y = CX, H - 350
+    for angle in range(0, 360, 30):
+        import math as m
+        rad = m.radians(angle)
+        r = int(128 + 127 * m.sin(rad))
+        g = int(128 + 127 * m.sin(rad + 2.094))
+        b = int(128 + 127 * m.sin(rad + 4.188))
+        for radd in range(50, 80, 3):
+            px = cw_x + int(radd * m.cos(rad))
+            py = cw_y + int(radd * m.sin(rad))
+            draw.ellipse([px - 4, py - 4, px + 4, py + 4], fill=(r, g, b))
+
+    f_tit = load_font("consolab.ttf", 95)
+    f_sub1 = load_font("calibri.ttf", 40)
+    f_sub2 = load_font("calibri.ttf", 30)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "CSS BÁSICO", f_tit, CY - 340, (60, 200, 220))
+    text_center(draw, "El Diseño que Transforma la Web", f_sub1, CY - 190, (200, 220, 230))
+    text_center(draw, "Una Novela para Aprender", f_sub2, CY - 130, (160, 200, 210))
+    text_center(draw, "CSS Desde Cero", f_sub2, CY - 95, (160, 200, 210))
+
+    draw.rectangle([CX - 120, CY - 50, CX + 120, CY - 46], fill=(60, 200, 220))
+
+    quote = '"El diseño no es solo cómo se ve, sino cómo funciona."'
+    text_center(draw, quote, f_sub2, CY + 5, (170, 210, 220))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (170, 200, 210))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] CSS Básico -> {out}")
+
+
+# --------------------------------------------------------------------
+# 13. JAVASCRIPT BÁSICO — Yellow / Gold / Interactive
+# --------------------------------------------------------------------
+def cover_js_basico():
+    out = os.path.join(BASE, "js_basico", "cover.jpg")
+    img = Image.new("RGB", (W, H), (25, 20, 5))
+    draw = ImageDraw.Draw(img)
+
+    # Warm gold gradient
+    for y in range(H):
+        r = int(35 + (y / H) * 45)
+        g = int(25 + (y / H) * 35)
+        b = int(8 + (y / H) * 15)
+        draw.line([(0, y), (W, y)], fill=(r, g, b))
+
+    # JavaScript code snippets
+    f_code = load_font("consola.ttf", 17)
+    snippets = [
+        "let cursos = [];",
+        "const API_URL = 'https://api.aprendeya.com';",
+        "function calcularProgreso(usuario) {",
+        "  return usuario.lecciones / usuario.total * 100;",
+        "}",
+        "document.querySelector('.btn').addEventListener('click', ...);",
+        "fetch(API_URL + '/cursos').then(r => r.json());",
+        "localStorage.setItem('progreso', JSON.stringify(datos));",
+        "if (usuario.autenticado) { mostrarDashboard(); }",
+        "const sumar = (a, b) => a + b;",
+        "console.log('¡Hola, mundo!');",
+    ]
+    random.seed(1313)
+    for line in snippets:
+        x = random.randint(80, W - 450)
+        y = random.randint(80, H - 80)
+        col = (random.randint(120, 180), random.randint(100, 160), random.randint(40, 80))
+        draw.text((x, y), line, fill=col, font=f_code)
+
+    # Curly braces decoration
+    f_brace = load_font("consolab.ttf", 260)
+    draw.text((80, 1850), "{ }", fill=(180, 160, 50, 40), font=f_brace)
+
+    # Function-like visual: console output lines
+    console_y = H - 320
+    draw.rectangle([180, console_y, W - 180, console_y + 120], fill=(15, 12, 5), outline=(180, 160, 60), width=2)
+    draw.rectangle([180, console_y, W - 180, console_y + 25], fill=(40, 35, 20), outline=(180, 160, 60), width=1)
+    f_cons = load_font("consola.ttf", 16)
+    draw.text((195, console_y + 5), "Console — AprendeYa Platform", fill=(180, 180, 160), font=f_cons)
+    draw.text((195, console_y + 35), "> Usuarios activos: 1,247", fill=(120, 220, 120), font=f_cons)
+    draw.text((195, console_y + 60), "> Progreso promedio: 67%", fill=(120, 220, 120), font=f_cons)
+    draw.text((195, console_y + 88), "> ¡Demo lista para inversores!", fill=(120, 220, 120), font=f_cons)
+
+    f_tit = load_font("consolab.ttf", 90)
+    f_sub1 = load_font("calibri.ttf", 40)
+    f_sub2 = load_font("calibri.ttf", 30)
+    f_aut = load_font("calibri.ttf", 28)
+
+    shadow_text(draw, "JAVASCRIPT BÁSICO", f_tit, CY - 340, (220, 190, 50))
+    text_center(draw, "El Poder de la Interactividad", f_sub1, CY - 190, (230, 220, 150))
+    text_center(draw, "Una Novela para Aprender", f_sub2, CY - 130, (200, 190, 120))
+    text_center(draw, "JavaScript Desde Cero", f_sub2, CY - 95, (200, 190, 120))
+
+    draw.rectangle([CX - 120, CY - 50, CX + 120, CY - 46], fill=(220, 190, 50))
+
+    quote = '"La web cobra vida cuando aprendes su idioma."'
+    text_center(draw, quote, f_sub2, CY + 5, (210, 200, 130))
+    text_center(draw, "Alex Goyzueta Delgado", f_aut, H - 120, (200, 190, 140))
+
+    img.save(out, "JPEG", quality=94)
+    print(f"[OK] JavaScript Básico -> {out}")
+
+
+# --------------------------------------------------------------------
 if __name__ == "__main__":
     cover_codigo_asesino()
     cover_codigo_de_olas()
@@ -679,4 +996,8 @@ if __name__ == "__main__":
     cover_excel_basico()
     cover_excel_intermedio()
     cover_excel_avanzado()
+    cover_excel_copilot()
+    cover_html_basico()
+    cover_css_basico()
+    cover_js_basico()
     print("\nTodas las portadas generadas.")
