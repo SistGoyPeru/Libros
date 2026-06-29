@@ -109,8 +109,35 @@ BOOKS = [
             ("17_sobre_el_autor.md", "Sobre el Autor"),
         ],
     },
+    {
+        "folder": "excel_contadores",
+        "id": "excel-contadores",
+        "title": "Excel para Contadores",
+        "subtitle": "Domina Excel en el mundo contable y financiero",
+        "author": "Alex Goyzueta Delgado",
+        "epub_filename": "Excel_Para_Contadores.epub",
+        "chapter_map": [
+            ("00_portada.md", "Portada"),
+            ("01_creditos.md", "Créditos"),
+            ("02_dedicatoria.md", "Dedicatoria"),
+            ("03_prefacio.md", "Prefacio"),
+            ("04_introduccion.md", "Introducción"),
+            ("05_configuracion_excel_contabilidad.md", "Capítulo 1: Configuración para Contabilidad"),
+            ("06_catalogo_cuentas.md", "Capítulo 2: Catálogo de Cuentas"),
+            ("07_libro_diario_mayor.md", "Capítulo 3: Libro Diario y Mayor"),
+            ("08_funciones_financieras.md", "Capítulo 4: Funciones Financieras"),
+            ("09_funciones_condicionales.md", "Capítulo 5: Funciones Condicionales"),
+            ("10_tablas_dinamicas.md", "Capítulo 6: Tablas Dinámicas"),
+            ("11_consolidacion.md", "Capítulo 7: Consolidación"),
+            ("12_auditoria_validacion.md", "Capítulo 8: Auditoría"),
+            ("13_dashboard_kpis.md", "Capítulo 9: Dashboard y KPIs"),
+            ("14_macros_vba.md", "Capítulo 10: Macros VBA"),
+            ("15_epilogo.md", "Epílogo"),
+            ("16_enigmas_finales.md", "Enigmas Finales"),
+            ("17_soluciones.md", "Soluciones"),
+        ],
+    },
 ]
-
 
 def md_to_html(md_text):
     html = md_text

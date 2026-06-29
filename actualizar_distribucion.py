@@ -14,6 +14,7 @@ BOOKS = [
     ('excel_basico',       'Excel_Basico',                'Excel_Basico.epub',                   'Excel_Basico.pdf',                   'cover.jpg'),
     ('excel_intermedio',   'Excel_Intermedio',            'Excel_Intermedio.epub',               'Excel_Intermedio.pdf',               'cover.jpg'),
     ('excel_avanzado',     'Excel_Avanzado',              'Excel_Avanzado.epub',                 'Excel_Avanzado.pdf',                 'cover.jpg'),
+    ('excel_contadores',   'Excel_Para_Contadores',       'Excel_Para_Contadores.epub',          'Excel_Para_Contadores.pdf',           'cover.jpg'),
 ]
 
 os.makedirs(DIST, exist_ok=True)
