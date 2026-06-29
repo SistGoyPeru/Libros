@@ -12,6 +12,7 @@ Después de *Código Asesino: El Misterio del Código Sagrado* (ambientado en Cu
 
 - Correo: alexgoyzueta2018@gmail.com
 - Temas: Python, ciencia de datos, narrativa interactiva, tecnología y naturaleza
+- Repositorio: [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)
 
 ---
 

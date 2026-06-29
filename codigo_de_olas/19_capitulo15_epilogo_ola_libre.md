@@ -147,8 +147,8 @@ Ahora eres un programador Python... y un lector del mar.
 
 ### Código fuente
 
-Si este libro te fue útil y quieres apoyar más proyectos como este, puedes adquirir el código completo en
-➡ **[payhip.com/b/cx87Y](https://payhip.com/b/cx87Y)** ⬅
+Todo el código de este libro (y los demás) está disponible gratuitamente en:
+➡ **[github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)** ⬅
 
 ¿Comentarios, sugerencias, o encontraste un error? Escríbeme a:
 

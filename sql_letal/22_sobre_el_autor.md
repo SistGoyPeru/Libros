@@ -14,4 +14,4 @@ Cree firmemente que la mejor manera de aprender tecnología es a través de hist
 
 **Contacto:** alexgoyzueta2018@gmail.com
 
-**Repositorio del proyecto:** [Acceso a todos los libros y código fuente]
+**Repositorio del proyecto:** [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)

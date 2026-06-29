@@ -15,6 +15,7 @@ Su enfoque único combina narrativa y técnica: cada libro es una historia que e
 **Contacto:**
 
 - Email: alexgoyzueta2018@gmail.com
+- Repositorio: [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)
 - Basado en Barcelona, España
 - Barcelona, 2026
 

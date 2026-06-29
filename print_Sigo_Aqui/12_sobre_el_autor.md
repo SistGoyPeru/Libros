@@ -15,3 +15,5 @@ Autor también de:
 - *El Motor Cuantitativo* — Matemáticas aplicadas para Data Science con Python
 
 **Contacto:** alexgoyzueta2018@gmail.com
+
+**Repositorio:** [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)

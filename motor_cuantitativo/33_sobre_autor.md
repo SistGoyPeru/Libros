@@ -9,5 +9,6 @@ Cree firmemente que las matemáticas no deberían ser una barrera para nadie que
 **Contacto:**
 - Email: alexgoyzueta2018@gmail.com
 - GitHub: https://github.com/SistGoyPeru
+- Repositorio libros: [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)
 
 

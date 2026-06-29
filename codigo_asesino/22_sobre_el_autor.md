@@ -12,6 +12,7 @@ Alex combina su formación en análisis de datos con una profunda pasión por la
 
 - Correo: alexgoyzueta2018@gmail.com
 - Temas: Python, ciencia de datos, narrativa interactiva, tecnología andina
+- Repositorio: [github.com/SistGoyPeru/Libros](https://github.com/SistGoyPeru/Libros)
 
 ---
 
