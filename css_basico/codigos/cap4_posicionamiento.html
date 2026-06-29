@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capítulo 4 — Posicionamiento · Cultura Viva</title>
+  <style>
+    /* =========================================================
+       position: fixed  — el elemento "flota" fijo en la ventana
+       aunque hagamos scroll, siempre se ve.
+       ========================================================= */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #1a3a5c;
+      color: #fff;
+      padding: 1rem 2rem;
+      z-index: 1000;          /* por encima de todo */
+      font-family: 'Georgia', serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    /* =========================================================
+       Para que el contenido no quede oculto tras el header fijo
+       ========================================================= */
+    body {
+      margin: 0;
+      padding-top: 80px;      /* compensa la altura del header */
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f1ea;
+    }
+
+    /* =========================================================
+       position: relative  — punto de referencia para hijos absolute
+       ========================================================= */
+    .contenedor-principal {
+      position: relative;      /* activa coordenadas para hijos */
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    /* =========================================================
+       position: absolute  — se coloca en coordenadas exactas
+       respecto al ANCESTRO position:relative más cercano
+       ========================================================= */
+    .etiqueta-nuevo {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #d63031;
+      color: #fff;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    /* =========================================================
+       position: sticky  — se comporta como relative hasta
+       alcanzar un límite de scroll, entonces se fija
+       ========================================================= */
+    h2.sticky {
+      position: sticky;
+      top: 70px;               /* se fija cuando faltan 70px del tope */
+      background: #fff3cd;
+      padding: 0.5rem 1rem;
+      border-left: 5px solid #ffc107;
+      z-index: 5;
+    }
+
+    /* =========================================================
+       float  — mueve un elemento a izquierda/derecha
+       y el texto fluye a su alrededor.
+       ========================================================= */
+    .imagen-flotante {
+      float: left;
+      width: 120px;
+      height: 120px;
+      margin: 0 1rem 0.5rem 0;
+      background: linear-gradient(135deg, #1a3a5c, hsl(14, 87%, 48%));
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* =========================================================
+       overflow  — controla qué pasa si el contenido desborda
+       ========================================================= */
+    .caja-overflow {
+      overflow: auto;          /* muestra scroll si es necesario */
+      max-height: 120px;
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      margin: 1rem 0;
+      background: #fafafa;
+    }
+
+    /* =========================================================
+       z-index: elementos con mayor índice quedan encima
+       ========================================================= */
+    .barra-lateral {
+      position: relative;
+      z-index: 1;
+      background: #e8e1d7;
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER FIJO — siempre visible -->
+  <header>
+    <h1>📌 Cultura Viva · Header Fijo</h1>
+  </header>
+
+  <div class="contenedor-principal">
+    <!-- Etiqueta absolutamente posicionada en la esquina -->
+    <div class="etiqueta-nuevo">¡NUEVO!</div>
+
+    <h2>Posicionamiento en CSS</h2>
+    <p>Este contenedor principal tiene <code>position: relative</code>,
+       lo que sirve de ancla para la etiqueta "¡NUEVO!" que usa
+       <code>position: absolute</code>.</p>
+
+    <!-- Título sticky -->
+    <h2 class="sticky">📖 Artículo destacado · Sticky</h2>
+
+    <!-- Float -->
+    <div class="imagen-flotante">PixelLab</div>
+    <p>La imagen de la izquierda usa <code>float: left</code>.
+       El texto fluye a su alrededor, como en las revistas impresas.
+       Cultura Viva emplea esta técnica para integrar imágenes
+       con cuerpo de texto de forma natural y atractiva.</p>
+    <p>Sin <code>overflow</code> ni un clearfix, el contenedor no
+       abarcaría la imagen flotante. Por suerte, la caja de abajo
+       lo gestiona con <code>overflow: auto</code>.</p>
+
+    <div class="caja-overflow">
+      <div class="imagen-flotante">Overflow</div>
+      <p>Esta caja tiene <code>max-height: 120px</code> y
+         <code>overflow: auto</code>. Si el texto es muy largo,
+         aparecerá una barra de scroll. Así evitamos que el
+         diseño se rompa.</p>
+      <p>Más texto de relleno para forzar el scroll y mostrar
+         cómo funciona la propiedad overflow en acción.</p>
+      <p style="clear:both;"></p>
+    </div>
+
+    <div class="barra-lateral">
+      <strong>📂 Barra lateral</strong> · Ejemplo de z-index.
+      Los elementos con mayor índice quedan por encima en el
+      eje Z (profundidad).
+    </div>
+  </div>
+
+</body>
+</html>

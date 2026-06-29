@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AprendeYa - Fetch API</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; background: #f4f7fa; }
+    .caja { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; }
+    .curso { border-left: 4px solid #3498db; padding: 0.5rem 1rem; margin: 0.5rem 0; background: #f8f9fa; border-radius: 4px; }
+    .error-msg { background: #f8d7da; color: #721c24; padding: 1rem; border-radius: 6px; }
+    button { padding: 0.5rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; background: #3498db; color: white; font-size: 1rem; }
+    button:disabled { opacity: 0.6; cursor: not-allowed; }
+    #loader { display: none; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="caja">
+    <h1>🌐 AprendeYa — Cargar Cursos (API)</h1>
+    <button id="btnCargar">📥 Cargar cursos</button>
+    <div id="loader">⏳ Cargando...</div>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    // ============================================================
+    // 1. URL de una API pública de ejemplo (JSONPlaceholder)
+    //    Simulamos que son "cursos" de AprendeYa.
+    // ============================================================
+    const API_URL = "https://jsonplaceholder.typicode.com/posts?_limit=6";
+
+    const btnCargar = document.getElementById("btnCargar");
+    const resultado = document.getElementById("resultado");
+    const loader = document.getElementById("loader");
+
+    // ============================================================
+    // 2. Función con async/await (forma moderna)
+    // ============================================================
+    async function cargarCursos() {
+      btnCargar.disabled = true;
+      loader.style.display = "block";
+      resultado.innerHTML = "";
+
+      try {
+        // --- fetch devuelve una Promise, esperamos con await ---
+        const respuesta = await fetch(API_URL);
+
+        if (!respuesta.ok) {
+          throw new Error(`Error HTTP: ${respuesta.status}`);
+        }
+
+        // --- convertir la respuesta a JSON (otra Promise) ---
+        const datos = await respuesta.json();
+
+        // --- mostrar en la UI ---
+        resultado.innerHTML = "<h3>Cursos disponibles:</h3>";
+        datos.forEach((item, i) => {
+          const div = document.createElement("div");
+          div.className = "curso";
+          div.innerHTML = `<strong>Curso #${i + 1}:</strong> ${item.title}`;
+          resultado.appendChild(div);
+        });
+
+        console.log("✅ Cursos cargados:", datos);
+      } catch (error) {
+        // --- manejo de errores ---
+        resultado.innerHTML = `<div class="error-msg">❌ Error: ${error.message}</div>`;
+        console.error("❌ Falló la petición:", error);
+      } finally {
+        btnCargar.disabled = false;
+        loader.style.display = "none";
+      }
+    }
+
+    // ============================================================
+    // 3. Evento
+    // ============================================================
+    btnCargar.addEventListener("click", cargarCursos);
+  </script>
+</body>
+</html>

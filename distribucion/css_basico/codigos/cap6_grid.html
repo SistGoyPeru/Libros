@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capítulo 6 — CSS Grid · Portada Cultura Viva</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* =========================================================
+       CONTENEDOR GRID
+       grid-template-columns:  define el ancho de las columnas
+       grid-template-rows:     define el alto de las filas
+       gap:                    espacio entre celdas
+       ========================================================= */
+    .portada {
+      display: grid;
+      grid-template-columns:
+        1fr            /* primera columna (flexible) */
+        2fr            /* segunda columna (el doble) */
+        1fr;           /* tercera columna */
+      grid-template-rows:
+        180px          /* fila 1: cabecera */
+        300px          /* fila 2: imagen principal */
+        120px;         /* fila 3: pie */
+      gap: 0.5rem;
+      max-width: 900px;
+      width: 100%;
+      background: #f4f1ea;
+      padding: 0.5rem;
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    }
+
+    /* =========================================================
+       Cada celda del grid
+       ========================================================= */
+    .portada > * {
+      padding: 1rem;
+      border-radius: 6px;
+    }
+
+    /* =========================================================
+       grid-column:  span N  →  ocupar N columnas
+       grid-row:     span N  →  ocupar N filas
+       ========================================================= */
+    .titulo-principal {
+      grid-column: 1 / -1;        /* de col 1 a la última */
+      background: #1a3a5c;
+      color: #f4f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       repeat(n, tamaño)  — repite un patrón
+       ========================================================= */
+    .imagen-destacada {
+      /* Ocupa 2 columnas (col 1 y col 2) y 2 filas (row 2 y row 3) */
+      grid-column: 1 / 3;
+      grid-row: 2 / 4;
+      background: linear-gradient(135deg, #16213e, #0f3460);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      font-size: 1.2rem;
+    }
+    .imagen-destacada small {
+      font-size: 0.8rem;
+      color: #e94560;
+    }
+
+    /* =========================================================
+       minmax(mín, máx)  →  tamaño mínimo y máximo flexible
+       Ejemplo en la tercera columna (sidebar)
+       ========================================================= */
+    .sidebar {
+      grid-column: 3;             /* columna 3 */
+      grid-row: 2;
+      background: #e8e1d7;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .sidebar h3 {
+      font-size: 1.1rem;
+      color: #1a3a5c;
+    }
+    .sidebar .precio {
+      font-size: 1.8rem;
+      color: #e94560;
+      font-weight: bold;
+    }
+
+    .frase {
+      grid-column: 3;
+      grid-row: 3;
+      background: #16213e;
+      color: #f4f1ea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       Otra forma: repeat(3, 1fr)  =  3 columnas iguales
+       ========================================================= */
+    .nota {
+      grid-column: 1 / -1;
+      background: #fff3cd;
+      color: #333;
+      text-align: center;
+      font-size: 0.8rem;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="portada">
+
+    <!-- Título: ocupa todo el ancho (grid-column: 1 / -1) -->
+    <div class="titulo-principal">
+      📰 Cultura Viva · Edición Grid
+    </div>
+
+    <!-- Imagen destacada: ocupa col 1–2 y row 2–3 -->
+    <div class="imagen-destacada">
+      <h2>El diseño que transforma</h2>
+      <small>Fotografía: Agencia PixelLab · 2026</small>
+    </div>
+
+    <!-- Sidebar: columna 3 -->
+    <div class="sidebar">
+      <h3>💥 Edición especial</h3>
+      <p>Tipografía clásica</p>
+      <p>Diseño grid</p>
+      <p class="precio">$ 9.90</p>
+    </div>
+
+    <!-- Frase: columna 3 -->
+    <div class="frase">
+      "Menos es más" · Bayer
+    </div>
+
+    <!-- Nota: ocupa todo el ancho -->
+    <div class="nota">
+      ⚡ grid-template-columns: 1fr 2fr 1fr · fr = fracción del espacio disponible
+    </div>
+
+  </div>
+
+</body>
+</html>

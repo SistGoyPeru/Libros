@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AprendeYa - Arrays y Objetos</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 2rem auto; padding: 1rem; background: #f4f7fa; }
+    .caja { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; }
+    .curso { border-left: 4px solid #3498db; padding: 0.5rem 1rem; margin: 0.5rem 0; background: #f8f9fa; border-radius: 4px; }
+    button { padding: 0.5rem 1rem; margin: 0.25rem; border: none; border-radius: 6px; cursor: pointer; background: #3498db; color: white; }
+    button:hover { opacity: 0.9; }
+    #resultado { margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="caja">
+    <h1>📚 AprendeYa — Lista de Cursos</h1>
+    <button id="btnTodos">Mostrar todos</button>
+    <button id="btnGratis">Solo gratis</button>
+    <button id="btnBuscar">Buscar "HTML"</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    // ============================================================
+    // 1. Array de objetos — cada curso es un objeto
+    // ============================================================
+    const cursos = [
+      { id: 1, titulo: "JavaScript Básico", precio: 19.99, duracion: 40 },
+      { id: 2, titulo: "HTML y CSS",       precio: 0,      duracion: 20 },
+      { id: 3, titulo: "React Avanzado",   precio: 49.99,  duracion: 60 },
+      { id: 4, titulo: "Python Intro",     precio: 0,      duracion: 30 },
+      { id: 5, titulo: "Node.js",          precio: 39.99,  duracion: 50 }
+    ];
+
+    const resultado = document.getElementById("resultado");
+
+    // ============================================================
+    // 2. Función para mostrar cursos en el DOM
+    // ============================================================
+    function mostrarCursos(lista) {
+      resultado.innerHTML = "";
+      if (lista.length === 0) {
+        resultado.innerHTML = "<p>No se encontraron cursos.</p>";
+        return;
+      }
+      // forEach — itera sobre cada elemento
+      lista.forEach(curso => {
+        const div = document.createElement("div");
+        div.className = "curso";
+        div.innerHTML = `<strong>${curso.titulo}</strong> — $${curso.precio} (${curso.duracion}h)`;
+        resultado.appendChild(div);
+      });
+    }
+
+    // ============================================================
+    // 3. map — transformar datos
+    // ============================================================
+    function soloTitulos() {
+      const titulos = cursos.map(c => c.titulo);
+      console.log("Títulos:", titulos);
+    }
+
+    // ============================================================
+    // 4. filter — filtrar por condición
+    // ============================================================
+    function cursosGratis() {
+      const gratis = cursos.filter(c => c.precio === 0);
+      mostrarCursos(gratis);
+    }
+
+    // ============================================================
+    // 5. find — buscar el primero que cumple
+    // ============================================================
+    function buscarHTML() {
+      const encontrado = cursos.find(c => c.titulo.includes("HTML"));
+      if (encontrado) {
+        resultado.innerHTML = `
+          <div class="curso">
+            <strong>✅ Encontrado:</strong> ${encontrado.titulo} — $${encontrado.precio}
+          </div>`;
+      } else {
+        resultado.innerHTML = "<p>❌ No encontrado.</p>";
+      }
+    }
+
+    // ============================================================
+    // 6. push — agregar elemento al array
+    // ============================================================
+    function agregarCurso() {
+      cursos.push({ id: 6, titulo: "Nuevo Curso", precio: 14.99, duracion: 25 });
+      mostrarCursos(cursos);
+      console.log("Curso agregado. Total:", cursos.length);
+    }
+
+    // ============================================================
+    // Eventos
+    // ============================================================
+    document.getElementById("btnTodos").addEventListener("click", () => mostrarCursos(cursos));
+    document.getElementById("btnGratis").addEventListener("click", cursosGratis);
+    document.getElementById("btnBuscar").addEventListener("click", buscarHTML);
+
+    // Mostrar al cargar
+    mostrarCursos(cursos);
+    soloTitulos();
+  </script>
+</body>
+</html>

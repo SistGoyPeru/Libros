@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  Capítulo 9: Accesibilidad
+  Tema: Página accesible del periódico "La Voz del Barrio"
+  ============================================================ -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Voz del Barrio · Accesible</title>
+  <style>
+    /* Estilo para el enlace de salto de navegación */
+    .skip-link {
+      position: absolute; top: -100px; left: 0;
+      background: #000; color: #fff; padding: 8px 16px;
+      z-index: 100;
+    }
+    .skip-link:focus { top: 0; }
+    /* Contraste suficiente para accesibilidad */
+    body { font-family: Arial, sans-serif; line-height: 1.5; }
+    :focus { outline: 3px solid #005fcc; outline-offset: 2px; }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+    SALTO DE NAVEGACIÓN (skip navigation)
+    Permite a usuarios de teclado saltar el menú
+    ================================================ -->
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <!-- ================================================
+    CABECERA
+    role="banner" es implícito en <header>
+    ================================================ -->
+  <header role="banner">
+    <h1>La Voz del Barrio</h1>
+    <p>Edición accesible — Todos los contenidos pensados para ti</p>
+  </header>
+
+  <!-- ================================================
+    NAVEGACIÓN
+    aria-label describe el propósito del nav
+    ================================================ -->
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="#noticias" tabindex="1">Noticias</a></li>
+      <li><a href="#cultura" tabindex="2">Cultura</a></li>
+      <li><a href="#deportes" tabindex="3">Deportes</a></li>
+      <li><a href="#contacto" tabindex="4">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ================================================
+    CONTENIDO PRINCIPAL
+    role="main" e id para el skip link
+    ================================================ -->
+  <main id="contenido-principal" role="main">
+
+    <section id="noticias" aria-labelledby="titulo-noticias">
+      <h2 id="titulo-noticias">Noticias</h2>
+
+      <!-- article con role="article" explícito -->
+      <article role="article" aria-labelledby="titulo-art1">
+        <h3 id="titulo-art1">Reapertura de la biblioteca</h3>
+        <!-- time con máquina legible -->
+        <time datetime="2026-06-28">28 de junio de 2026</time>
+        <!-- Imagen con alt descriptivo -->
+        <img src="fotos/biblioteca.jpg"
+             alt="Fachada de la biblioteca Gabriel García Márquez con vecinos entrando">
+        <p>La biblioteca del barrio reabre con nuevos talleres de lectura
+        y un horario ampliado de 9:00 a 20:00.</p>
+      </article>
+
+      <article role="article" aria-labelledby="titulo-art2">
+        <h3 id="titulo-art2">Feria del libro: crónica</h3>
+        <time datetime="2026-06-25">25 de junio de 2026</time>
+        <img src="fotos/feria-libro.jpg"
+             alt="Puestos de libros en la plaza mayor llenos de visitantes">
+        <p>Más de 2000 personas disfrutaron de la feria del libro este fin
+        de semana.</p>
+      </article>
+    </section>
+
+    <section id="cultura" aria-labelledby="titulo-cultura">
+      <h2 id="titulo-cultura">Cultura</h2>
+      <article role="article">
+        <h3>Exposición fotográfica</h3>
+        <p>El centro cultural acoge "Memorias del Barrio", una exposición
+        con fotografías históricas.</p>
+        <!-- Botón accesible con aria-label -->
+        <button aria-label="Más información sobre la exposición fotográfica">
+          Leer más
+        </button>
+      </article>
+    </section>
+
+    <section id="deportes" aria-labelledby="titulo-deportes">
+      <h2 id="titulo-deportes">Deportes</h2>
+      <article role="article">
+        <h3>Final de fútbol sub-18</h3>
+        <p>El equipo del barrio disputa la final regional este sábado
+        a las 18:00 en el estadio municipal.</p>
+      </article>
+    </section>
+
+  </main>
+
+  <!-- ================================================
+    PIE DE PÁGINA
+    address con role="contentinfo"
+    ================================================ -->
+  <footer role="contentinfo">
+    <address aria-label="Dirección y contacto del periódico">
+      <strong>La Voz del Barrio</strong><br>
+      C/ de la Prensa, 14 · Barrio de las Letras<br>
+      <a href="mailto:contacto@vozdelbarrio.com">contacto@vozdelbarrio.com</a>
+    </address>
+    <p><small>&copy; 2026 La Voz del Barrio</small></p>
+  </footer>
+
+</body>
+</html>

@@ -16,6 +16,10 @@ BOOKS = [
     ('excel_avanzado',     'Excel_Avanzado',              'Excel_Avanzado.epub',                 'Excel_Avanzado.pdf',                 'cover.jpg'),
     ('excel_contadores',   'Excel_Para_Contadores',       'Excel_Para_Contadores.epub',          'Excel_Para_Contadores.pdf',           'cover.jpg'),
     ('excel_analisis_datos', 'Excel_Analisis_Datos',      'Excel_Analisis_Datos.epub',           'Excel_Analisis_Datos.pdf',            'cover.jpg'),
+    ('excel_copilot',        'Excel_con_Copilot',         'Excel_con_Copilot.epub',              'Excel_con_Copilot.pdf',               'cover.jpg'),
+    ('html_basico',          'HTML_Basico',               'HTML_Basico.epub',                    'HTML_Basico.pdf',                     'cover.jpg'),
+    ('css_basico',           'CSS_Basico',                'CSS_Basico.epub',                     'CSS_Basico.pdf',                      'cover.jpg'),
+    ('js_basico',            'JS_Basico',                 'JS_Basico.epub',                      'JS_Basico.pdf',                       'cover.jpg'),
 ]
 
 os.makedirs(DIST, exist_ok=True)
@@ -33,9 +37,9 @@ for folder, out_name, epub_name, pdf_name, cover_name in BOOKS:
     ]
 
     for s, d in pairs:
-        if os.path.exists(s):
+        if s and os.path.exists(s):
             shutil.copy2(s, d)
-        else:
+        elif s:
             print(f'  [FALTA] {os.path.basename(s)}')
 
     codigos_src = os.path.join(src, 'codigos')
@@ -43,6 +47,8 @@ for folder, out_name, epub_name, pdf_name, cover_name in BOOKS:
     if os.path.isdir(codigos_src):
         os.makedirs(codigos_dst, exist_ok=True)
         for item in os.listdir(codigos_src):
+            if item == '__pycache__':
+                continue
             s = os.path.join(codigos_src, item)
             d = os.path.join(codigos_dst, item)
             if os.path.isfile(s):
@@ -50,7 +56,7 @@ for folder, out_name, epub_name, pdf_name, cover_name in BOOKS:
             elif os.path.isdir(s):
                 if os.path.isdir(d):
                     shutil.rmtree(d, ignore_errors=True)
-                shutil.copytree(s, d)
+                shutil.copytree(s, d, dirs_exist_ok=True)
 
     desc_src = os.path.join(src, 'descripcion.txt')
     desc_dst = os.path.join(dst, 'descripcion.txt')

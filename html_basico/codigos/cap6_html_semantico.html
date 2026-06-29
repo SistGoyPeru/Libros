@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- ============================================================
+  Capítulo 6: HTML semántico
+  Tema: Página del periódico con estructura semántica completa
+  ============================================================ -->
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Voz del Barrio · Edición digital</title>
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header>
+    <h1>📰 La Voz del Barrio</h1>
+    <p><time datetime="2026-06-29">29 de junio de 2026</time> — Edición digital</p>
+  </header>
+
+  <!-- Navegación principal -->
+  <nav>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#noticias">Noticias</a></li>
+      <li><a href="#opinion">Opinión</a></li>
+      <li><a href="#deportes">Deportes</a></li>
+      <li><a href="#cultura">Cultura</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido principal -->
+  <main>
+
+    <!-- Sección de noticias -->
+    <section id="noticias">
+      <h2>Noticias</h2>
+
+      <article>
+        <h3>La biblioteca reabre con nuevos talleres</h3>
+        <p><time datetime="2026-06-28">28 jun 2026</time> — La biblioteca
+        Gabriel García Márquez reabre con una programación renovada.</p>
+      </article>
+
+      <article>
+        <h3>Feria del libro: un éxito de asistencia</h3>
+        <p><time datetime="2026-06-25">25 jun 2026</time> — Más de 2000
+        personas visitaron la feria este fin de semana.</p>
+      </article>
+    </section>
+
+    <!-- Sección de opinión -->
+    <section id="opinion">
+      <h2>Opinión</h2>
+
+      <article>
+        <h3>La plaza que nos merecemos</h3>
+        <p><em>Por Matilde Rincón</em> — Hace tiempo que soñamos con una
+        plaza mayor que sea el corazón del barrio...</p>
+      </article>
+    </section>
+
+    <!-- Sección de deportes -->
+    <section id="deportes">
+      <h2>Deportes</h2>
+
+      <article>
+        <h3>Sub-18 clasifica a la final regional</h3>
+        <p>El equipo del barrio venció 3-1 y disputará la final el
+        próximo sábado.</p>
+      </article>
+    </section>
+
+    <!-- Sección de cultura -->
+    <section id="cultura">
+      <h2>Cultura</h2>
+
+      <article>
+        <h3>Exposición de fotografía histórica</h3>
+        <p>El centro cultural acoge desde el sábado una muestra con
+        más de 50 imágenes del barrio.</p>
+      </article>
+    </section>
+
+    <!-- Contenido complementario (aside) -->
+    <aside>
+      <h2>Lo más leído</h2>
+      <ol>
+        <li><a href="#">Reapertura de la biblioteca</a></li>
+        <li><a href="#">Feria del libro en imágenes</a></li>
+        <li><a href="#">Entrevista a Doña Matilde</a></li>
+      </ol>
+
+      <!-- Figure con figcaption -->
+      <figure>
+        <img src="fotos/portada-semana.jpg"
+             alt="Portada de la edición impresa de esta semana"
+             width="200">
+        <figcaption>Portada de la edición impresa</figcaption>
+      </figure>
+    </aside>
+
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <address>
+      <strong>La Voz del Barrio</strong><br>
+      C/ de la Prensa, 14 · Barrio de las Letras<br>
+      <a href="mailto:contacto@vozdelbarrio.com">contacto@vozdelbarrio.com</a><br>
+      <a href="tel:+34912345678">+34 912 345 678</a>
+    </address>
+    <p><small>&copy; 2026 La Voz del Barrio — Todos los derechos reservados</small></p>
+  </footer>
+
+</body>
+</html>

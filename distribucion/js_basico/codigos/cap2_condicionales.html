@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>AprendeYa - Condicionales</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; background: #f4f7fa; }
+    .caja { background: white; border-radius: 10px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { color: #2c3e50; }
+    .mensaje { padding: 1rem; border-radius: 6px; margin-top: 1rem; font-weight: bold; }
+    .exito { background: #d4edda; color: #155724; }
+    .error { background: #f8d7da; color: #721c24; }
+    .info { background: #d1ecf1; color: #0c5460; }
+    button { padding: 0.6rem 1.2rem; font-size: 1rem; cursor: pointer; border: none; border-radius: 6px; background: #3498db; color: white; margin-right: 0.5rem; }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="caja">
+    <h1>🔐 AprendeYa — Validar sesión</h1>
+    <button id="btnLogin">Iniciar sesión</button>
+    <button id="btnLogout">Cerrar sesión</button>
+    <button id="btnRol">Verificar rol</button>
+    <div id="mensaje" class="mensaje info">Esperando acción...</div>
+  </div>
+
+  <script>
+    // ============================================================
+    // Variables del "usuario"
+    // ============================================================
+    let usuario = null;   // null = no ha iniciado sesión
+
+    // ============================================================
+    // 1. If / else — validar si el usuario está logueado
+    // ============================================================
+    function actualizarUI() {
+      const mensaje = document.getElementById("mensaje");
+
+      // --- if / else ---
+      if (usuario === null) {
+        mensaje.className = "mensaje error";
+        mensaje.textContent = "❌ No has iniciado sesión.";
+      } else {
+        mensaje.className = "mensaje exito";
+        mensaje.textContent = `✅ Bienvenido, ${usuario.nombre} (${usuario.rol})`;
+      }
+    }
+
+    // ============================================================
+    // 2. Switch — mostrar mensaje según el rol
+    // ============================================================
+    function verificarRol() {
+      const mensaje = document.getElementById("mensaje");
+
+      if (usuario === null) {
+        mensaje.className = "mensaje error";
+        mensaje.textContent = "❌ Debes iniciar sesión primero.";
+        return;
+      }
+
+      // --- operadores de comparación (===) ---
+      // --- switch ---
+      switch (usuario.rol) {
+        case "admin":
+          mensaje.className = "mensaje info";
+          mensaje.textContent = "🔧 Eres administrador. Tienes control total.";
+          break;
+        case "estudiante":
+          mensaje.className = "mensaje info";
+          mensaje.textContent = "📖 Eres estudiante. ¡Sigue aprendiendo!";
+          break;
+        case "profesor":
+          mensaje.className = "mensaje info";
+          mensaje.textContent = "👨‍🏫 Eres profesor. Crea nuevos cursos.";
+          break;
+        default:
+          mensaje.className = "mensaje info";
+          mensaje.textContent = "👤 Rol desconocido.";
+      }
+    }
+
+    // ============================================================
+    // 3. Operadores lógicos (&&, ||) y comparación (>)
+    // ============================================================
+    function esAdminOEstudiante() {
+      // && = AND, || = OR
+      if (usuario && (usuario.rol === "admin" || usuario.rol === "estudiante")) {
+        console.log("Acceso permitido (admin o estudiante)");
+        return true;
+      }
+      console.log("Acceso denegado");
+      return false;
+    }
+
+    // ============================================================
+    // Eventos de los botones
+    // ============================================================
+    document.getElementById("btnLogin").addEventListener("click", () => {
+      usuario = { nombre: "Alex", rol: "estudiante" };
+      actualizarUI();
+      esAdminOEstudiante();
+    });
+
+    document.getElementById("btnLogout").addEventListener("click", () => {
+      usuario = null;
+      actualizarUI();
+    });
+
+    document.getElementById("btnRol").addEventListener("click", verificarRol);
+  </script>
+</body>
+</html>
