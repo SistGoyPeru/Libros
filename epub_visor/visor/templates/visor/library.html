@@ -13,11 +13,9 @@
         </h1>
         <p style="color:var(--fg2);font-size:1rem;max-width:600px;margin-bottom:1.2rem;">
             Explora libros de programación, estadística, ciencia de datos y narrativa técnica.
-            Todos de acceso libre y gratuito.
         </p>
         <div style="display:flex;gap:0.8rem;flex-wrap:wrap;">
             <a href="?status=publicado" class="btn btn-primary">Ver publicados</a>
-            <a href="{% url 'upload_book' %}" class="btn btn-secondary">Subir libro</a>
         </div>
     </div>
 </div>
@@ -102,7 +100,7 @@
             </div>
             <div style="margin-top:0.3rem;font-size:1.1rem;font-weight:700;color:var(--accent);">
                 {% if book.price > 0 %}
-                    ${{ book.price }}
+                    €{{ book.price }}
                 {% else %}
                     <span style="color:#6a6;font-size:0.8rem;">GRATIS</span>
                 {% endif %}
@@ -133,8 +131,6 @@
         {% endif %}
     </p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-        <a href="{% url 'upload_book' %}" class="btn btn-primary">Subir EPUB</a>
-        <a href="{% url 'scan_opencode' %}" class="btn btn-secondary">Escanear Proyectos</a>
         {% if query or status_filter %}
         <a href="{% url 'library' %}" class="btn btn-secondary">Ver todos</a>
         {% endif %}

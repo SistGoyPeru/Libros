@@ -310,20 +310,12 @@
                 <button type="submit">→</button>
             </form>
             <nav class="nav-links">
-                <a href="{% url 'library' %}">Tienda</a>
+                <a href="{% url 'library' %}">Catálogo</a>
                 {% if user.is_authenticated %}
-                <a href="{% url 'cart' %}" style="position:relative;">
-                    🛒 Carrito
-                    {% if cart_count > 0 %}
-                    <span style="position:absolute;top:-6px;right:-8px;background:var(--accent);color:#111;font-size:0.6rem;font-weight:700;padding:1px 5px;border-radius:10px;">{{ cart_count }}</span>
-                    {% endif %}
-                </a>
-                <a href="{% url 'orders' %}">Mis Pedidos</a>
                 <span class="user-badge">👤 {{ user.username }}</span>
                 <a href="{% url 'logout' %}">Salir</a>
                 {% else %}
-                <a href="{% url 'login' %}">Entrar</a>
-                <a href="{% url 'register' %}" class="btn-cta">Registro</a>
+                <a href="{% url 'login' %}">Admin</a>
                 {% endif %}
                 {% if user.is_staff %}
                 <a href="{% url 'upload_book' %}">+ Subir</a>
@@ -371,9 +363,7 @@
             </div>
             <div class="footer-col">
                 <h4>Navegar</h4>
-                <a href="{% url 'library' %}">Tienda</a>
-                <a href="{% url 'cart' %}">Carrito</a>
-                <a href="{% url 'orders' %}">Mis Pedidos</a>
+                <a href="{% url 'library' %}">Catálogo</a>
             </div>
             <div class="footer-col">
                 <h4>Legal</h4>

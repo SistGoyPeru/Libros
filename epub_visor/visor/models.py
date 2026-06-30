@@ -41,6 +41,9 @@ class Book(models.Model):
     pdf_file = models.FileField(upload_to=epub_file_path, null=True, blank=True,
                                 help_text='Archivo PDF del libro')
 
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'),
+                                help_text='Precio de venta en EUR')
+    is_featured = models.BooleanField(default=False, help_text='Destacar en tienda')
     file_size = models.IntegerField(default=0, help_text='Tamaño en bytes')
     word_count = models.IntegerField(default=0, help_text='Número estimado de palabras')
     page_count = models.IntegerField(default=0, help_text='Número estimado de páginas')
@@ -48,9 +51,6 @@ class Book(models.Model):
     character_count = models.IntegerField(default=0)
     reading_time_minutes = models.IntegerField(default=0)
 
-    price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'),
-                                 help_text='Precio de venta en USD')
-    is_featured = models.BooleanField(default=False, help_text='Destacar en tienda')
     uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
                                     related_name='uploaded_books')
     is_public = models.BooleanField(default=False, help_text='Visible para todos los usuarios')
@@ -105,7 +105,6 @@ class Book(models.Model):
         path = self.epub_file.path
         try:
             with zipfile.ZipFile(path, 'r') as z:
-                # Find container.xml
                 if 'META-INF/container.xml' in z.namelist():
                     container = ET.fromstring(z.read('META-INF/container.xml'))
                     ns = {'c': 'urn:oasis:names:tc:opendocument:xmlns:container'}
@@ -147,14 +146,12 @@ class Book(models.Model):
                 elif tag == 'rights' and not self.rights:
                     self.rights = text
 
-        # Count chapters
         manifest = root.find('opf:manifest', ns) or root.find('manifest')
         spine = root.find('opf:spine', ns) or root.find('spine')
         if spine is not None:
             refs = spine.findall('opf:itemref', ns) or spine.findall('itemref')
             self.chapter_count = len(refs)
 
-        # Extract cover image
         cover_id = None
         if manifest is not None:
             for item in manifest:
@@ -190,7 +187,6 @@ class Book(models.Model):
                         img.save(thumb, 'JPEG', quality=85)
                         self.cover_image.save(cover_name, ContentFile(thumb.getvalue()), save=False)
 
-        # Word count estimate from all HTML/XHTML content
         total_text = ''
         if spine is not None and manifest is not None:
             items_map = {}
@@ -209,7 +205,6 @@ class Book(models.Model):
                         try:
                             content = z.read(file_path)
                             text = content.decode('utf-8', errors='ignore')
-                            # Strip HTML tags
                             import re as re_mod
                             clean = re_mod.sub(r'<[^>]+>', ' ', text)
                             clean = re_mod.sub(r'\s+', ' ', clean)
@@ -220,12 +215,8 @@ class Book(models.Model):
         words = total_text.split()
         self.word_count = len(words)
         self.character_count = len(total_text)
-        # ~300 words per page average
         self.page_count = max(1, self.word_count // 300)
-        # ~250 words per minute reading speed
         self.reading_time_minutes = max(1, self.word_count // 250)
-
-        # File size
         self.file_size = os.path.getsize(path) if os.path.exists(path) else 0
 
     def get_diagnostics(self):
@@ -250,94 +241,3 @@ class ReadingProgress(models.Model):
     class Meta:
         verbose_name = 'Progreso de lectura'
         verbose_name_plural = 'Progresos de lectura'
-
-
-class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='carts')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = 'Carrito'
-        verbose_name_plural = 'Carritos'
-
-    @property
-    def total(self):
-        return sum(item.subtotal for item in self.items.all())
-
-    def __str__(self):
-        return f'Carrito de {self.user.username}'
-
-
-class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-    added_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = 'Item del carrito'
-        verbose_name_plural = 'Items del carrito'
-        unique_together = ('cart', 'book')
-
-    @property
-    def subtotal(self):
-        return self.book.price * self.quantity
-
-    def __str__(self):
-        return f'{self.book.title} x{self.quantity}'
-
-
-class Order(models.Model):
-    STATUS_CHOICES = [
-        ('pendiente', 'Pendiente'),
-        ('pagado', 'Pagado'),
-        ('enviando', 'Enviando'),
-        ('completado', 'Completado'),
-        ('cancelado', 'Cancelado'),
-    ]
-
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
-    full_name = models.CharField(max_length=200)
-    email = models.EmailField()
-    address = models.TextField()
-    city = models.CharField(max_length=200)
-    state = models.CharField(max_length=200, blank=True, default='')
-    zip_code = models.CharField(max_length=20)
-    country = models.CharField(max_length=100, default='Perú')
-
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendiente')
-    stripe_payment_intent = models.CharField(max_length=255, blank=True, default='')
-    paid_at = models.DateTimeField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        verbose_name = 'Pedido'
-        verbose_name_plural = 'Pedidos'
-        ordering = ['-created_at']
-
-    @property
-    def total(self):
-        return sum(item.subtotal for item in self.items.all())
-
-    def __str__(self):
-        return f'Pedido #{self.id} - {self.user.username}'
-
-
-class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=10, decimal_places=2)
-    quantity = models.PositiveIntegerField(default=1)
-
-    class Meta:
-        verbose_name = 'Item del pedido'
-        verbose_name_plural = 'Items del pedido'
-
-    @property
-    def subtotal(self):
-        return self.price * self.quantity
-
-    def __str__(self):
-        return f'{self.book.title} x{self.quantity}'
