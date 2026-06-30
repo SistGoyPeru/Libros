@@ -80,69 +80,75 @@ document.addEventListener('cut', function(e) { e.preventDefault(); return false;
 document.addEventListener('dragstart', function(e) { e.preventDefault(); return false; });
 document.addEventListener('selectstart', function(e) { e.preventDefault(); return false; });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script>
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
-
-let pdfDoc = null;
-let currentPage = 1;
-let totalPages = 0;
-let scale = 1.2;
-
-const container = document.getElementById('pdf-canvas-container');
-
-function renderPage(num) {
-  if (!pdfDoc) return;
-  const canvas = document.createElement('canvas');
-  canvas.id = 'pdf-canvas-' + num;
-  container.innerHTML = '';
-  container.appendChild(canvas);
-
-  pdfDoc.getPage(num).then(function(page) {
-    const viewport = page.getViewport({ scale: scale });
-    canvas.width = viewport.width;
-    canvas.height = viewport.height;
-
-    const ctx = canvas.getContext('2d');
-    const renderTask = page.render({ canvasContext: ctx, viewport: viewport });
-    renderTask.promise.then(function() {
-      document.getElementById('page-info').textContent = num + ' / ' + totalPages;
-    });
-  });
-}
-
-function loadPDF(url) {
-  container.innerHTML = '<div class="pdf-loading">Cargando PDF...</div>';
-  pdfjsLib.getDocument(url).promise.then(function(pdf) {
-    pdfDoc = pdf;
-    totalPages = pdf.numPages;
-    document.getElementById('total-pages').textContent = totalPages;
-    renderPage(1);
-  }).catch(function(err) {
-    container.innerHTML = '<div class="pdf-loading">Error al cargar el PDF</div>';
-    console.error(err);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  loadPDF('{% url "serve_pdf" book.slug %}');
-});
-</script>
 {% endblock %}
 
 {% block content %}
+{% load static %}
 <div class="pdf-navbar">
   <div>
     <a href="{% url 'book_detail' book.slug %}">← Volver</a>
     <span class="title">{{ book.title }}</span>
   </div>
   <div style="display:flex;align-items:center;gap:0.5rem;">
-    <button onclick="if(currentPage>1){currentPage--;renderPage(currentPage);}">← Anterior</button>
+    <button onclick="pdfPrevPage()">← Anterior</button>
     <span class="page-info"><span id="page-info">1</span> / <span id="total-pages">?</span></span>
-    <button onclick="if(currentPage<totalPages){currentPage++;renderPage(currentPage);}">Siguiente →</button>
+    <button onclick="pdfNextPage()">Siguiente →</button>
   </div>
 </div>
 <div id="pdf-canvas-container">
-  <div class="pdf-loading">Cargando PDF...</div>
+  <div class="pdf-loading" id="pdf-loading-msg">Cargando PDF...</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+var pdfDoc = null;
+var currentPage = 1;
+var totalPages = 0;
+var pdfScale = 1.2;
+
+function pdfRenderPage(num) {
+  var container = document.getElementById('pdf-canvas-container');
+  if (!pdfDoc || !container) return;
+  var canvas = document.createElement('canvas');
+  canvas.id = 'pdf-canvas-' + num;
+  container.innerHTML = '';
+  container.appendChild(canvas);
+
+  pdfDoc.getPage(num).then(function(page) {
+    var viewport = page.getViewport({ scale: pdfScale });
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    var ctx = canvas.getContext('2d');
+    page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function() {
+      document.getElementById('page-info').textContent = num + ' / ' + totalPages;
+    });
+  });
+}
+
+function pdfPrevPage() {
+  if (currentPage > 1) { currentPage--; pdfRenderPage(currentPage); }
+}
+
+function pdfNextPage() {
+  if (currentPage < totalPages) { currentPage++; pdfRenderPage(currentPage); }
+}
+
+function pdfLoad() {
+  var container = document.getElementById('pdf-canvas-container');
+  if (!container) return;
+  var url = '{% url "serve_pdf" book.slug %}';
+  pdfjsLib.getDocument(url).promise.then(function(pdf) {
+    pdfDoc = pdf;
+    totalPages = pdf.numPages;
+    document.getElementById('total-pages').textContent = totalPages;
+    pdfRenderPage(1);
+  }).catch(function(err) {
+    container.innerHTML = '<div class="pdf-loading">Error al cargar el PDF</div>';
+  });
+}
+
+document.addEventListener('DOMContentLoaded', pdfLoad);
+</script>
 {% endblock %}
