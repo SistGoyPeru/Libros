@@ -2,3 +2,10 @@ venv_epub/
 __pycache__/
 *.pyc
 .DS_Store
+distribucion/
+epub_visor/staticfiles/
+epub_visor/db.sqlite3
+epub_visor/media/
+promociones/
+promo_tienda.jpg
+anuncio_facebook.txt

@@ -492,7 +492,7 @@ def _clean_html_for_display(html):
 # HELPER: Scan opencode projects
 # ============================================================
 def _scan_opencode_projects():
-    base = r'C:\Users\alexg\OneDrive\Alex_2026\libros epub'
+    base = os.environ.get('OPENCODE_BOOKS_DIR', str(Path(__file__).resolve().parent.parent.parent))
     projects = []
     for entry in os.listdir(base):
         full = os.path.join(base, entry)
