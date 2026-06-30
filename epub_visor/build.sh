@@ -23,7 +23,7 @@ import django; django.setup()
 from visor.models import Book
 from visor.views import _scan_opencode_projects, _check_opencode_diagnostics
 projects = _scan_opencode_projects()
-count = 0
+new_count = 0
 for proj in projects:
     slug = proj['slug']
     if not Book.objects.filter(slug=slug).exists():
@@ -38,6 +38,11 @@ for proj in projects:
         _check_opencode_diagnostics(book)
         book.is_public = True
         book.save()
-        count += 1
-print(f'Libros escaneados: {len(projects)}, nuevos: {count}')
+        new_count += 1
+# Actualizar portadas de libros existentes
+for book in Book.objects.filter(is_opencode_project=True):
+    _check_opencode_diagnostics(book)
+    book.is_public = True
+    book.save()
+print(f'Libros: {len(projects)}, nuevos: {new_count}')
 "
