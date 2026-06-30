@@ -761,7 +761,7 @@ def checkout(request):
         for item in cart.items.all():
             line_items.append({
                 'price_data': {
-                    'currency': 'usd',
+                    'currency': 'eur',
                     'product_data': {
                         'name': item.book.title,
                         'images': [request.build_absolute_uri(item.book.cover_image.url)] if item.book.cover_image else [],
