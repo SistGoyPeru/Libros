@@ -37,6 +37,183 @@ def add_borders(ws, max_row, max_col):
         for cell in row:
             cell.border = THIN_BORDER
 
+# ── c01_proceso_analisis ───────────────────────────────────────────────
+def gen_c01():
+    out = os.path.join(CODIGOS, "c01_proceso_analisis")
+    os.makedirs(out, exist_ok=True)
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Proceso Analisis"
+    ws.append(["Etapa", "Actividad", "Descripcion", "Herramientas", "DuracionHoras"])
+    etapas = [
+        ("1. Definir Problema", "Identificar objetivos", "Definir preguntas de negocio e hipotesis", "Reunion stakeholders", 4),
+        ("2. Recopilar Datos", "Obtener fuentes", "Identificar y extraer datos de fuentes internas/externas", "SQL, Excel, APIs", 8),
+        ("3. Limpiar Datos", "Preparacion inicial", "Manejar nulos, duplicados, formatos inconsistentes", "Excel, Python", 12),
+        ("4. Explorar Datos", "Analisis exploratorio", "Estadisticas descriptivas, visualizaciones iniciales", "Excel, Power BI", 6),
+        ("5. Analizar Datos", "Modelado y analisis", "Aplicar tecnicas estadisticas y modelos", "Excel, Python, R", 16),
+        ("6. Interpretar", "Conclusiones", "Traducir resultados a recomendaciones de negocio", "Presentacion", 4),
+        ("7. Comunicar", "Dashboard/Reporte", "Crear visualizaciones y presentar hallazgos", "Excel, Power BI", 6),
+        ("8. Implementar", "Accion", "Ejecutar recomendaciones y medir impacto", "Seguimiento", 4),
+    ]
+    for e in etapas:
+        ws.append(e)
+    stylize_header(ws, 5)
+    center_cols(ws, ["E"])
+    add_borders(ws, ws.max_row, 5)
+    ws.column_dimensions["A"].width = 28
+    ws.column_dimensions["B"].width = 22
+    ws.column_dimensions["C"].width = 50
+    ws.column_dimensions["D"].width = 24
+    ws.column_dimensions["E"].width = 16
+    wb.save(os.path.join(out, "proceso_analisis.xlsx"))
+    print(f"  OK: c01_proceso_analisis/proceso_analisis.xlsx")
+
+    # Preguntas de negocio - CSV
+    with open(os.path.join(out, "preguntas_negocio.csv"), "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["ID", "Pregunta", "Tipo", "Prioridad", "FuenteDatos"])
+        preguntas = [
+            (1, "Cuales son los productos mas vendidos?", "Descriptivo", "Alta", "Ventas"),
+            (2, "Como varian las ventas por temporada?", "Diagnostico", "Alta", "Ventas historicas"),
+            (3, "Que factores influyen en la satisfaccion del cliente?", "Diagnostico", "Media", "Encuestas"),
+            (4, "Cual sera la demanda del proximo trimestre?", "Predictivo", "Alta", "Ventas historicas"),
+            (5, "Que segmento de clientes es mas rentable?", "Descriptivo", "Media", "Clientes"),
+            (6, "Como optimizar el inventario?", "Prescriptivo", "Baja", "Inventario"),
+            (7, "Cual es el ticket promedio por region?", "Descriptivo", "Media", "Ventas"),
+            (8, "Existe correlacion entre gasto en marketing y ventas?", "Diagnostico", "Alta", "Marketing, Ventas"),
+        ]
+        for p in preguntas:
+            w.writerow(p)
+    print(f"  OK: c01_proceso_analisis/preguntas_negocio.csv")
+
+
+# ── c02_limpieza_datos ─────────────────────────────────────────────────
+def gen_c02():
+    out = os.path.join(CODIGOS, "c02_limpieza_datos")
+    os.makedirs(out, exist_ok=True)
+
+    # Datos sucios - CSV
+    with open(os.path.join(out, "datos_sucios.csv"), "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["ID", "Nombre", "Edad", "Email", "Telefono", "Monto", "FechaIngreso", "Region"])
+        dirty_data = [
+            (1, "Juan Perez", 30, "juan@email.com", "999-123-456", 1500.50, "2025-01-15", "Lima"),
+            (2, "Maria Lopez", None, "maria@email.com", "998-654-321", 0, "2025-01-20", "Arequipa"),
+            (3, "Carlos Ruiz", -5, "carlos@", "997-111-222", 2500.00, "2025/01/25", "cusco"),
+            (4, "Ana Torres", 28, "ana.torres@email.com", None, 3200.00, "2025-02-01", "Lima"),
+            (5, "Pedro Soto", 45, "pedro@email.com", "996-333-444", -500.00, "2025-02-10", "Trujillo"),
+            (6, "Luisa Vega", 33, None, "995-555-666", 1800.00, "2025-02-15", "Lima"),
+            (7, "Mario Diaz", 22, "mario@", "994-777-888", 0, "15/03/2025", "arequipa"),
+            (8, "Sofia Rios", 29, "sofia@email.com", "993-111-999", 2100.00, "2025-03-01", "Cusco"),
+            (9, "Diego Paz", None, "diego@email.com", None, 0, "2025-03-10", "Lima"),
+            (10, "Claudia Sol", 31, "claudia@email.com", "992-222-333", 1750.00, "2025-03-15", "Piura"),
+            (11, "Jose Ramos", -1, "jose@email.com", "991-444-555", 3000.00, None, "Lima"),
+            (12, "Rosa Cruz", 40, "rosa@email.com", "990-666-777", 2200.00, "2025-04-01", ""),
+            (13, "Luis Gil", 52, "luis.gil@email.com", None, 0, "2025-04-10", "Lima"),
+        ]
+        for d in dirty_data:
+            w.writerow(d)
+    print(f"  OK: c02_limpieza_datos/datos_sucios.csv")
+
+    # Guia de limpieza - xlsx
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Guia Limpieza"
+    ws.append(["Problema", "Descripcion", "Metodo de Limpieza", "Formula/Herramienta"])
+    problemas = [
+        ("Valores Nulos", "Celdas vacias en Edad, Email, Telefono", "Imputar con media, mediana o eliminar filas", "=SI.ERROR(A2, \"\")"),
+        ("Edades Negativas", "Edades con valores -5, -1", "Reemplazar por valor valido o eliminar", "=SI(A2>0, A2, \"\")"),
+        ("Formato Fecha", "Fechas en formatos inconsistentes", "Estandarizar a YYYY-MM-DD", "=TEXTO(A2, \"aaaa-mm-dd\")"),
+        ("Regiones Inconsistentes", "cusco vs Cusco, arequipa vs Arequipa", "Normalizar a mayuscula inicial", "=MAYUSC.INIC(A2)"),
+        ("Monto Cero", "Registros con monto = 0", "Verificar si es real o error de carga", "Filtro > 0"),
+        ("Email Invalido", "Emails sin @ o dominio", "Validar con mascara", "=SI(CONTAR.SI(A2, \"*@*.*\")>0, \"OK\", \"Invalido\")"),
+        ("Duplicados", "Registros repetidos", "Eliminar duplicados", "Quitar duplicados en Datos"),
+        ("Espacios Extras", "Espacios al inicio/final del texto", "Limpiar con funcion", "=ESPACIOS(A2)"),
+    ]
+    for p in problemas:
+        ws.append(p)
+    stylize_header(ws, 4)
+    add_borders(ws, ws.max_row, 4)
+    ws.column_dimensions["A"].width = 22
+    ws.column_dimensions["B"].width = 40
+    ws.column_dimensions["C"].width = 48
+    ws.column_dimensions["D"].width = 36
+    wb.save(os.path.join(out, "guia_limpieza.xlsx"))
+    print(f"  OK: c02_limpieza_datos/guia_limpieza.xlsx")
+
+
+# ── c03_eda ─────────────────────────────────────────────────────────────
+def gen_c03():
+    out = os.path.join(CODIGOS, "c03_eda")
+    os.makedirs(out, exist_ok=True)
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Ventas EDA"
+    ws.append(["Fecha", "Producto", "Categoria", "Cantidad", "PrecioUnitario", "Monto", "Cliente", "Region"])
+    productos = [
+        ("Silla Ejecutiva", "Muebles", 350), ("Escritorio", "Muebles", 850),
+        ("Laptop Pro", "Electrónicos", 3200), ("Monitor 27\"", "Electrónicos", 1200),
+        ("Teclado", "Electrónicos", 250), ("Mouse", "Electrónicos", 180),
+        ("Archivador", "Oficina", 65), ("Papel Bond", "Oficina", 25),
+    ]
+    regiones = ["Lima", "Arequipa", "Cusco", "Trujillo", "Piura"]
+    clientes = ["CorpAlpha", "BetaSol", "GammaCorp", "DeltaEnt", "Epsilon"]
+
+    for _ in range(500):
+        prod, cat, pu = random.choice(productos)
+        cant = random.randint(1, 50)
+        dia = random.randint(1, 28)
+        mes = random.randint(1, 12)
+        ws.append([
+            f"2025-{mes:02d}-{dia:02d}", prod, cat, cant, pu,
+            round(cant * pu, 2), random.choice(clientes), random.choice(regiones),
+        ])
+    stylize_header(ws, 8)
+    add_borders(ws, ws.max_row, 8)
+    ws.freeze_panes = "A2"
+
+    # Resumen estadistico
+    ws2 = wb.create_sheet("Resumen Estadistico")
+    ws2.append(["Medida", "Cantidad", "PrecioUnitario", "Monto"])
+    ws2.append(["Media", "=PROMEDIO(Ventas EDA!D:D)", "=PROMEDIO(Ventas EDA!E:E)", "=PROMEDIO(Ventas EDA!F:F)"])
+    ws2.append(["Mediana", "=MEDIANA(Ventas EDA!D:D)", "=MEDIANA(Ventas EDA!E:E)", "=MEDIANA(Ventas EDA!F:F)"])
+    ws2.append(["Desv Estandar", "=DESVEST(Ventas EDA!D:D)", "=DESVEST(Ventas EDA!E:E)", "=DESVEST(Ventas EDA!F:F)"])
+    ws2.append(["Minimo", "=MIN(Ventas EDA!D:D)", "=MIN(Ventas EDA!E:E)", "=MIN(Ventas EDA!F:F)"])
+    ws2.append(["Maximo", "=MAX(Ventas EDA!D:D)", "=MAX(Ventas EDA!E:E)", "=MAX(Ventas EDA!F:F)"])
+    ws2.append(["Conteo", "=CONTARA(Ventas EDA!D:D)", "=CONTARA(Ventas EDA!E:E)", "=CONTARA(Ventas EDA!F:F)"])
+    stylize_header(ws2, 4)
+    add_borders(ws2, ws2.max_row, 4)
+
+    # Tabla dinamica resumen por producto
+    ws3 = wb.create_sheet("Resumen por Producto")
+    ws3.append(["Producto", "Total Cantidad", "Total Monto", "Promedio Monto", "Conteo"])
+    products_uniq = ["Silla Ejecutiva", "Escritorio", "Laptop Pro", "Monitor 27\"", "Teclado", "Mouse", "Archivador", "Papel Bond"]
+    for p in products_uniq:
+        ws3.append([p, 0, 0, 0, 0])
+    stylize_header(ws3, 5)
+    add_borders(ws3, ws3.max_row, 5)
+
+    wb.save(os.path.join(out, "eda_ventas.xlsx"))
+    print(f"  OK: c03_eda/eda_ventas.xlsx")
+
+    # CSV con datos adicionales para EDA
+    with open(os.path.join(out, "clientes_segmentos.csv"), "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["ID_Cliente", "Nombre", "Segmento", "IngresoAnual", "FrecuenciaCompra", "AntiguedadMeses"])
+        for i in range(1, 51):
+            w.writerow([
+                i,
+                f"Cliente_{i:03d}",
+                random.choice(["VIP", "Premium", "Regular", "Basico"]),
+                round(random.uniform(20000, 200000), 2),
+                random.randint(1, 24),
+                random.randint(1, 72),
+            ])
+    print(f"  OK: c03_eda/clientes_segmentos.csv")
+
+
 # ── c04_funciones ──────────────────────────────────────────────────────
 def gen_c04():
     out = os.path.join(CODIGOS, "c04_funciones")
@@ -426,6 +603,9 @@ def gen_c10():
 def main():
     os.makedirs(CODIGOS, exist_ok=True)
     print("Generando archivos de ejemplo...")
+    gen_c01()
+    gen_c02()
+    gen_c03()
     gen_c04()
     gen_c05()
     gen_c06()

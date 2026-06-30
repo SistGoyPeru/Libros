@@ -1,0 +1,14 @@
+ID,Nombre,Edad,Email,Telefono,Monto,FechaIngreso,Region
+1,Juan Perez,30,juan@email.com,999-123-456,1500.5,2025-01-15,Lima
+2,Maria Lopez,,maria@email.com,998-654-321,0,2025-01-20,Arequipa
+3,Carlos Ruiz,-5,carlos@,997-111-222,2500.0,2025/01/25,cusco
+4,Ana Torres,28,ana.torres@email.com,,3200.0,2025-02-01,Lima
+5,Pedro Soto,45,pedro@email.com,996-333-444,-500.0,2025-02-10,Trujillo
+6,Luisa Vega,33,,995-555-666,1800.0,2025-02-15,Lima
+7,Mario Diaz,22,mario@,994-777-888,0,15/03/2025,arequipa
+8,Sofia Rios,29,sofia@email.com,993-111-999,2100.0,2025-03-01,Cusco
+9,Diego Paz,,diego@email.com,,0,2025-03-10,Lima
+10,Claudia Sol,31,claudia@email.com,992-222-333,1750.0,2025-03-15,Piura
+11,Jose Ramos,-1,jose@email.com,991-444-555,3000.0,,Lima
+12,Rosa Cruz,40,rosa@email.com,990-666-777,2200.0,2025-04-01,
+13,Luis Gil,52,luis.gil@email.com,,0,2025-04-10,Lima

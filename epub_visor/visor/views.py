@@ -3,17 +3,22 @@ from xml.etree import ElementTree as ET
 from pathlib import Path
 from datetime import datetime
 from django.utils import timezone
+from decimal import Decimal
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse, FileResponse
 from django.views.decorators.http import require_POST
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.conf import settings
 from django.db.models import Q, Sum
-from .models import Book, ReadingProgress
+from .models import Book, ReadingProgress, Cart, CartItem, Order, OrderItem
+
+import stripe
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 
 # ============================================================
@@ -670,4 +675,248 @@ def _check_opencode_diagnostics(book):
 
     book.progress_percentage = score
     book.set_diagnostics(diag)
+
+
+# ============================================================
+# CART HELPERS
+# ============================================================
+def get_or_create_cart(user):
+    cart, _ = Cart.objects.get_or_create(user=user)
+    return cart
+
+
+# ============================================================
+# ADD TO CART
+# ============================================================
+@login_required
+def add_to_cart(request, slug):
+    book = get_object_or_404(Book, slug=slug, is_public=True)
+    cart = get_or_create_cart(request.user)
+    item, created = CartItem.objects.get_or_create(cart=cart, book=book)
+    if not created:
+        item.quantity += 1
+        item.save()
+    messages.success(request, f'"{book.title}" añadido al carrito')
+    return redirect(request.META.get('HTTP_REFERER', 'library'))
+
+
+# ============================================================
+# REMOVE FROM CART
+# ============================================================
+@login_required
+def remove_from_cart(request, item_id):
+    item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    item.delete()
+    messages.success(request, 'Item eliminado del carrito')
+    return redirect('cart')
+
+
+# ============================================================
+# CART DETAIL
+# ============================================================
+@login_required
+def cart_detail(request):
+    cart = get_or_create_cart(request.user)
+    return render(request, 'visor/cart.html', {'cart': cart})
+
+
+# ============================================================
+# BUY NOW
+# ============================================================
+@login_required
+def buy_now(request, slug):
+    book = get_object_or_404(Book, slug=slug, is_public=True)
+    cart = get_or_create_cart(request.user)
+    CartItem.objects.filter(cart=cart).delete()
+    CartItem.objects.create(cart=cart, book=book, quantity=1)
+    return redirect('checkout')
+
+
+# ============================================================
+# CHECKOUT
+# ============================================================
+@login_required
+def checkout(request):
+    cart = get_or_create_cart(request.user)
+    if cart.items.count() == 0:
+        messages.warning(request, 'Tu carrito está vacío')
+        return redirect('library')
+
+    if request.method == 'POST':
+        full_name = request.POST.get('full_name', '').strip()
+        email = request.POST.get('email', '').strip()
+        address = request.POST.get('address', '').strip()
+        city = request.POST.get('city', '').strip()
+        zip_code = request.POST.get('zip_code', '').strip()
+
+        if not all([full_name, email, address, city, zip_code]):
+            messages.error(request, 'Completa todos los campos')
+            return render(request, 'visor/checkout.html', {
+                'cart': cart,
+                'stripe_key': settings.STRIPE_PUBLIC_KEY,
+            })
+
+        # Create Stripe Checkout Session
+        line_items = []
+        for item in cart.items.all():
+            line_items.append({
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': item.book.title,
+                        'images': [request.build_absolute_uri(item.book.cover_image.url)] if item.book.cover_image else [],
+                    },
+                    'unit_amount': int(item.book.price * 100),
+                },
+                'quantity': item.quantity,
+            })
+
+        try:
+            session = stripe.checkout.Session.create(
+                payment_method_types=['card'],
+                line_items=line_items,
+                mode='payment',
+                success_url=request.build_absolute_uri('/checkout/success/') + '?session_id={CHECKOUT_SESSION_ID}',
+                cancel_url=request.build_absolute_uri('/checkout/cancel/'),
+                metadata={
+                    'user_id': str(request.user.id),
+                    'cart_id': str(cart.id),
+                    'full_name': full_name,
+                    'email': email,
+                    'address': address,
+                    'city': city,
+                    'zip_code': zip_code,
+                },
+            )
+            return redirect(session.url, code=303)
+        except Exception as e:
+            messages.error(request, f'Error al procesar pago: {e}')
+            return render(request, 'visor/checkout.html', {
+                'cart': cart,
+                'stripe_key': settings.STRIPE_PUBLIC_KEY,
+            })
+
+    return render(request, 'visor/checkout.html', {
+        'cart': cart,
+        'stripe_key': settings.STRIPE_PUBLIC_KEY,
+    })
+
+
+# ============================================================
+# CHECKOUT SUCCESS
+# ============================================================
+@login_required
+def checkout_success(request):
+    session_id = request.GET.get('session_id', '')
+    cart = get_or_create_cart(request.user)
+
+    if session_id:
+        try:
+            session = stripe.checkout.Session.retrieve(session_id)
+            meta = session.metadata
+
+            # Create order
+            order = Order.objects.create(
+                user=request.user,
+                full_name=meta.get('full_name', request.user.get_full_name() or request.user.username),
+                email=meta.get('email', request.user.email),
+                address=meta.get('address', ''),
+                city=meta.get('city', ''),
+                zip_code=meta.get('zip_code', ''),
+                status='pagado',
+                stripe_payment_intent=session.payment_intent,
+                paid_at=timezone.now(),
+            )
+
+            for item in cart.items.all():
+                OrderItem.objects.create(
+                    order=order,
+                    book=item.book,
+                    price=item.book.price,
+                    quantity=item.quantity,
+                )
+
+            # Clear cart
+            cart.items.all().delete()
+
+            messages.success(request, f'¡Pedido #{order.id} pagado con éxito!')
+            return redirect('order_detail', order_id=order.id)
+
+        except Exception as e:
+            messages.error(request, f'Error verificando pago: {e}')
+
+    return render(request, 'visor/checkout_success.html')
+
+
+# ============================================================
+# CHECKOUT CANCEL
+# ============================================================
+@login_required
+def checkout_cancel(request):
+    messages.warning(request, 'Pago cancelado')
+    return redirect('cart')
+
+
+# ============================================================
+# ORDER LIST
+# ============================================================
+@login_required
+def order_list(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'visor/orders.html', {'orders': orders})
+
+
+# ============================================================
+# ORDER DETAIL
+# ============================================================
+@login_required
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+    return render(request, 'visor/order_detail.html', {'order': order})
+
+
+# ============================================================
+# STRIPE WEBHOOK
+# ============================================================
+@csrf_exempt
+def stripe_webhook(request):
+    payload = request.body
+    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE', '')
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+        )
+    except (ValueError, stripe.error.SignatureVerificationError):
+        return HttpResponse(status=400)
+
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        meta = session.get('metadata', {})
+        user_id = meta.get('user_id')
+
+        if user_id and not Order.objects.filter(stripe_payment_intent=session.get('payment_intent')).exists():
+            try:
+                user = User.objects.get(id=user_id)
+                cart_items = CartItem.objects.filter(cart__user=user)
+
+                if cart_items.exists():
+                    order = Order.objects.create(
+                        user=user,
+                        full_name=meta.get('full_name', user.username),
+                        email=meta.get('email', user.email),
+                        address=meta.get('address', ''),
+                        city=meta.get('city', ''),
+                        zip_code=meta.get('zip_code', ''),
+                        status='pagado',
+                        stripe_payment_intent=session.get('payment_intent'),
+                        paid_at=timezone.now(),
+                    )
+                    for item in cart_items:
+                        OrderItem.objects.create(order=order, book=item.book, price=item.book.price, quantity=item.quantity)
+                    cart_items.delete()
+            except User.DoesNotExist:
+                pass
+
+    return HttpResponse(status=200)
 

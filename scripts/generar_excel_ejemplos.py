@@ -902,6 +902,339 @@ def avanzado_cap10(wb):
 
 
 # ═══════════════════════════════════════════════════════════════════════
+#  EXCEL CON COPILOT
+# ═══════════════════════════════════════════════════════════════════════
+
+def copilot_cap1(wb):
+    ws = wb.active
+    ws.title = "Inventario Crudo"
+    ws["A1"] = "Código Producto"; ws["B1"] = "Producto"; ws["C1"] = "Proveedor"
+    ws["D1"] = "Categoría"; ws["E1"] = "Precio Unit."; ws["F1"] = "Cantidad"
+    ws["G1"] = "Fecha Ingreso"; ws["H1"] = "Almacén"
+    data = [
+        ["PROD-001", "Laptop ProBook X1", "TechSupply Corp", "Laptops", 2499, 50, "01/01/2026", "Principal"],
+        ["PROD-002", "Monitor UltraView 27", "", "Monitores", 899, 120, "01/15/2026", "Principal"],
+        ["PROD-003", "Teclado Mecánico RGB", "KeyTech Ltd", "Periféricos", 129, 0, "02/01/2026", "Secundario"],
+        ["PROD-004", "Webcam HD-200", "VisionPro Inc", "Accesorios", 89, 45, "01/10/2026", "Principal"],
+        ["PROD-001", "Laptop ProBook X1", "TechSupply Corp", "Laptops", 2499, 30, "02/15/2026", "Principal"],
+        ["PROD-005", "Hub USB-C 7 puertos", "ConnectPlus", "Accesorios", 49, 123, "03/01/2026", "Secundario"],
+        ["PROD-006", "Cargador Solar 20W", "GreenPower", "Accesorios", 35, 67, "", "Secundario"],
+        ["PROD-007", "Mouse Inalámbrico", "KeyTech Ltd", "Periféricos", 45, 200, "02/20/2026", "Principal"],
+        ["PROD-008", "Disco SSD 1TB", "DataSafe", "Almacenamiento", 159, 80, "03/05/2026", "Principal"],
+        ["PROD-003", "Teclado Mecánico RGB", "KeyTech Ltd", "Periféricos", 129, 75, "03/10/2026", "Principal"],
+        ["prod-009", "Audífonos Bluetooth", "SoundWave", "Accesorios", 79, 150, "01/20/2026", "Secundario"],
+        ["PROD-005", "Hub USB-C 7 puertos", "ConnectPlus", "Accesorios", 49, 55, "02/28/2026", "Secundario"],
+        ["PROD-010", "Tablet GraphPad", "TechSupply Corp", "Tablets", 599, 30, "03/15/2026", "Principal"],
+        ["PROD-001", "Laptop ProBook X1", "TechSupply Corp", "Laptops", 2599, 20, "03/20/2026", "Principal"],
+        ["", "Monitor UltraView 27", "DisplayWorld", "Monitores", 899, 45, "02/10/2026", "Secundario"],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            c = ws.cell(row=i, column=j, value=v)
+    style_header(ws, 1, 8)
+    add_border_range(ws, 1, len(data) + 1, 1, 8)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=5).number_format = '#,##0.00'
+    ws["A18"] = "Nota: Dataset con duplicados, valores faltantes, códigos inconsistentes y precios variables. Ideal para diagnosticar con Copilot."
+    ws["A18"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap2(wb):
+    ws = wb.active
+    ws.title = "Ventas por Región"
+    ws["A1"] = "Fecha"; ws["B1"] = "Región"; ws["C1"] = "Vendedor"
+    ws["D1"] = "Producto"; ws["E1"] = "Categoría"; ws["F1"] = "Cantidad"
+    ws["G1"] = "Precio Unit."; ws["H1"] = "Total Venta"
+    import random
+    random.seed(42)
+    regiones = ["Lima", "Arequipa", "Cusco", "Trujillo", "Piura"]
+    vendedores = ["Ana López", "Carlos Ruiz", "María García", "José Torres", "Lucía Fernández"]
+    productos = [("Laptop ProBook", "Laptops", 2499), ("Monitor 27\"", "Monitores", 899),
+                 ("Teclado RGB", "Periféricos", 129), ("Mouse", "Periféricos", 45),
+                 ("Hub USB-C", "Accesorios", 49), ("Webcam HD", "Accesorios", 89),
+                 ("SSD 1TB", "Almacenamiento", 159), ("Audífonos BT", "Accesorios", 79)]
+    data = []
+    for d in range(1, 91):
+        fecha = f"01/{d:02d}/2026" if d <= 30 else f"02/{d-30:02d}/2026" if d <= 60 else f"03/{d-60:02d}/2026"
+        if d > 30 and d <= 60 and d - 30 > 28:
+            continue
+        if d > 60 and d - 60 > 31:
+            continue
+        prod = random.choice(productos)
+        cant = random.randint(1, 20)
+        data.append([fecha, random.choice(regiones), random.choice(vendedores),
+                      prod[0], prod[1], cant, prod[2], cant * prod[2]])
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+    style_header(ws, 1, 8)
+    add_border_range(ws, 1, len(data) + 1, 1, 8)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=7).number_format = '#,##0.00'
+        ws.cell(row=r, column=8).number_format = '#,##0.00'
+    ws["A92"] = "Nota: Dataset de ventas 3 meses. Practica preguntas a Copilot: tendencias, top productos, segmentación."
+    ws["A92"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap3(wb):
+    ws = wb.active
+    ws.title = "Costo Inventario"
+    ws["A1"] = "Producto"; ws["B1"] = "Fecha Compra"; ws["C1"] = "Cantidad"
+    ws["D1"] = "Precio Unit."; ws["E1"] = "Lote"; ws["F1"] = "Costo Total Lote"
+    data = [
+        ["Laptop ProBook", "05/01/2026", 50, 2100, "L01", None],
+        ["Laptop ProBook", "15/01/2026", 30, 2150, "L02", None],
+        ["Laptop ProBook", "01/02/2026", 40, 2200, "L03", None],
+        ["Laptop ProBook", "10/03/2026", 20, 2180, "L04", None],
+        ["Monitor 27\"", "02/01/2026", 100, 650, "L01", None],
+        ["Monitor 27\"", "20/01/2026", 80, 670, "L02", None],
+        ["Monitor 27\"", "05/03/2026", 60, 660, "L03", None],
+        ["Teclado RGB", "10/01/2026", 200, 75, "L01", None],
+        ["Teclado RGB", "05/02/2026", 150, 78, "L02", None],
+        ["Teclado RGB", "15/03/2026", 180, 72, "L03", None],
+        ["Mouse Inalámb.", "08/01/2026", 300, 25, "L01", None],
+        ["Mouse Inalámb.", "22/02/2026", 250, 28, "L02", None],
+        ["SSD 1TB", "12/01/2026", 80, 110, "L01", None],
+        ["SSD 1TB", "28/02/2026", 60, 115, "L02", None],
+        ["SSD 1TB", "18/03/2026", 70, 108, "L03", None],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+        ws.cell(row=i, column=6).value = f"=C{i}*D{i}"
+    style_header(ws, 1, 6)
+    add_border_range(ws, 1, len(data) + 1, 1, 6)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=4).number_format = '#,##0.00'
+        ws.cell(row=r, column=6).number_format = '#,##0.00'
+    ws["A18"] = "Nota: Pídele a Copilot que calcule el costo promedio ponderado por producto."
+    ws["A18"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap4(wb):
+    ws = wb.active
+    ws.title = "Rentabilidad"
+    ws["A1"] = "Código"; ws["B1"] = "Producto"; ws["C1"] = "Línea"
+    ws["D1"] = "Costo Unit."; ws["E1"] = "Precio Venta"; ws["F1"] = "Cant. Vendida"
+    ws["G1"] = "Ingreso Total"; ws["H1"] = "Costo Total"; ws["I1"] = "Margen Bruto"
+    ws["J1"] = "Margen %"
+    data = [
+        ["LP-001", "Laptop ProBook X1", "Laptops", 2100, 2499, 120, None, None, None, None],
+        ["LP-002", "Laptop Ultra Slim", "Laptops", 2800, 3299, 45, None, None, None, None],
+        ["LP-003", "Laptop Gamer Fury", "Laptops", 3500, 4299, 30, None, None, None, None],
+        ["MN-001", "Monitor UltraView 27", "Monitores", 650, 899, 200, None, None, None, None],
+        ["MN-002", "Monitor Curvo 32", "Monitores", 850, 1199, 80, None, None, None, None],
+        ["PE-001", "Teclado Mecánico RGB", "Periféricos", 75, 129, 350, None, None, None, None],
+        ["PE-002", "Mouse Inalámbrico", "Periféricos", 25, 45, 500, None, None, None, None],
+        ["PE-003", "Webcam HD-200", "Periféricos", 65, 89, 23, None, None, None, None],
+        ["AC-001", "Hub USB-C 7 puertos", "Accesorios", 42, 49, 45, None, None, None, None],
+        ["AC-002", "Cargador Solar 20W", "Accesorios", 28, 35, 67, None, None, None, None],
+        ["AC-003", "Audífonos Bluetooth", "Accesorios", 45, 79, 180, None, None, None, None],
+        ["AL-001", "Disco SSD 1TB", "Almacenamiento", 110, 159, 120, None, None, None, None],
+        ["AL-002", "Disco SSD 2TB", "Almacenamiento", 190, 259, 60, None, None, None, None],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+        ws.cell(row=i, column=7).value = f"=E{i}*F{i}"
+        ws.cell(row=i, column=8).value = f"=D{i}*F{i}"
+        ws.cell(row=i, column=9).value = f"=G{i}-H{i}"
+        ws.cell(row=i, column=10).value = f"=I{i}/G{i}"
+    style_header(ws, 1, 10)
+    add_border_range(ws, 1, len(data) + 1, 1, 10)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=4).number_format = '#,##0.00'
+        ws.cell(row=r, column=5).number_format = '#,##0.00'
+        ws.cell(row=r, column=7).number_format = '#,##0.00'
+        ws.cell(row=r, column=8).number_format = '#,##0.00'
+        ws.cell(row=r, column=9).number_format = '#,##0.00'
+        ws.cell(row=r, column=10).number_format = '0.00%'
+    ws["A15"] = "Nota: Pídele a Copilot que analice rentabilidad por línea, productos con margen <20%, y ranking."
+    ws["A15"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap5(wb):
+    ws = wb.active
+    ws.title = "Datos Dashboard"
+    ws["A1"] = "Mes"; ws["B1"] = "Laptops"; ws["C1"] = "Monitores"
+    ws["D1"] = "Periféricos"; ws["E1"] = "Accesorios"; ws["F1"] = "Almacenamiento"
+    ws["G1"] = "Total Mes"; ws["H1"] = "Margen %"
+    meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun",
+             "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"]
+    import random
+    random.seed(123)
+    for i, m in enumerate(meses, 2):
+        ws.cell(row=i, column=1, value=m)
+        total = 0
+        for c in range(2, 7):
+            v = random.randint(20000, 80000)
+            ws.cell(row=i, column=c, value=v)
+            total += v
+        ws.cell(row=i, column=7).value = total
+        ws.cell(row=i, column=8).value = round(random.uniform(0.18, 0.42), 4)
+    style_header(ws, 1, 8)
+    add_border_range(ws, 1, 13, 1, 8)
+    for r in range(2, 14):
+        for c in range(2, 8):
+            ws.cell(row=r, column=c).number_format = '#,##0'
+        ws.cell(row=r, column=8).number_format = '0.0%'
+    ws["A15"] = "Nota: Dataset listo para dashboard. Pídele a Copilot gráficos de barras apiladas, líneas y formato condicional."
+    ws["A15"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap6(wb):
+    ws = wb.active
+    ws.title = "Proveedores Sucios"
+    ws["A1"] = "RUC"; ws["B1"] = "Proveedor"; ws["C1"] = "Contacto"
+    ws["D1"] = "Teléfono"; ws["E1"] = "Correo"; ws["F1"] = "Dirección"
+    ws["G1"] = "Ciudad"; ws["H1"] = "Categoría"
+    data = [
+        ["20123456789", "TechSupply Corp", "Juan Pérez", "999-888-777", "juan@techsupply.com", "Av. Principal 123, San Isidro", "Lima", "Tecnología"],
+        ["20987654321", "KeyTech Ltd", "María García", "999-888-776", "maria@keytech.com", "Jr. Las Flores 456, Miraflores", "LIMA", "Periféricos"],
+        ["20123456789", "TechSupply Corp", "Juan Pérez", "999-888-777", "juan@techsupply.com", "Av. Principal 123, San Isidro", "lima", "Tecnología"],
+        ["20543215678", "VisionPro Inc", "", "", "ventas@visionpro.com", "Calle Real 789, Cercado", "Arequipa", "Accesorios"],
+        ["20678912345", "ConnectPlus", "Carlos Ruiz", "999-888-775", "", "Av. Industrial 321, Cerro Colorado", "Arequipa", ""],
+        ["", "GreenPower", "Lucía Fernández", "999-888-774", "lucia@greenpower.com", "Pasaje Sol 654, Wanchaq", "Cusco", "Accesorios"],
+        ["20345678901", "DataSafe", "José Torres", "999-888-773", "jose@datasafe.com", "Av. Tecnología 987, San Borja", "Lima", "Almacenamiento"],
+        ["20456789012", "SoundWave", "", "999-888-772", "info@soundwave.com", "Jr. Música 147, Miraflores", "Lima", ""],
+        ["20123456789", "TechSupply Corp", "Juan Pérez", "999-888-777", "juan@techsupply.com", "Av. Principal 123, San Isidro", "Lima", "Tecnología"],
+        ["", "DisplayWorld", "Ana Torres", "", "ana@displayworld.com", "Calle Monitor 258, Santiago", "Cusco", "Monitores"],
+        ["20890123456", "", "Pedro Sánchez", "999-888-770", "pedro@bits.com", "Av. Chip 369, Jesús María", "Lima", "Componentes"],
+        ["20901234567", "MobileAccess", "Rosa Flores", "999-888-769", "rosa@mobileaccess.com", "Jr. Celular 159, San Miguel", "Lima", "Accesorios"],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+    style_header(ws, 1, 8)
+    add_border_range(ws, 1, len(data) + 1, 1, 8)
+    ws["A15"] = "Nota: Datos con duplicados (RUC repetido), valores faltantes, nombres inconsistentes. Practica limpieza con Copilot."
+    ws["A15"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap7(wb):
+    ws = wb.active
+    ws.title = "Sucursal Central"
+    ws["A1"] = "Fecha"; ws["B1"] = "Producto"; ws["C1"] = "Cantidad"
+    ws["D1"] = "Precio"; ws["E1"] = "Total"; ws["F1"] = "Vendedor"
+    import random
+    random.seed(1)
+    prods = [("Laptop ProBook", 2499), ("Monitor 27\"", 899), ("Teclado RGB", 129),
+             ("Mouse", 45), ("Hub USB-C", 49)]
+    data = []
+    for d in range(1, 61):
+        p = random.choice(prods)
+        cant = random.randint(1, 10)
+        data.append([f"01/{d:02d}/2026" if d <= 31 else f"02/{d-31:02d}/2026",
+                      p[0], cant, p[1], cant * p[1],
+                      random.choice(["Ana", "Carlos", "María"])])
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+    style_header(ws, 1, 6)
+    add_border_range(ws, 1, len(data) + 1, 1, 6)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=4).number_format = '#,##0.00'
+        ws.cell(row=r, column=5).number_format = '#,##0.00'
+    ws["A65"] = "Sucursal: Central - Crear archivos similares para Norte, Sur, Este (copiar y cambiar datos)"
+    ws["A65"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap8(wb):
+    ws = wb.active
+    ws.title = "Reporte Semanal"
+    ws["A1"] = "Semana"; ws["B1"] = "Fecha Ini"; ws["C1"] = "Fecha Fin"
+    ws["D1"] = "Ventas Brutas"; ws["E1"] = "Devoluciones"; ws["F1"] = "Ventas Netas"
+    ws["G1"] = "Costo Ventas"; ws["H1"] = "Margen Bruto"; ws["I1"] = "Margen %"
+    ws["J1"] = "Gastos Oper."; ws["K1"] = "Utilidad Neta"
+    data = [
+        ["S1", "01/01/2026", "07/01/2026", 45000, 1200, None, 28000, None, None, 8500, None],
+        ["S2", "08/01/2026", "14/01/2026", 52000, 800, None, 31000, None, None, 9000, None],
+        ["S3", "15/01/2026", "21/01/2026", 48000, 1500, None, 29000, None, None, 8700, None],
+        ["S4", "22/01/2026", "28/01/2026", 56000, 600, None, 34000, None, None, 9200, None],
+        ["S5", "29/01/2026", "04/02/2026", 51000, 1000, None, 30500, None, None, 8800, None],
+        ["S6", "05/02/2026", "11/02/2026", 53000, 900, None, 32000, None, None, 9100, None],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+        ws.cell(row=i, column=6).value = f"=D{i}-E{i}"
+        ws.cell(row=i, column=8).value = f"=F{i}-G{i}"
+        ws.cell(row=i, column=9).value = f"=H{i}/F{i}"
+        ws.cell(row=i, column=11).value = f"=H{i}-J{i}"
+    style_header(ws, 1, 11)
+    add_border_range(ws, 1, len(data) + 1, 1, 11)
+    for r in range(2, len(data) + 2):
+        for c in [4, 5, 6, 7, 8, 10, 11]:
+            ws.cell(row=r, column=c).number_format = '#,##0'
+        ws.cell(row=r, column=9).number_format = '0.0%'
+    ws["A9"] = "Nota: Template de reporte semanal. Pídele a Copilot que automatice los cálculos y genere gráficos."
+    ws["A9"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap9(wb):
+    ws = wb.active
+    ws.title = "KPIs Ejecutivos"
+    ws["A1"] = "Indicador"; ws["B1"] = "Valor Actual"; ws["C1"] = "Meta"
+    ws["D1"] = "% Cumplimiento"; ws["E1"] = "Tendencia"; ws["F1"] = "Var % vs Mes Ant."
+    kpis = [
+        ["Ventas Totales", 284500, 250000, None, "↑", None],
+        ["Margen Bruto %", 0.362, 0.30, None, "↑", None],
+        ["Clientes Activos", 48, 40, None, "↑", None],
+        ["Rotación Inventario (días)", 45, 30, None, "↓", None],
+        ["Ticket Promedio", 325, 300, None, "↑", None],
+        ["Devoluciones %", 0.028, 0.03, None, "→", None],
+        ["Cobertura Stock (días)", 18, 25, None, "↓", None],
+        ["Crecimiento Interanual", 0.152, 0.10, None, "↑", None],
+    ]
+    for i, row in enumerate(kpis, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+        ws.cell(row=i, column=4).value = f"=B{i}/C{i}"
+    style_header(ws, 1, 6)
+    add_border_range(ws, 1, len(kpis) + 1, 1, 6)
+    for r in range(2, len(kpis) + 2):
+        ws.cell(row=r, column=2).number_format = '#,##0'
+        ws.cell(row=r, column=3).number_format = '#,##0'
+        ws.cell(row=r, column=4).number_format = '0.0%'
+        if ws.cell(row=r, column=1).value in ["Margen Bruto %", "Devoluciones %", "Crecimiento Interanual"]:
+            ws.cell(row=r, column=2).number_format = '0.0%'
+            ws.cell(row=r, column=3).number_format = '0.0%'
+        ws.cell(row=r, column=6).number_format = '0.0%'
+    ws["A12"] = "Nota: Dashboard ejecutivo. Pídele a Copilot formato condicional, gráficos y segmentadores."
+    ws["A12"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+def copilot_cap10(wb):
+    ws = wb.active
+    ws.title = "Pipeline Completo"
+    ws["A1"] = "Etapa"; ws["B1"] = "Actividad"; ws["C1"] = "Datos Origen"
+    ws["D1"] = "Herramienta"; ws["E1"] = "Tiempo Manual"; ws["F1"] = "Tiempo Copilot"
+    ws["G1"] = "Ahorro %"; ws["H1"] = "Estado"
+    data = [
+        ["1. Importación", "Cargar CSV sucursales", "12 archivos CSV", "Power Query", 60, 15, None, "✅"],
+        ["2. Limpieza", "Estandarizar y deduplicar", "Proveedores.xlsx", "Copilot + PQ", 120, 30, None, "✅"],
+        ["3. Análisis", "Rentabilidad por línea", "Ventas_Q1.xlsx", "Copilot", 180, 45, None, "✅"],
+        ["4. Fórmulas", "Costo promedio ponderado", "Inventario.xlsx", "Copilot", 60, 10, None, "✅"],
+        ["5. Dashboard", "KPIs + gráficos", "Dashboard.xlsx", "Copilot", 180, 60, None, "✅"],
+        ["6. Automatización", "Macro actualización", "Reporte_Semanal.xlsm", "VBA + Copilot", 120, 30, None, "🔄"],
+        ["7. Presentación", "Resumen ejecutivo", "Dashboard.xlsx", "Copilot", 60, 10, None, "✅"],
+    ]
+    for i, row in enumerate(data, 2):
+        for j, v in enumerate(row, 1):
+            ws.cell(row=i, column=j, value=v)
+        ws.cell(row=i, column=7).value = f"=(E{i}-F{i})/E{i}"
+    style_header(ws, 1, 8)
+    add_border_range(ws, 1, len(data) + 1, 1, 8)
+    for r in range(2, len(data) + 2):
+        ws.cell(row=r, column=5).number_format = '#,##0'
+        ws.cell(row=r, column=6).number_format = '#,##0'
+        ws.cell(row=r, column=7).number_format = '0%'
+    ws["A10"] = "Nota: Pipeline completo de análisis. Datos para proyecto final integrador."
+    ws["A10"].font = Font(italic=True, color="666666")
+    auto_width(ws)
+
+
+# ═══════════════════════════════════════════════════════════════════════
 #  GENERACIÓN
 # ═══════════════════════════════════════════════════════════════════════
 
@@ -941,6 +1274,18 @@ CONFIGS = {
         ("cap8", "Power BI", avanzado_cap8),
         ("cap9", "Auditoría", avanzado_cap9),
         ("cap10", "Proyecto Final", avanzado_cap10),
+    ],
+    "excel_copilot": [
+        ("cap1", "Inventario Q3 - Datos Crudos", copilot_cap1),
+        ("cap2", "Ventas por Región - Prompt Practice", copilot_cap2),
+        ("cap3", "Costo Inventario Ponderado", copilot_cap3),
+        ("cap4", "Rentabilidad por Línea", copilot_cap4),
+        ("cap5", "Dashboard Ventas", copilot_cap5),
+        ("cap6", "Proveedores - Datos Sucios", copilot_cap6),
+        ("cap7", "Sucursales - Datos para PQ", copilot_cap7),
+        ("cap8", "Reporte Semanal Template", copilot_cap8),
+        ("cap9", "KPIs Ejecutivos", copilot_cap9),
+        ("cap10", "Pipeline Completo", copilot_cap10),
     ],
 }
 

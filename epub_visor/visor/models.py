@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from PIL import Image
 from io import BytesIO
+from decimal import Decimal
 
 
 def epub_cover_path(instance, filename):
@@ -47,6 +48,9 @@ class Book(models.Model):
     character_count = models.IntegerField(default=0)
     reading_time_minutes = models.IntegerField(default=0)
 
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=Decimal('0.00'),
+                                 help_text='Precio de venta en USD')
+    is_featured = models.BooleanField(default=False, help_text='Destacar en tienda')
     uploaded_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,
                                     related_name='uploaded_books')
     is_public = models.BooleanField(default=False, help_text='Visible para todos los usuarios')
@@ -246,3 +250,94 @@ class ReadingProgress(models.Model):
     class Meta:
         verbose_name = 'Progreso de lectura'
         verbose_name_plural = 'Progresos de lectura'
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='carts')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Carrito'
+        verbose_name_plural = 'Carritos'
+
+    @property
+    def total(self):
+        return sum(item.subtotal for item in self.items.all())
+
+    def __str__(self):
+        return f'Carrito de {self.user.username}'
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    added_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Item del carrito'
+        verbose_name_plural = 'Items del carrito'
+        unique_together = ('cart', 'book')
+
+    @property
+    def subtotal(self):
+        return self.book.price * self.quantity
+
+    def __str__(self):
+        return f'{self.book.title} x{self.quantity}'
+
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('pendiente', 'Pendiente'),
+        ('pagado', 'Pagado'),
+        ('enviando', 'Enviando'),
+        ('completado', 'Completado'),
+        ('cancelado', 'Cancelado'),
+    ]
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')
+    full_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    address = models.TextField()
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200, blank=True, default='')
+    zip_code = models.CharField(max_length=20)
+    country = models.CharField(max_length=100, default='Perú')
+
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendiente')
+    stripe_payment_intent = models.CharField(max_length=255, blank=True, default='')
+    paid_at = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = 'Pedido'
+        verbose_name_plural = 'Pedidos'
+        ordering = ['-created_at']
+
+    @property
+    def total(self):
+        return sum(item.subtotal for item in self.items.all())
+
+    def __str__(self):
+        return f'Pedido #{self.id} - {self.user.username}'
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items')
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        verbose_name = 'Item del pedido'
+        verbose_name_plural = 'Items del pedido'
+
+    @property
+    def subtotal(self):
+        return self.price * self.quantity
+
+    def __str__(self):
+        return f'{self.book.title} x{self.quantity}'

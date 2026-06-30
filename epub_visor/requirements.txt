@@ -8,3 +8,4 @@ EbookLib
 lxml
 beautifulsoup4
 soupsieve
+stripe

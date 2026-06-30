@@ -1,0 +1,76 @@
+{% extends 'visor/base.html' %}
+{% block title %}Pedido #{{ order.id }} - BookStore{% endblock %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'library' %}">Tienda</a>
+    <span>›</span>
+    <a href="{% url 'orders' %}">Mis Pedidos</a>
+    <span>›</span>
+    <span>Pedido #{{ order.id }}</span>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+        <h3 style="margin-bottom:1rem;">📋 Detalle del Pedido</h3>
+        <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <tr><td style="padding:0.4rem 0;color:var(--fg2);">Pedido #</td><td style="padding:0.4rem 0;text-align:right;">{{ order.id }}</td></tr>
+            <tr><td style="padding:0.4rem 0;color:var(--fg2);">Estado</td><td style="padding:0.4rem 0;text-align:right;"><span class="badge" style="background:{% if order.status == 'pagado' %}#1a4a2a;color:#a0e8a0{% elif order.status == 'pendiente' %}#4a3a1a;color:#e8d0a0{% elif order.status == 'completado' %}#1a3a4a;color:#a0d0e8{% else %}#4a1a1a;color:#e8a0a0{% endif %};">{{ order.get_status_display }}</span></td></tr>
+            <tr><td style="padding:0.4rem 0;color:var(--fg2);">Fecha</td><td style="padding:0.4rem 0;text-align:right;">{{ order.created_at|date:"d/m/Y H:i" }}</td></tr>
+            {% if order.paid_at %}
+            <tr><td style="padding:0.4rem 0;color:var(--fg2);">Pagado el</td><td style="padding:0.4rem 0;text-align:right;">{{ order.paid_at|date:"d/m/Y H:i" }}</td></tr>
+            {% endif %}
+        </table>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+        <h3 style="margin-bottom:1rem;">📍 Dirección de Envío</h3>
+        <p>{{ order.full_name }}</p>
+        <p>{{ order.email }}</p>
+        <p>{{ order.address }}</p>
+        <p>{{ order.city }}{% if order.state %}, {{ order.state }}{% endif %} - {{ order.zip_code }}</p>
+    </div>
+</div>
+
+<div style="margin-top:2rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+    <h3 style="margin-bottom:1rem;">📚 Items</h3>
+    <table style="width:100%;border-collapse:collapse;">
+        <thead>
+            <tr style="border-bottom:1px solid var(--border);font-size:0.85rem;color:var(--fg2);">
+                <th style="text-align:left;padding:0.5rem;">Libro</th>
+                <th style="text-align:center;padding:0.5rem;">Cantidad</th>
+                <th style="text-align:right;padding:0.5rem;">Precio</th>
+                <th style="text-align:right;padding:0.5rem;">Subtotal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+            <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.8rem 0.5rem;">
+                    <a href="{% url 'book_detail' item.book.slug %}" style="color:var(--fg);">{{ item.book.title }}</a>
+                    {% if order.status == 'pagado' or order.status == 'completado' %}
+                    <div style="margin-top:0.3rem;display:flex;gap:0.5rem;">
+                        {% if item.book.epub_file %}
+                        <a href="{% url 'download_epub' item.book.slug %}" class="btn btn-sm btn-secondary">📥 EPUB</a>
+                        {% endif %}
+                        {% if item.book.pdf_file %}
+                        <a href="{% url 'download_pdf' item.book.slug %}" class="btn btn-sm btn-secondary">📥 PDF</a>
+                        {% endif %}
+                        <a href="{% url 'reader' item.book.slug %}" class="btn btn-sm btn-primary">📖 Leer</a>
+                    </div>
+                    {% endif %}
+                </td>
+                <td style="text-align:center;padding:0.8rem 0.5rem;color:var(--fg2);">{{ item.quantity }}</td>
+                <td style="text-align:right;padding:0.8rem 0.5rem;">${{ item.price|floatformat:2 }}</td>
+                <td style="text-align:right;padding:0.8rem 0.5rem;font-weight:600;">${{ item.subtotal|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" style="text-align:right;padding:1rem 0.5rem;font-size:1.1rem;font-weight:700;">Total</td>
+                <td style="text-align:right;padding:1rem 0.5rem;font-size:1.1rem;font-weight:700;color:var(--accent);">${{ order.total|floatformat:2 }}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+{% endblock %}

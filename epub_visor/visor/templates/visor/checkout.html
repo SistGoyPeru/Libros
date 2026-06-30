@@ -1,0 +1,71 @@
+{% extends 'visor/base.html' %}
+{% block title %}Checkout - BookStore{% endblock %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="{% url 'library' %}">Tienda</a>
+    <span>›</span>
+    <a href="{% url 'cart' %}">Carrito</a>
+    <span>›</span>
+    <span>Checkout</span>
+</div>
+<h1 style="font-family:var(--font-title);margin-bottom:1.5rem;">📦 Checkout</h1>
+
+<div style="display:grid;grid-template-columns:1fr 350px;gap:2rem;">
+    <div>
+        <form method="POST" id="checkout-form">
+            {% csrf_token %}
+            <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
+                <h3 style="margin-bottom:1rem;">Información de Envío</h3>
+                <div style="display:grid;gap:1rem;">
+                    <div>
+                        <label style="display:block;font-size:0.85rem;color:var(--fg2);margin-bottom:0.3rem;">Nombre completo</label>
+                        <input type="text" name="full_name" required
+                               style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;color:var(--fg);font-family:inherit;">
+                    </div>
+                    <div>
+                        <label style="display:block;font-size:0.85rem;color:var(--fg2);margin-bottom:0.3rem;">Email</label>
+                        <input type="email" name="email" required value="{{ user.email }}"
+                               style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;color:var(--fg);font-family:inherit;">
+                    </div>
+                    <div>
+                        <label style="display:block;font-size:0.85rem;color:var(--fg2);margin-bottom:0.3rem;">Dirección</label>
+                        <textarea name="address" required rows="2"
+                                  style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;color:var(--fg);font-family:inherit;"></textarea>
+                    </div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+                        <div>
+                            <label style="display:block;font-size:0.85rem;color:var(--fg2);margin-bottom:0.3rem;">Ciudad</label>
+                            <input type="text" name="city" required
+                                   style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;color:var(--fg);font-family:inherit;">
+                        </div>
+                        <div>
+                            <label style="display:block;font-size:0.85rem;color:var(--fg2);margin-bottom:0.3rem;">Código Postal</label>
+                            <input type="text" name="zip_code" required
+                                   style="width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:0.6rem 0.8rem;color:var(--fg);font-family:inherit;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top:1rem;width:100%;">
+                💳 Pagar con Stripe
+            </button>
+        </form>
+    </div>
+
+    <div>
+        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;position:sticky;top:5rem;">
+            <h3 style="margin-bottom:1rem;">Resumen del Pedido</h3>
+            {% for item in cart.items.all %}
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;padding:0.4rem 0;border-bottom:1px solid var(--border);">
+                <span style="color:var(--fg2);">{{ item.book.title|truncatechars:30 }} x{{ item.quantity }}</span>
+                <span>${{ item.subtotal|floatformat:2 }}</span>
+            </div>
+            {% endfor %}
+            <div style="display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;margin-top:0.8rem;color:var(--accent);">
+                <span>Total</span>
+                <span>${{ cart.total|floatformat:2 }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

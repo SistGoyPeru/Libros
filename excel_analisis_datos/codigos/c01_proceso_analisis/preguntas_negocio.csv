@@ -1,0 +1,9 @@
+ID,Pregunta,Tipo,Prioridad,FuenteDatos
+1,Cuales son los productos mas vendidos?,Descriptivo,Alta,Ventas
+2,Como varian las ventas por temporada?,Diagnostico,Alta,Ventas historicas
+3,Que factores influyen en la satisfaccion del cliente?,Diagnostico,Media,Encuestas
+4,Cual sera la demanda del proximo trimestre?,Predictivo,Alta,Ventas historicas
+5,Que segmento de clientes es mas rentable?,Descriptivo,Media,Clientes
+6,Como optimizar el inventario?,Prescriptivo,Baja,Inventario
+7,Cual es el ticket promedio por region?,Descriptivo,Media,Ventas
+8,Existe correlacion entre gasto en marketing y ventas?,Diagnostico,Alta,"Marketing, Ventas"
