@@ -1,0 +1,30 @@
+Big Data, ML e IA — Libro 5 de la colección Data & Analytics Mastery
+
+Domina el big data, machine learning e inteligencia artificial con proyectos prácticos. Aprende PySpark para procesamiento a escala, scikit-learn y XGBoost para ML, TensorFlow para deep learning, LangChain para IA generativa y Vertex AI para despliegue cloud.
+
+¿Qué aprenderás?
+✓ Big Data con PySpark: RDDs, DataFrames, Spark SQL, optimización, streaming
+✓ Machine Learning: regresión, clasificación, clustering, recomendación, XGBoost
+✓ Deep Learning: redes neuronales, CNN, LSTM, transfer learning con TensorFlow
+✓ NLP: tokenización, embeddings, word2vec, análisis de sentimiento, LSTM
+✓ Series Temporales: ARIMA, Prophet, LSTM para forecasting de ventas
+✓ MLOps: MLflow, experiment tracking, model registry, data drift
+✓ IA Generativa: LLMs, RAG, LangChain, agentes, Vector Stores
+✓ ML en la nube: BigQuery ML, Vertex AI AutoML, endpoints, pipelines serverless
+
+4 proyectos progresivos:
+Proyecto 1: Pipeline de Big Data con TechStore
+Proyecto 2: Modelo Predictivo para TechStore
+Proyecto 3: Pipeline de ML Completo (MLflow + NLP + Forecast)
+Proyecto 4: Plataforma de IA Integral (RAG + Cloud + Dashboard)
+
+Incluye código PySpark, notebooks de ML, experimentos de MLflow, RAG con LangChain, FastAPI endpoints, dashboard Streamlit y Docker Compose.
+
+Perfecto para: científicos de datos que quieren escalar a big data, ingenieros de ML que buscan MLOps, analistas que quieren dominar IA generativa, y profesionales que buscan la plataforma de datos completa.
+
+Colección Data & Analytics Mastery (5 libros):
+1. Los Fundamentos del Analista de Datos
+2. Python para Datos y tu Primer Data Warehouse Cloud
+3. Business Intelligence y Modelado de Datos
+4. Ingeniería de Datos Moderna
+5. Big Data, ML e IA ← Este libro

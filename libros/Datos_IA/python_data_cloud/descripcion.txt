@@ -1,0 +1,31 @@
+Python para Datos y tu Primer Data Warehouse Cloud — Libro 2 de la colección Data & Analytics Mastery
+
+De Pandas a BigQuery: lleva tu análisis de datos a la nube con proyectos reales. Aprende Python avanzado para análisis de datos, Google BigQuery como data warehouse cloud, Looker Studio para dashboards profesionales, y automatización serverless con Cloud Functions.
+
+¿Qué aprenderás?
+✓ Python avanzado con pandas: merge, groupby, pivot, apply, limpieza de datos reales
+✓ Visualización profesional con matplotlib y seaborn
+✓ Análisis Exploratorio de Datos (EDA) completo
+✓ Cloud computing y Google Cloud Platform desde cero
+✓ BigQuery: data warehouse serverless, SQL analítico, nested fields, particiones y clustering
+✓ Looker Studio: dashboards interactivos, campos calculados, blending y parámetros
+✓ Data pipelines ETL/ELT con Python y BigQuery
+✓ Automatización serverless con Cloud Functions y Cloud Scheduler
+✓ Sistema de reporting cloud completamente automatizado
+
+4 proyectos progresivos construyendo sobre TechStore:
+Proyecto 1: Python Avanzado para Análisis de Datos
+Proyecto 2: Introducción al Cloud y BigQuery — migra TechStore a la nube
+Proyecto 3: Dashboards Cloud con Looker Studio
+Proyecto 4: Automatización en la Nube — pipeline completo
+
+Incluye base de datos SQLite con 5 tablas, scripts Python listos para ejecutar, migración guiada a BigQuery, consultas SQL analíticas, y soluciones a todos los ejercicios.
+
+Perfecto para: analistas de datos que quieren dar el salto a la nube, profesionales con Python básico que buscan especializarse, estudiantes de data analytics, y cualquier persona que quiera construir sistemas de reporting cloud profesionales.
+
+Colección Data & Analytics Mastery (5 libros):
+1. Los Fundamentos del Analista de Datos
+2. Python para Datos y tu Primer Data Warehouse Cloud ← Este libro
+3. Business Intelligence y Modelado de Datos
+4. Ingeniería de Datos Moderna
+5. Big Data, ML e IA: Especialización Avanzada

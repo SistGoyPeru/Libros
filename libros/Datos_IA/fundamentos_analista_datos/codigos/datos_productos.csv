@@ -1,0 +1,510 @@
+﻿id,name,category_id,price,cost,stock,supplier,created_at,category_name
+1,Bastante Air,1,231.54,152.71,125,Hermanos Hierro S.A.T.,2023-12-13,Portátiles
+2,Realizar Elite,1,454.18,298.74,346,Suministros BL S.Coop.,2023-08-17,Portátiles
+3,Libre Lite,1,1483.92,876.82,302,Giménez y Sanchez S.Coop.,2023-07-17,Portátiles
+4,Diferencia Max,1,849.61,348.7,111,Nieto y Lobo S.A.,2024-12-10,Portátiles
+5,Contra Air,1,472.99,288.86,287,Caballero y Palomar S.L.L.,2026-01-29,Portátiles
+6,Meses Pro,1,405.68,254.55,279,Brunilda Casanovas Pinedo S.A.,2024-10-04,Portátiles
+7,Capaz Essential,1,844.83,470.76,142,Fernandez & Asociados S.A.,2024-06-25,Portátiles
+8,Volver Ultra,1,1620.76,651.99,412,Hotel TX S.L.L.,2024-03-15,Portátiles
+9,Tampoco X,1,327.71,179.56,142,Inmobiliaria Española S.Coop.,2024-03-28,Portátiles
+10,Queda Lite,1,319.39,234.76,172,Talleres Pino S.C.P,2026-03-27,Portátiles
+11,Ejército Elite,1,213.39,113.73,183,Logística Castellana S.A.T.,2023-08-25,Portátiles
+12,Tales X,1,1696.5,1037.08,413,Leal y Batalla S.A.T.,2025-12-04,Portátiles
+13,Pp X,1,96.46,54.09,63,Transportes del Mediterráneo S.L.N.E,2026-03-31,Portátiles
+14,Futuro Max,1,1946.49,1036.48,282,Desarrollo Huerta y asociados S.L.,2025-05-02,Portátiles
+15,Toma Essential,1,593.41,367.93,453,Paredes y Gimenez S.L.U.,2024-02-06,Portátiles
+16,Duda Plus,1,1724.79,1038.45,360,Comercial HI S.L.,2026-01-18,Portátiles
+17,Él Z,1,148.4,93.71,395,Solé y Ángel S.C.P,2025-11-12,Portátiles
+18,Contenido Pro,1,585.87,250.71,119,Inmobiliaria RPIA S.L.,2024-08-19,Portátiles
+19,N Elite,1,1734.29,924.45,232,Construcción Martín S.L.L.,2025-09-02,Portátiles
+20,Elementos Lite,1,1275.0,672.81,189,Promociones Cuéllar S.Coop.,2025-10-07,Portátiles
+21,Pacientes Pro,1,716.98,454.97,359,Torres & Asociados S.A.,2025-01-20,Portátiles
+22,Busca Ultra,1,1873.93,1174.6,311,Comercial Ibéricos S.L.N.E,2023-11-06,Portátiles
+23,Durante Plus,1,1273.6,747.54,125,Desarrollo IX S.A.,2025-10-03,Portátiles
+24,Vio Essential,1,335.16,178.58,473,Galán y Font S.L.,2025-03-17,Portátiles
+25,Crecimiento X,1,1283.59,763.65,350,Trinidad Villar Sanmiguel S.A.,2024-06-20,Portátiles
+26,Esas Pro,1,655.31,438.34,28,Hotel Avanzadas S.A.,2026-03-13,Portátiles
+27,Así Lite,1,465.8,191.55,161,Banco DMI S.A.T.,2024-01-28,Portátiles
+28,Construcción Essential,1,808.31,342.05,467,Jose Carlos Suárez Ramírez S.A.,2023-12-04,Portátiles
+29,Trabajadores Z,1,1886.38,1333.16,161,Roda y asociados S.Coop.,2023-09-29,Portátiles
+30,Compañía Air,1,433.12,248.93,452,Hnos Nicolau S.L.,2023-12-23,Portátiles
+31,Madre Lite,1,1829.94,1025.86,135,Supermercados Globales S.Com.,2024-09-11,Portátiles
+32,Soy Lite,1,287.85,190.2,275,Supermercados FHCA S.A.,2024-07-08,Portátiles
+33,Partido Z,1,532.85,322.16,459,Alicia García Quero S.L.N.E,2024-03-18,Portátiles
+34,Razón Pro,1,1171.22,616.88,70,Lara y Sanz S.C.P,2026-06-23,Portátiles
+35,Máximo Elite,1,1023.95,442.16,24,Fabián Falcó Martin S.A.T.,2023-10-05,Portátiles
+36,Podemos Elite,1,1723.58,781.63,81,Hermanos Barceló S.A.,2025-07-16,Portátiles
+37,Hijos Elite,1,1586.23,868.87,32,Comercial Verdejo S.A.,2024-04-20,Portátiles
+38,Mismo Essential,1,775.68,472.05,239,Industrias GUM S.Coop.,2026-02-23,Portátiles
+39,Hace Z,1,1062.93,786.44,440,Julián & Asociados S.L.,2024-11-06,Portátiles
+40,Centro Ultra,1,1885.43,1203.09,58,Castro y Marín S.Coop.,2023-10-27,Portátiles
+41,Del Plus,1,1366.59,803.47,136,Comercializadora LNWT S.L.N.E,2025-01-31,Portátiles
+42,Aquel Max,1,1539.5,799.1,150,Perla Mate Ángel S.A.,2025-11-14,Portátiles
+43,Partir Air,1,875.17,489.05,488,Infraestructuras Carlos S.L.N.E,2025-11-12,Portátiles
+44,Medio Ultra,1,1446.95,943.25,497,Fábrica Novoa & Asociados S.L.,2024-08-20,Portátiles
+45,Dólares Plus,1,1006.16,465.38,467,Comercial Bru y asociados S.L.L.,2023-09-13,Portátiles
+46,El X,2,1742.32,878.92,327,Infraestructuras Cuéllar S.L.,2025-11-10,Smartphones
+47,Participación Z,2,1020.24,479.12,191,Familia Benet S.L.N.E,2026-06-14,Smartphones
+48,Jorge Max,2,1527.39,899.3,398,Hermanos Colomer S.Com.,2023-09-09,Smartphones
+49,Mal X,2,1845.63,1331.57,306,Hermanos Gallo S.L.,2026-05-08,Smartphones
+50,Sino X,2,655.06,266.49,475,Cortes y Guzmán S.L.N.E,2024-04-07,Smartphones
+51,Fiscal Z,2,732.32,545.48,413,Grupo Márquez S.L.,2025-04-06,Smartphones
+52,Unidad Lite,2,621.94,261.39,449,Distribuciones Campoy y asociados S.L.N.E,2025-07-07,Smartphones
+53,Guerra Lite,2,1139.03,487.01,374,Pancho Mayoral Goñi S.A.T.,2026-04-27,Smartphones
+54,Cuatro Z,2,977.11,414.51,389,Lopez & Asociados S.L.N.E,2024-09-12,Smartphones
+55,Total Elite,2,1070.08,475.13,337,Muñoz y Amorós S.A.,2024-08-15,Smartphones
+56,José Essential,2,955.8,566.25,135,Banco Camps y asociados S.Com.,2024-11-05,Smartphones
+57,Deben Essential,2,1060.06,649.08,493,Restauración JCWB S.L.L.,2026-06-07,Smartphones
+58,Efectos Lite,2,431.47,254.03,373,Rosado & Asociados S.L.N.E,2024-11-30,Smartphones
+59,Buenos X,2,1382.83,898.19,204,Inversiones QVUP S.A.,2025-04-20,Smartphones
+60,Argentina Z,2,1990.34,1248.85,224,Inversiones Ramis S.Coop.,2023-07-07,Smartphones
+61,Cosa Ultra,2,1800.22,1004.56,126,Suministros Internacionales S.Coop.,2025-05-23,Smartphones
+62,Autoridades Lite,2,457.14,236.95,301,Nadia Doménech Blazquez S.C.P,2026-05-03,Smartphones
+63,Suelo Essential,2,1112.29,674.0,3,Bueno & Asociados S.L.,2024-06-19,Smartphones
+64,Mira Lite,2,151.27,93.92,117,Banca Privada Arteaga S.A.U,2025-07-14,Smartphones
+65,Objetivo Air,2,144.12,59.23,169,Severino Ferreras Plana S.Coop.,2024-07-20,Smartphones
+66,Política Pro,2,151.0,72.98,342,Suministros JX S.Coop.,2023-09-23,Smartphones
+67,Civil Lite,2,975.96,574.58,370,Talleres PI S.L.U.,2026-01-17,Smartphones
+68,Voz Plus,2,1871.66,1122.74,242,Salmerón y Cuenca S.L.,2025-07-13,Smartphones
+69,Visto Ultra,2,493.55,279.12,208,Inmobiliaria del Sur S.L.,2024-09-05,Smartphones
+70,Interés Air,2,388.91,168.76,220,Industrias Llabrés y asociados S.Com.,2025-10-23,Smartphones
+71,Eso Max,2,715.04,388.9,442,Hotel Piñol S.L.,2024-06-03,Smartphones
+72,Medios Z,2,1460.85,928.63,330,Solano y asociados S.A.,2025-04-19,Smartphones
+73,Última Essential,2,205.84,111.34,173,Hnos Tapia S.A.,2025-01-03,Smartphones
+74,Largo Z,3,504.82,235.54,229,Giménez y Torrents S.A.T.,2025-05-14,Tablets
+75,Organización Pro,3,288.95,134.14,236,Navarrete y Quiroga S.L.,2025-07-02,Tablets
+76,Semanas Max,3,507.1,366.71,226,Hnos Amores S.A.,2025-05-02,Tablets
+77,Lugar Plus,3,1617.95,1131.9,50,Comercial Juan S.Com.,2024-05-30,Tablets
+78,Uso X,3,110.66,82.97,428,Pinilla y asociados S.L.,2025-04-21,Tablets
+79,Cinco Air,3,39.36,17.03,385,Alejo Azorin Olmo S.A.T.,2023-10-21,Tablets
+80,Felipe Pro,3,1698.89,778.45,248,Grupo Flores S.L.L.,2026-02-26,Tablets
+81,Luego Lite,3,967.89,680.07,462,Tecnologías Carbó S.Coop.,2024-06-09,Tablets
+82,Nuestros Ultra,3,126.67,67.47,199,Diez & Asociados S.L.,2024-03-17,Tablets
+83,Vuelve Ultra,3,537.74,362.67,232,Banca Privada DVT S.L.N.E,2024-05-10,Tablets
+84,Después Essential,3,577.64,371.89,374,Construcción Inteligentes S.L.L.,2026-01-24,Tablets
+85,Ayer Essential,3,1990.88,1183.62,367,Hermanos Romero S.L.,2023-10-22,Tablets
+86,Juego X,3,978.47,456.42,111,Hnos Trillo S.A.,2025-01-19,Tablets
+87,Viejo Plus,3,1937.72,1167.89,277,Suministros Echeverría S.L.,2026-04-12,Tablets
+88,Pueblo Essential,3,131.3,66.93,25,Adela Ruano Ledesma S.Com.,2024-07-22,Tablets
+89,Ocasión Air,3,1172.5,675.36,436,Supermercados Hervás y asociados S.Coop.,2026-05-09,Tablets
+90,Internacional Pro,3,1066.93,448.01,260,Renata Morcillo Espada S.Coop.,2025-01-08,Tablets
+91,Vuelta Ultra,3,169.41,78.78,304,Losa y asociados S.Coop.,2025-09-16,Tablets
+92,R Lite,3,145.23,101.9,206,Industrias VCMY S.L.,2025-06-02,Tablets
+93,Habla Pro,3,248.56,176.88,126,Instalaciones VM S.L.,2025-01-30,Tablets
+94,González Elite,3,1162.04,480.98,41,Roig y asociados S.Com.,2025-06-10,Tablets
+95,Alguna Ultra,3,844.25,510.17,267,Hotel Carrillo & Asociados S.Com.,2025-10-16,Tablets
+96,Animales Max,3,639.57,314.2,342,Fábrica del Sur S.C.P,2026-01-07,Tablets
+97,Cultural Elite,3,1435.21,693.98,202,Construcción Ferrera y asociados S.A.T.,2024-04-10,Tablets
+98,Propio Pro,3,270.44,169.28,234,Inmobiliaria Arroyo S.L.N.E,2025-11-12,Tablets
+99,Cierto Max,3,639.18,423.87,37,Cristian Alberola Luís S.Coop.,2025-05-21,Tablets
+100,Empresa Max,3,28.53,17.61,288,Hermanos Tejedor S.A.,2023-10-16,Tablets
+101,Papel Plus,3,1992.22,847.97,109,Comercial HD S.Com.,2024-07-26,Tablets
+102,Casa Elite,4,537.74,390.74,451,Gonzalez y Yáñez S.Com.,2025-05-24,Auriculares
+103,Familia Essential,4,146.88,71.31,145,Mayoral y Barrena S.Coop.,2023-12-08,Auriculares
+104,Mayo Lite,4,323.91,224.08,360,Infraestructuras Española S.A.,2024-04-02,Auriculares
+105,Fuerte Air,4,612.0,455.54,413,Alimentación Real S.Coop.,2026-01-14,Auriculares
+106,Resultados Ultra,4,1311.4,528.15,418,Grupo Maldonado S.L.,2026-07-03,Auriculares
+107,Razones Plus,4,1113.65,808.64,53,Hotel OGI S.L.N.E,2025-04-27,Auriculares
+108,Unos Elite,4,1878.46,839.68,59,Despacho Integrales S.L.L.,2023-10-25,Auriculares
+109,Nos Max,4,1780.52,1174.87,79,Instalaciones Saavedra & Asociados S.Coop.,2024-10-21,Auriculares
+110,Región Z,4,551.96,337.63,367,Transportes Río & Asociados S.Coop.,2025-05-08,Auriculares
+111,Negro X,4,692.32,443.52,436,Banca Privada Bravo & Asociados S.L.N.E,2025-12-16,Auriculares
+112,Clase Pro,4,535.32,305.66,463,Banco Díez y asociados S.Coop.,2025-05-23,Auriculares
+113,Visita Ultra,4,1817.23,759.2,324,Suministros Téllez S.L.N.E,2025-07-06,Auriculares
+114,Persona Z,4,852.91,423.76,1,Montesinos & Asociados S.L.L.,2024-11-30,Auriculares
+115,Libertad Plus,4,673.77,300.36,134,Servicios Arco y asociados S.A.,2024-08-02,Auriculares
+116,Mayoría Air,4,331.54,183.89,361,Vilar y Abella S.L.,2025-10-26,Auriculares
+117,Espacio Pro,4,861.09,347.35,38,Promociones del Sur S.L.,2023-09-25,Auriculares
+118,Haber Ultra,4,1890.64,1213.52,76,Instalaciones Ríos S.L.N.E,2025-07-28,Auriculares
+119,Hecho Pro,4,1095.71,758.35,298,Distribuciones Inteligentes S.Coop.,2025-11-10,Auriculares
+120,Base Air,4,1109.51,610.7,21,Consultoría del Norte S.L.N.E,2026-04-08,Auriculares
+121,Adelante Max,4,623.42,445.52,407,Lilia Manzanares Verdú S.L.,2025-04-12,Auriculares
+122,Ciencia Plus,4,1944.66,805.02,183,Jose Francisco Saura Coca S.Com.,2026-01-23,Auriculares
+123,Políticos Max,4,428.04,208.6,52,Inmobiliaria RON S.A.,2024-10-12,Auriculares
+124,Puso Essential,4,713.81,425.4,447,Rosenda Comas Salom S.Coop.,2024-12-24,Auriculares
+125,Quiere Elite,4,818.68,505.32,79,Sarabia y Montserrat S.L.N.E,2026-06-24,Auriculares
+126,Plan Z,4,1852.26,894.38,83,Soluciones Castellana S.Com.,2025-07-10,Auriculares
+127,Obstante Z,4,1952.64,1335.16,451,Cornejo y Valbuena S.L.N.E,2024-01-19,Auriculares
+128,Destino Essential,4,830.46,384.32,473,Cabrera y asociados S.A.,2025-06-15,Auriculares
+129,Una Max,4,671.04,487.03,410,Cortes y Benavides S.Coop.,2024-08-21,Auriculares
+130,Seguro Z,4,1343.11,882.79,127,Manufacturas STQL S.L.,2025-10-24,Auriculares
+131,Todo Essential,4,540.93,365.44,55,Industrias JOLE S.L.U.,2026-03-17,Auriculares
+132,Valores Air,4,771.25,318.95,240,Flavio Marí Andres S.A.,2023-10-02,Auriculares
+133,Casos X,4,452.63,310.42,235,Rosa & Asociados S.A.U,2025-04-07,Auriculares
+134,Cine Max,4,705.81,485.02,446,Farmaceútica Bermúdez S.Coop.,2025-02-20,Auriculares
+135,Opinión Lite,4,462.91,189.0,98,Ximena Clemente Guerra S.Coop.,2024-08-04,Auriculares
+136,Aquellos Ultra,4,802.94,399.47,35,Hnos Maestre S.L.,2024-03-08,Auriculares
+137,Vida Plus,4,1934.1,962.59,328,Martínez y asociados S.L.,2025-06-15,Auriculares
+138,Señaló Ultra,4,1023.71,652.95,431,Restauración del Sur S.A.,2025-02-18,Auriculares
+139,Fuerza Essential,4,1077.06,784.89,59,Instalaciones Almeida y asociados S.C.P,2025-12-02,Auriculares
+140,Tendrá Pro,4,1755.3,862.6,297,Pepita Macías Grau S.Coop.,2025-01-04,Auriculares
+141,Tarde Lite,4,1925.43,949.07,55,Desarrollo Caballero & Asociados S.Com.,2025-05-21,Auriculares
+142,Entre Essential,4,1197.17,623.71,402,Catalá & Asociados S.L.N.E,2024-11-25,Auriculares
+143,Vino Z,5,878.41,653.96,59,Finanzas Catalán S.L.,2025-01-25,Teclados
+144,Conjunto Elite,5,776.53,467.32,130,Distribuciones Jimenez y asociados S.L.N.E,2024-10-07,Teclados
+145,Ideas X,5,98.32,54.33,266,Talleres HY S.L.L.,2026-05-19,Teclados
+146,Seis Elite,5,1851.88,1089.75,368,Bosch y asociados S.A.,2025-10-17,Teclados
+147,Mucho Plus,5,1881.11,1237.7,100,Juárez y asociados S.L.L.,2025-02-03,Teclados
+148,General Lite,5,734.79,311.91,340,Amador Mosquera Giralt S.L.,2026-03-20,Teclados
+149,Exterior Plus,5,1842.32,1138.75,339,Soluciones Carnero & Asociados S.A.,2023-09-02,Teclados
+150,Prensa Air,5,1697.54,1106.65,153,Industrias HXIM S.L.N.E,2025-04-18,Teclados
+151,Pequeño Max,5,1019.16,645.55,167,Cabeza y Tovar S.Coop.,2024-09-13,Teclados
+152,Ya X,5,810.77,408.21,65,Supermercados del Norte S.L.N.E,2025-01-20,Teclados
+153,Año X,5,391.75,247.87,194,Barrera y asociados S.C.P,2024-01-12,Teclados
+154,Aquellas Plus,5,1357.85,972.2,315,Fábrica HYCR S.L.U.,2025-11-30,Teclados
+155,Fuera Air,5,1142.51,619.38,426,Fábrica Ibéricos S.Com.,2024-02-21,Teclados
+156,Pasó Essential,5,10.8,5.4,220,Hermanos Coca S.L.U.,2025-10-23,Teclados
+157,Modo Max,5,1573.65,963.6,164,Banca Privada AP S.A.U,2024-11-20,Teclados
+158,Su Max,5,935.32,518.87,109,Comercial Castañeda y asociados S.Coop.,2023-10-13,Teclados
+159,Necesario Plus,5,1027.23,696.26,491,Vilanova & Asociados S.Coop.,2024-06-15,Teclados
+160,Septiembre Essential,5,1594.08,732.31,43,Hermanos Sedano S.L.,2023-08-24,Teclados
+161,Ni Plus,5,574.72,363.42,317,Roldan y Campoy S.Coop.,2025-05-26,Teclados
+162,Distintas Air,5,677.01,464.73,384,Colomer & Asociados S.A.,2026-03-02,Teclados
+163,Cantidad Elite,5,477.38,242.82,412,Piquer y asociados S.Coop.,2026-02-01,Teclados
+164,Primeros Air,5,406.26,165.98,125,Fábrica XLR S.Coop.,2025-04-13,Teclados
+165,Actitud Air,5,1968.02,1208.26,393,Roldán y asociados S.L.,2025-02-07,Teclados
+166,Perdido Max,5,154.92,84.44,322,Bonifacio Bou Blázquez S.A.,2023-12-04,Teclados
+167,Serán X,5,1155.58,752.77,196,Comercial Murcia S.L.,2025-04-05,Teclados
+168,Dios Z,5,993.8,482.39,335,Hermanos Miguel S.Com.,2025-12-20,Teclados
+169,Económica Lite,5,1378.36,981.99,440,Tecnologías Gomez S.L.L.,2024-12-31,Teclados
+170,Habría X,5,1542.38,674.49,217,Inmobiliaria LWDN S.Coop.,2026-05-20,Teclados
+171,Amigos Elite,5,445.48,303.57,356,Hermanos Andres S.A.,2026-07-02,Teclados
+172,Práctica Ultra,5,1040.73,434.58,127,Orozco & Asociados S.A.,2024-02-14,Teclados
+173,Pie Z,5,1835.76,812.28,68,Despacho GBML S.Com.,2024-12-17,Teclados
+174,Estas X,5,1604.81,1016.89,286,Logística Blazquez & Asociados S.A.,2026-02-20,Teclados
+175,Mi Air,5,1194.94,875.31,456,Supermercados Rodrigo y asociados S.Coop.,2025-04-10,Teclados
+176,Problema Lite,5,890.71,610.36,456,Minería FJE S.Coop.,2024-10-28,Teclados
+177,Años Lite,5,1014.5,700.71,280,Ballesteros y Aguilera S.A.D,2024-05-30,Teclados
+178,Llegado Max,6,1795.43,1185.49,243,Instalaciones Mosquera & Asociados S.A.,2025-05-05,Ratones
+179,Fueron Max,6,905.63,600.54,430,Grau y Vall S.Coop.,2026-05-09,Ratones
+180,Cada Z,6,1278.94,854.38,266,Hnos Alfonso S.Coop.,2023-11-04,Ratones
+181,Juicio X,6,974.34,471.32,225,Quiroga y Rios S.C.P,2025-03-27,Ratones
+182,Como X,6,164.18,82.09,139,Talleres Paredes S.A.,2023-12-18,Ratones
+183,Cuerpo Z,6,678.33,483.35,41,Zamora y Bermúdez S.Com.,2024-10-30,Ratones
+184,Doctor X,6,285.35,137.24,355,Manufacturas Iberia S.A.,2026-03-16,Ratones
+185,Ante Elite,6,314.07,149.15,212,Minería del Levante S.L.,2026-04-04,Ratones
+186,G Max,6,821.11,484.38,212,Construcción Globales S.C.P,2024-04-01,Ratones
+187,Francisco Max,6,133.9,92.59,199,Farmaceútica ZNNX S.L.N.E,2025-11-29,Ratones
+188,Pensar X,6,1810.62,1094.39,356,Corbacho y asociados S.A.,2025-05-23,Ratones
+189,Reunión Ultra,6,48.86,34.6,294,Comercial Ortiz & Asociados S.Com.,2025-06-08,Ratones
+190,Ser Pro,6,766.95,308.36,180,Madrid & Asociados S.L.,2023-11-24,Ratones
+191,Origen Essential,6,604.23,324.17,456,Sevillano y Armengol S.Coop.,2025-12-11,Ratones
+192,Existencia Lite,6,1907.32,1042.65,382,Tamarit & Asociados S.L.N.E,2025-06-05,Ratones
+193,Principios X,6,1471.91,1000.83,459,Farmaceútica MW S.Com.,2025-09-26,Ratones
+194,Hubo Max,6,448.86,214.02,223,Peralta y asociados S.Com.,2024-12-13,Ratones
+195,Diario Essential,6,976.42,523.46,342,Hermanos Bastida S.Com.,2025-11-19,Ratones
+196,Padres Z,6,1361.48,737.26,84,Infraestructuras Conesa y asociados S.A.,2026-05-02,Ratones
+197,Nuevo X,6,1682.6,1214.57,318,Servicios Castelló & Asociados S.Com.,2025-02-11,Ratones
+198,Local X,6,1072.9,769.73,303,Compañía Roda S.Coop.,2023-08-04,Ratones
+199,Amor Ultra,6,1133.13,464.0,329,Fábrica Noguera S.L.N.E,2025-07-31,Ratones
+200,Tipo Lite,6,862.93,606.98,93,Despacho Berenguer S.Com.,2023-12-11,Ratones
+201,Mantener Elite,6,110.06,58.63,108,Hermanos Castro S.Coop.,2024-03-02,Ratones
+202,Aquí Max,6,914.84,474.0,450,Supermercados Arranz S.Com.,2026-05-22,Ratones
+203,Unas Plus,6,764.45,506.99,425,Supermercados Guillén & Asociados S.Com.,2025-07-04,Ratones
+204,Asunto Lite,6,848.9,587.62,240,Saez y asociados S.L.,2025-02-19,Ratones
+205,Encuentra Z,6,48.56,28.59,487,Finanzas Chacón S.L.N.E,2023-09-26,Ratones
+206,Lucha Plus,6,706.41,443.31,399,Calderon & Asociados S.C.P,2024-03-12,Ratones
+207,Propuesta Elite,6,1914.99,792.98,15,Suministros Bravo S.L.N.E,2024-06-15,Ratones
+208,Democracia Plus,6,1899.72,892.44,10,Amor y asociados S.A.,2025-08-24,Ratones
+209,Vista Lite,6,1246.45,602.65,242,Bilbao y Perera S.A.T.,2024-11-13,Ratones
+210,Dan Air,6,1342.21,801.82,111,Coll & Asociados S.A.,2025-07-09,Ratones
+211,Viaje Max,6,935.41,458.06,188,Vidal Adadia Bernad S.A.,2024-06-06,Ratones
+212,Casi Elite,6,343.89,210.65,382,Cantero y Maldonado S.A.U,2024-01-12,Ratones
+213,Desde Lite,6,1439.52,967.68,83,Sebastián y Barros S.A.,2025-08-21,Ratones
+214,P Elite,6,1929.78,844.92,13,Grupo Cobo S.C.P,2023-07-09,Ratones
+215,Tengo Lite,6,1858.48,1117.93,464,Exposito y Boada S.Coop.,2025-01-17,Ratones
+216,Tiempo Elite,6,1916.75,1032.8,366,Hnos Soriano S.A.,2025-02-26,Ratones
+217,Carlos Pro,7,161.22,103.46,321,Bauzà y asociados S.A.U,2026-04-22,Monitores
+218,Encuentro Air,7,493.26,317.67,154,Cañellas & Asociados S.Com.,2024-12-13,Monitores
+219,Período Max,7,1702.07,1038.51,61,Josefa Tejero Esparza S.L.L.,2023-10-13,Monitores
+220,Corazón Plus,7,1594.48,953.62,21,Hermanos Fortuny S.A.,2024-05-11,Monitores
+221,Pequeña Pro,7,700.93,385.46,189,Menéndez y asociados S.L.U.,2025-10-27,Monitores
+222,Esta Lite,7,147.21,92.25,6,Minería Asenjo y asociados S.C.P,2025-01-28,Monitores
+223,Datos Z,7,1700.65,1169.73,54,Teresa Pomares Nicolau S.L.N.E,2025-08-15,Monitores
+224,Sabía Plus,7,872.7,459.71,456,Vives y asociados S.L.,2025-04-26,Monitores
+225,Aunque Z,7,1659.12,1074.38,222,Instalaciones Montesinos S.A.,2024-11-27,Monitores
+226,Existen Ultra,7,360.5,210.03,333,Supermercados Rojas & Asociados S.L.,2025-01-03,Monitores
+227,Edad Pro,7,547.45,373.84,275,Royo y asociados S.L.,2023-10-04,Monitores
+228,Otro Z,7,1551.53,873.05,422,Vilalta & Asociados S.L.N.E,2024-02-13,Monitores
+229,Comercio Essential,7,1464.73,723.49,436,Andrés Cases Bautista S.A.U,2026-04-04,Monitores
+230,Zona X,7,498.53,362.49,142,Antúnez y Corral S.L.,2025-02-02,Monitores
+231,Música Plus,7,1764.44,856.37,237,Desarrollo TQOX S.A.,2024-04-21,Monitores
+232,Fuerzas Elite,7,1143.99,725.14,172,Carranza y Juárez S.L.,2026-07-04,Monitores
+233,Cara Lite,7,67.1,46.82,93,Transportes Folch & Asociados S.A.,2023-10-30,Monitores
+234,Puntos Max,7,980.21,513.82,132,Chucho Montenegro Olivera S.L.,2025-11-07,Monitores
+235,Cuya Ultra,7,687.26,486.66,359,Distribuciones Dávila y asociados S.Coop.,2024-01-11,Monitores
+236,Aún Max,7,1761.4,1047.2,264,Transportes Avanzadas S.Com.,2025-12-12,Monitores
+237,Calle Plus,7,1896.63,815.48,368,Compañía Bastida S.Com.,2025-07-19,Monitores
+238,Resultado Z,7,818.78,486.61,123,Benavent y Casares S.L.N.E,2026-03-30,Monitores
+239,Estaban Elite,7,1384.3,866.66,251,Castellanos & Asociados S.L.,2024-01-23,Monitores
+240,Sector Elite,7,901.86,366.19,150,Familia Villegas S.A.,2024-03-18,Monitores
+241,Poder X,7,450.97,289.58,156,Minería Inteligentes S.L.L.,2024-07-30,Monitores
+242,Dice Elite,7,1331.27,704.45,283,Desarrollo Mateo & Asociados S.Coop.,2024-03-24,Monitores
+243,Importantes Essential,7,1066.52,585.44,381,Distribuciones Nebot S.L.L.,2025-11-28,Monitores
+244,Fue Pro,7,1105.26,578.2,232,Banco ONKD S.Coop.,2023-08-23,Monitores
+245,Cabo Elite,7,549.11,267.96,61,Inversiones Tomas & Asociados S.L.,2026-06-05,Monitores
+246,Diferentes Ultra,7,1445.35,737.77,380,Camilo Barreda Cruz S.Com.,2025-07-28,Monitores
+247,Nuevos Lite,7,1076.36,717.68,94,Cobo y asociados S.L.L.,2024-11-14,Monitores
+248,Llevar X,8,440.6,250.91,370,Castrillo y Pellicer S.Coop.,2023-12-18,Impresoras
+249,Señor Lite,8,1183.27,788.14,305,Donato Lastra Sancho S.C.P,2023-12-04,Impresoras
+250,Porque Ultra,8,573.16,249.43,99,Ripoll y Hurtado S.L.N.E,2024-03-11,Impresoras
+251,Éste Essential,8,599.52,315.53,154,Falcó & Asociados S.Coop.,2025-09-13,Impresoras
+252,Posibilidad Plus,8,38.15,22.39,140,Transportes Alvarado & Asociados S.L.N.E,2025-08-30,Impresoras
+253,Joven Lite,8,100.57,42.15,149,Minería Castellana S.A.,2025-08-13,Impresoras
+254,López Plus,8,1397.85,620.92,444,Alimentación Campos y asociados S.A.,2024-08-20,Impresoras
+255,Entrada X,8,1508.05,657.37,6,Paz y Arrieta S.Com.,2025-12-08,Impresoras
+256,Fuentes Lite,8,1152.38,650.28,225,Malo & Asociados S.Com.,2025-06-05,Impresoras
+257,Nuestras Elite,8,687.99,507.68,129,Consultoría Castells & Asociados S.Com.,2024-12-14,Impresoras
+258,Miguel X,8,1882.71,1067.88,420,Finanzas Verdú S.Com.,2023-09-07,Impresoras
+259,Son Max,8,140.02,80.11,295,Sáez y asociados S.A.,2025-09-14,Impresoras
+260,Mejor X,8,1262.59,528.73,76,Cámara y asociados S.L.U.,2024-10-13,Impresoras
+261,Evitar X,8,1624.16,1189.2,43,Leandra Marí Taboada S.L.L.,2025-01-29,Impresoras
+262,Buena Air,8,1987.89,877.57,391,Mena y Amor S.Coop.,2024-08-22,Impresoras
+263,Proyectos Essential,8,838.18,510.15,316,Comercial del Sur S.A.,2026-03-10,Impresoras
+264,Modelo Essential,8,459.11,267.62,230,Coloma y Herrera S.A.,2026-06-29,Impresoras
+265,Poco Lite,8,1817.91,916.36,301,Hnos Mir S.Com.,2025-04-08,Impresoras
+266,Río Lite,8,1980.15,1003.7,317,Valls y Soto S.L.N.E,2023-10-11,Impresoras
+267,Trabajo Elite,8,129.85,95.57,50,Logística del Sur S.Coop.,2024-11-05,Impresoras
+268,Conseguir Max,8,1895.69,896.14,108,Ximena Noriega Pablo S.L.,2026-05-29,Impresoras
+269,Distintos Ultra,8,536.64,229.9,122,Gregorio Hoz Lorenzo S.Coop.,2024-06-20,Impresoras
+270,Peor Ultra,8,355.88,151.7,1,Fábrica Torrijos y asociados S.Coop.,2025-11-23,Impresoras
+271,Constitución Ultra,8,822.94,527.73,240,Consultoría Pino y asociados S.L.L.,2024-02-19,Impresoras
+272,Director Pro,8,589.6,283.61,361,Compañía Olivares y asociados S.L.,2025-07-20,Impresoras
+273,Hizo Lite,8,572.6,401.31,36,Inmobiliaria Cervantes & Asociados S.Coop.,2026-01-03,Impresoras
+274,Padre Lite,8,1377.89,996.72,403,Grupo Guerrero S.A.,2025-04-09,Impresoras
+275,Español Plus,8,1584.57,960.93,411,Desarrollo YY S.A.,2026-04-16,Impresoras
+276,Curso Plus,8,1867.99,1025.15,278,Florina Flores Madrigal S.Com.,2026-04-05,Impresoras
+277,Precios Air,8,457.36,206.79,136,Banco Iberia S.Com.,2024-04-05,Impresoras
+278,Asociación Z,8,1654.99,703.36,84,Gilberto Mancebo Arcos S.A.,2025-12-05,Impresoras
+279,Secretario Air,9,1194.13,822.14,471,Luís y asociados S.L.U.,2025-10-27,Almacenamiento
+280,Quiero Plus,9,584.33,259.16,352,Talleres Llamas S.A.,2023-12-28,Almacenamiento
+281,Deja Plus,9,615.13,332.71,139,Farmaceútica Alcalá y asociados S.L.,2025-12-05,Almacenamiento
+282,Amigo Lite,9,1005.93,576.23,41,Servicios Roma S.Coop.,2023-11-18,Almacenamiento
+283,Radio Air,9,1200.08,853.61,376,Desarrollo Tejada S.Com.,2024-07-26,Almacenamiento
+284,A Ultra,9,651.41,317.65,46,Gutiérrez y Salom S.L.,2024-11-30,Almacenamiento
+285,Rey Essential,9,465.55,296.09,440,Hermanos Palomares S.L.,2023-10-11,Almacenamiento
+286,Tiempos Air,9,1154.64,846.09,391,Marino Cuesta Ramirez S.L.,2026-07-03,Almacenamiento
+287,Diciembre Ultra,9,1347.83,666.27,20,Instalaciones FLG S.A.,2026-02-01,Almacenamiento
+288,Ir Elite,9,1528.58,705.16,265,Marita Gil Huertas S.L.,2026-01-17,Almacenamiento
+289,Cama Air,9,1306.49,941.49,92,Belén Pardo Bermejo S.L.N.E,2023-12-28,Almacenamiento
+290,Parte Elite,9,1993.91,1101.75,416,Despacho Iberia S.Com.,2025-09-22,Almacenamiento
+291,Grupos Air,9,988.52,426.98,178,Transportes Española S.L.N.E,2025-05-29,Almacenamiento
+292,Título Pro,9,822.6,421.48,53,Eligio Vilanova Ribes S.Coop.,2023-10-04,Almacenamiento
+293,Pedro Plus,9,1716.88,884.93,355,Banca Privada Priego y asociados S.L.L.,2024-06-09,Almacenamiento
+294,Naturaleza Air,9,995.97,629.36,205,Hnos Ocaña S.L.,2025-10-24,Almacenamiento
+295,Profesional Air,9,1628.99,965.23,232,Amílcar Madrid Rebollo S.A.,2024-02-02,Almacenamiento
+296,Memoria Z,9,185.23,90.46,59,Piñeiro y asociados S.L.N.E,2025-02-12,Almacenamiento
+297,Buen Air,9,1940.66,1050.79,263,Minería Carrasco S.A.,2025-10-18,Almacenamiento
+298,Dio Elite,9,1651.6,661.31,445,Hotel Acevedo S.L.,2024-10-12,Almacenamiento
+299,Hacía Elite,9,1089.75,593.52,96,Pinilla y Gras S.C.P,2024-12-25,Almacenamiento
+300,Primer Ultra,9,1041.68,643.68,255,Consultoría Castellana S.L.L.,2025-04-18,Almacenamiento
+301,Lenguaje Pro,9,1254.55,835.53,104,Fábrica Española S.A.,2023-08-28,Almacenamiento
+302,Decía Pro,9,541.43,241.4,147,Banco del Mediterráneo S.Com.,2025-10-22,Almacenamiento
+303,Horas Pro,9,881.84,568.25,62,Instalaciones Guillén S.L.L.,2025-12-17,Almacenamiento
+304,Superior Essential,9,67.44,41.85,409,Gálvez y asociados S.L.N.E,2026-04-27,Almacenamiento
+305,Banco Lite,9,486.19,221.43,282,Mas y Llopis S.A.,2026-01-11,Almacenamiento
+306,Abril Max,9,37.2,20.19,115,Valcárcel y Arévalo S.L.N.E,2026-04-01,Almacenamiento
+307,Niños Elite,9,1984.58,1427.96,236,Rico y asociados S.A.,2025-02-10,Almacenamiento
+308,Social Elite,9,1894.64,1187.37,78,Jose Angel Gomis Mas S.L.L.,2024-02-16,Almacenamiento
+309,Pone Pro,9,1001.76,651.96,260,Riera y Cañete S.Com.,2024-08-06,Almacenamiento
+310,Medidas Air,9,1413.76,771.1,247,Rebeca Peláez Bru S.Coop.,2024-04-27,Almacenamiento
+311,Qué Ultra,9,1960.68,951.53,282,Ariza y Beltran S.A.,2026-01-04,Almacenamiento
+312,Médico Elite,9,297.83,139.0,306,Tecnologías Ibérica S.L.N.E,2024-12-05,Almacenamiento
+313,Ministro Pro,10,1495.11,669.48,35,Finanzas Españolas S.L.,2025-07-19,Accesorios
+314,Relación Essential,10,559.72,378.65,212,Servicios Ibéricos S.Coop.,2024-09-18,Accesorios
+315,Ex Plus,10,686.34,463.76,136,Mendez y asociados S.Com.,2025-08-17,Accesorios
+316,Mundo Plus,10,1642.88,819.79,152,Frutos y asociados S.Com.,2023-09-16,Accesorios
+317,Administración Lite,10,1676.57,1010.93,337,Banca Privada Julián S.Coop.,2025-12-30,Accesorios
+318,Finalmente Z,10,984.37,444.94,275,Despacho Ferrández y asociados S.A.T.,2025-12-08,Accesorios
+319,Salida Lite,10,973.83,502.84,390,Carmelita Nebot Jiménez S.L.,2025-08-04,Accesorios
+320,Torno Plus,10,1091.42,610.51,164,Florentino Ortuño Dominguez S.A.,2025-11-02,Accesorios
+321,Economía Max,10,1740.5,1293.66,122,Familia Benavente S.L.N.E,2026-05-10,Accesorios
+322,Está Pro,10,1147.87,552.98,397,Cervantes y Guardia S.A.,2024-02-26,Accesorios
+323,Posible Elite,10,827.43,423.12,242,Raúl Barrena Tomas S.L.,2023-07-31,Accesorios
+324,Defensa Elite,10,1413.39,966.75,197,Albero y Alegria S.Coop.,2024-09-05,Accesorios
+325,Pasa Ultra,10,1976.93,1339.05,333,Hnos Escobar S.A.,2023-12-03,Accesorios
+326,Cómo Lite,10,1961.82,1124.84,18,Infraestructuras del Levante S.C.P,2025-03-14,Accesorios
+327,J Z,10,261.22,192.75,169,Clara Hervia Gonzalez S.Com.,2023-11-09,Accesorios
+328,Grande Pro,10,1740.69,1228.87,225,Servicios TYH S.L.,2023-11-12,Accesorios
+329,Imagen X,10,208.42,149.78,7,Banco KT S.L.N.E,2025-07-14,Accesorios
+330,Hasta Air,10,1447.65,786.79,335,Banco Escobar y asociados S.A.,2024-05-23,Accesorios
+331,Entonces Z,10,1940.2,826.89,400,Inversiones DD S.L.L.,2026-05-23,Accesorios
+332,Has Elite,10,1938.71,1005.21,354,Plana & Asociados S.L.,2026-06-11,Accesorios
+333,Congreso X,10,800.98,342.91,168,Familia Ruiz S.A.U,2023-11-02,Accesorios
+334,Quizá Essential,10,1706.15,1195.62,194,Morera y Andreu S.L.,2025-06-05,Accesorios
+335,Jefe Lite,10,1908.73,1182.23,454,Perez y asociados S.A.,2026-01-02,Accesorios
+336,Enero Essential,10,1521.2,1072.95,18,Industrias Beltrán & Asociados S.C.P,2025-02-16,Accesorios
+337,Metros Max,10,1238.73,597.28,350,Moliner y Palomo S.A.,2023-07-15,Accesorios
+338,Piel Ultra,10,1842.64,1380.32,382,Plácido Lerma Calatayud S.A.,2024-04-23,Accesorios
+339,Arte Plus,10,189.84,140.94,389,Calderón y Amo S.A.,2025-11-13,Accesorios
+340,Sido Essential,10,1271.15,896.67,227,Plaza & Asociados S.Com.,2025-02-28,Accesorios
+341,Tenían Air,10,341.06,172.17,14,Distribuciones del Mediterráneo S.A.,2024-08-27,Accesorios
+342,Llegar Ultra,10,101.51,68.89,150,Esteban Barroso Diego S.Com.,2025-04-21,Accesorios
+343,Necesidad Air,10,723.33,398.37,125,Infante & Asociados S.L.,2025-08-15,Accesorios
+344,Color Essential,10,1067.01,638.15,405,Talleres Españolas S.A.,2023-07-17,Accesorios
+345,Camino X,10,368.3,169.89,312,Mur y Sacristán S.Com.,2026-04-13,Accesorios
+346,Términos Essential,10,1742.96,1075.23,123,Inversiones Montes S.Coop.,2026-06-21,Accesorios
+347,Investigación X,10,1000.35,604.32,118,Servicios Montaña S.C.P,2026-06-20,Accesorios
+348,Función Lite,10,927.68,453.54,130,Peñalver y asociados S.L.L.,2025-03-08,Accesorios
+349,Puerta Air,10,1337.0,955.44,238,Farmaceútica Avanzadas S.L.N.E,2025-06-23,Accesorios
+350,Artículo Lite,10,1803.4,1149.06,80,Nayara Manuel Bayón S.L.L.,2025-04-02,Accesorios
+351,Otras Ultra,10,156.98,114.73,300,Infraestructuras Globales S.L.,2025-02-11,Accesorios
+352,Movimiento Essential,10,605.31,445.94,353,Dafne Pérez Velázquez S.L.N.E,2026-06-15,Accesorios
+353,Empresas Elite,10,507.69,353.28,101,Hermanos Blázquez S.A.,2024-07-26,Accesorios
+354,C Max,11,1708.13,747.01,195,Hnos Mármol S.L.N.E,2025-05-05,Componentes
+355,Nada Pro,11,1148.12,690.23,358,Infraestructuras AA S.Coop.,2025-12-16,Componentes
+356,Importante Plus,11,597.5,443.51,337,Posada y asociados S.L.,2026-01-06,Componentes
+357,Toda X,11,797.64,321.32,442,Hnos Calvo S.Com.,2023-11-17,Componentes
+358,Les Max,11,1374.73,908.19,25,Mesa y asociados S.Coop.,2024-05-23,Componentes
+359,Comunidad X,11,1822.12,1204.08,426,Cleto Ríos Santamaria S.Com.,2024-10-15,Componentes
+360,Muy Air,11,1809.26,904.93,409,Hermanos Canales S.L.,2024-03-18,Componentes
+361,Jamás Lite,11,467.93,318.51,112,Distribuciones Muro S.Coop.,2025-06-23,Componentes
+362,Mano Z,11,1276.86,788.22,347,Farmaceútica Rosell S.Com.,2026-02-14,Componentes
+363,Victoria Lite,11,1513.59,1012.01,348,Dora Román Porcel S.A.,2024-06-04,Componentes
+364,María Air,11,1678.28,1040.34,462,Farmaceútica QXN S.L.L.,2025-10-03,Componentes
+365,Semana Essential,11,1258.63,520.82,403,Poza y Carbonell S.Com.,2025-06-17,Componentes
+366,Lleva Max,11,887.23,534.87,374,Compañía Cañete y asociados S.A.,2024-10-23,Componentes
+367,Algo Max,11,271.5,195.04,167,Cid y asociados S.Com.,2024-02-06,Componentes
+368,Izquierda Z,11,1497.48,691.05,67,Estevez y Torrecilla S.L.,2026-06-18,Componentes
+369,Sur Max,11,1575.15,1113.25,187,Transportes Malo S.A.,2024-11-06,Componentes
+370,Oposición Plus,11,1066.39,767.5,425,Hermanos Agustí S.Coop.,2024-05-05,Componentes
+371,Dinero Elite,11,337.43,242.92,483,Sebastian Téllez Ricart S.L.,2025-05-26,Componentes
+372,Personas Air,11,968.87,661.03,382,Grupo Manzano S.A.,2024-06-20,Componentes
+373,Causa Ultra,11,1742.08,1187.2,239,Talleres Valbuena S.Coop.,2023-12-29,Componentes
+374,Respuesta Air,11,1926.15,865.35,494,Promociones Arnaiz y asociados S.Coop.,2025-04-27,Componentes
+375,Texto Lite,11,458.96,292.23,345,Banco Sandoval y asociados S.Com.,2023-11-19,Componentes
+376,Personal Air,11,1960.08,1447.61,411,Fábrica del Levante S.L.L.,2026-02-09,Componentes
+377,Haciendo Z,11,1119.04,482.98,202,Desarrollo Gabaldón S.L.L.,2023-10-07,Componentes
+378,Experiencia X,11,37.69,22.15,232,Distribuciones Morales y asociados S.C.P,2024-08-25,Componentes
+379,Larga Elite,11,743.48,492.3,134,Desarrollo VZT S.A.,2024-01-29,Componentes
+380,Mis Max,11,1173.26,807.02,481,Huertas y asociados S.Coop.,2025-12-19,Componentes
+381,Muchas Z,11,749.22,476.65,241,Sans y Benet S.L.,2023-11-28,Componentes
+382,Barcelona Elite,11,59.79,42.42,287,Promociones Sanz y asociados S.Com.,2023-07-10,Componentes
+383,Recuerdo Air,11,662.72,406.6,331,Fabiola Palma Barroso S.L.,2025-03-15,Componentes
+384,Flores Z,11,135.79,93.47,465,Transportes Integrales S.Com.,2024-09-19,Componentes
+385,Van Elite,11,1405.13,881.35,59,Transportes Nuñez S.L.N.E,2023-09-20,Componentes
+386,Dónde Plus,11,288.15,210.69,155,Familia Cruz S.Com.,2023-07-08,Componentes
+387,Noviembre Z,11,1991.89,877.71,120,Desarrollo Inteligentes S.A.,2024-09-04,Componentes
+388,América X,11,1775.64,794.57,232,Compañía Peral & Asociados S.A.,2026-03-04,Componentes
+389,Primero Lite,11,748.3,547.97,356,Bou y Bustamante S.A.,2025-07-16,Componentes
+390,Otros Max,11,1892.48,1034.61,380,Supermercados Avanzadas S.A.,2024-12-21,Componentes
+391,Haya Max,12,1771.96,1114.96,426,Calisto Granados Piñol S.A.,2023-12-13,Redes
+392,Sabe Ultra,12,983.79,534.04,487,Restauración Cañas S.L.,2026-05-23,Redes
+393,Algunos Air,12,566.67,363.57,111,Grupo Sacristán S.Com.,2024-06-01,Redes
+394,Materia Max,12,892.32,653.8,437,Salas y Gaya S.A.,2023-12-10,Redes
+395,Sola Air,12,731.74,543.92,188,Ortega y Román S.Com.,2024-02-09,Redes
+396,Último Ultra,12,1093.48,811.63,183,Industrias FLOW S.A.,2026-04-24,Redes
+397,Presenta Ultra,12,130.48,64.79,495,Finanzas del Mediterráneo S.Com.,2023-09-29,Redes
+398,Precio Lite,12,253.09,176.36,232,Rolando Capdevila Hernando S.Coop.,2026-01-14,Redes
+399,Ahora Elite,12,192.42,91.25,327,Hermanos Moliner S.A.,2025-12-05,Redes
+400,Salud X,12,1198.31,488.28,402,Tecnologías Beltran S.A.,2023-10-19,Redes
+401,No Ultra,12,673.67,502.62,402,Banco Castellana S.L.N.E,2025-03-16,Redes
+402,Cuanto Elite,12,1133.5,480.62,391,Roda y Quesada S.A.,2025-10-17,Redes
+403,Blanco Max,12,1112.86,673.54,416,Compañía Menendez & Asociados S.Coop.,2024-05-17,Redes
+404,Técnica Max,12,1740.68,896.44,75,Portillo & Asociados S.Com.,2025-05-16,Redes
+405,Santiago Lite,12,1579.39,961.21,141,Grupo Boix S.L.N.E,2024-01-03,Redes
+406,Bueno Essential,12,1718.22,774.3,66,Hermanos Echevarría S.A.,2024-02-05,Redes
+407,Escuela Pro,12,1085.02,737.25,56,Transportes Oliver S.Coop.,2024-08-12,Redes
+408,Quien Ultra,12,1325.49,542.16,7,Banca Privada POD S.L.,2025-12-18,Redes
+409,Sangre Air,12,722.89,488.64,301,Xavier Vicente Palomino S.A.,2025-12-03,Redes
+410,Información Air,12,654.3,301.62,26,Hotel ACSM S.Coop.,2025-02-20,Redes
+411,Tipos Max,12,262.24,143.53,58,Banco Rius S.A.T.,2024-07-26,Redes
+412,Actual X,12,1493.86,846.55,398,Comercializadora Peralta & Asociados S.Coop.,2023-09-26,Redes
+413,Tras Lite,12,730.45,443.96,231,Hnos Bayón S.L.N.E,2024-09-17,Redes
+414,Cuadro Ultra,12,1012.63,740.13,22,Boix y asociados S.A.,2024-05-13,Redes
+415,Dicho Essential,12,1457.2,1046.36,337,Industrias Simó y asociados S.Coop.,2025-08-11,Redes
+416,Produce Lite,12,1047.68,587.03,493,Despacho Avanzadas S.L.N.E,2023-08-13,Redes
+417,Eran Elite,12,71.98,53.95,433,Agustí y asociados S.A.,2026-04-23,Redes
+418,Hubiera Ultra,12,809.21,518.0,251,Fábrica ZVXY S.A.,2024-09-13,Redes
+419,Era Lite,12,1427.67,792.71,460,Perales y Sedano S.L.N.E,2023-11-15,Redes
+420,Unión Air,13,650.99,294.19,64,Servicios Benavides S.Coop.,2023-10-11,Software
+421,Medida Max,13,557.27,346.39,280,Instalaciones Integrales S.L.L.,2025-03-08,Software
+422,Formación X,13,1427.17,761.13,305,Santamaría y asociados S.A.U,2024-05-16,Software
+423,Madrid Essential,13,1065.8,595.57,309,Despacho IY S.Com.,2025-10-16,Software
+424,México Lite,13,866.09,586.85,58,Mario Sierra Landa S.L.L.,2023-11-24,Software
+425,Llamado Ultra,13,1707.05,1071.72,393,Grupo Mosquera S.A.,2024-07-26,Software
+426,Española Z,13,1107.15,778.24,220,Hermanos Juan S.L.L.,2024-04-02,Software
+427,Sobre Z,13,908.58,436.09,173,Cayetana Iborra Busquets S.Coop.,2024-02-09,Software
+428,Por Pro,13,1656.55,893.8,373,Desarrollo Ibérica S.L.L.,2025-02-04,Software
+429,Enfermedad Air,13,199.21,109.44,340,Comercializadora Almeida & Asociados S.A.,2026-04-05,Software
+430,Ninguna Max,13,517.22,379.51,351,Manufacturas CX S.A.,2025-12-14,Software
+431,Pese Z,13,1846.73,782.08,425,Amor Piñeiro Roldan S.A.,2024-06-04,Software
+432,Reforma Max,13,179.87,99.14,381,Inmobiliaria Salmerón & Asociados S.A.,2026-02-22,Software
+433,Mismos Lite,13,1480.19,1012.63,284,Transportes Requena y asociados S.A.,2024-09-13,Software
+434,Tema Max,13,129.35,95.05,287,Flores y Zaragoza S.C.P,2025-10-28,Software
+435,Cuba Pro,13,665.99,294.89,181,Palomar y Tena S.Coop.,2025-07-28,Software
+436,M Essential,13,1748.47,1275.33,216,Pont y asociados S.A.,2024-11-13,Software
+437,Sin Ultra,13,1737.49,1133.49,495,Hnos Ávila S.Com.,2025-12-30,Software
+438,Tenía Air,13,582.37,296.63,53,Industrias Integrales S.Coop.,2023-10-01,Software
+439,Hijo X,13,1160.05,550.4,336,Farmaceútica Guzmán S.Coop.,2026-06-24,Software
+440,Teatro Pro,13,969.55,675.34,179,Cisneros & Asociados S.L.L.,2025-08-09,Software
+441,Trata Max,13,1692.28,894.62,390,Anselmo Bosch Barbero S.A.U,2024-06-10,Software
+442,Lo Elite,13,564.34,270.41,219,Aarón Mármol Fortuny S.L.L.,2024-12-17,Software
+443,Campaña Max,13,1691.85,1253.82,419,Barranco & Asociados S.A.,2026-07-05,Software
+444,Concepto Max,13,1247.22,793.53,285,Promociones TW S.Com.,2023-12-10,Software
+445,Mercado Max,13,62.24,45.14,424,Suministros Torrens S.L.,2024-04-02,Software
+446,Baja Elite,13,1390.0,570.09,139,Godoy & Asociados S.Com.,2026-06-10,Software
+447,Manos Max,14,1843.85,964.07,92,Alimentación Posada S.L.L.,2025-12-04,Cámaras
+448,Ciudad Essential,14,1741.02,1041.5,205,Giner & Asociados S.L.N.E,2024-02-10,Cámaras
+449,Político X,14,148.46,97.89,497,Compañía Narváez S.Com.,2024-08-21,Cámaras
+450,Ejemplo Lite,14,71.0,46.94,110,Minería OLC S.Com.,2025-04-18,Cámaras
+451,Niveles Max,14,758.62,423.9,80,Ureña y Pinedo S.Com.,2025-02-09,Cámaras
+452,Estado Plus,14,746.4,487.07,397,Distribuciones del Norte S.A.,2023-08-27,Cámaras
+453,Mujeres Air,14,1883.39,1146.38,452,Manufacturas UI S.A.,2023-11-28,Cámaras
+454,Pueda Plus,14,114.68,52.19,316,Hnos Cózar S.Coop.,2025-05-11,Cámaras
+455,Va Pro,14,109.02,46.72,226,Manufacturas YV S.Coop.,2025-10-23,Cámaras
+456,Mañana Ultra,14,1327.25,756.51,226,Industrias Báez & Asociados S.Com.,2025-11-06,Cámaras
+457,Podrá Plus,14,834.22,396.63,262,Comercial Palomo S.A.,2023-11-20,Cámaras
+458,Viene Essential,14,236.49,130.18,145,Heraclio Caballero Amigó S.A.D,2026-03-24,Cámaras
+459,Señora Air,14,1359.64,826.11,269,Servicios Sotelo y asociados S.L.N.E,2024-08-21,Cámaras
+460,Sí Elite,14,1337.58,556.29,202,Esteban y Peláez S.L.N.E,2025-01-30,Cámaras
+461,Sistema Plus,14,1969.04,825.37,104,Hermanos Sabater S.Coop.,2024-06-22,Cámaras
+462,Común Pro,14,609.81,289.01,70,Construcción Boada S.L.,2025-10-25,Cámaras
+463,Explicó Essential,14,1530.67,767.33,61,Comercial del Mediterráneo S.L.L.,2025-04-17,Cámaras
+464,Especie Plus,14,25.37,16.78,89,Tecnologías Inteligentes S.A.,2023-08-29,Cámaras
+465,Demasiado Elite,14,267.07,156.61,117,Consultoría Sanchez S.A.,2024-03-22,Cámaras
+466,Habían Lite,14,1005.51,695.49,412,Banco Roda S.A.,2026-06-02,Cámaras
+467,Agua Max,14,714.78,385.25,379,Logística Bautista & Asociados S.Com.,2025-03-15,Cámaras
+468,Claro Ultra,14,94.17,38.29,471,Yéssica Alberola Yáñez S.L.,2023-12-28,Cámaras
+469,Salir Essential,14,164.94,84.05,219,Construcción OOTT S.L.N.E,2024-08-20,Cámaras
+470,Misma Ultra,14,1151.06,746.26,213,Cobo y Querol S.A.,2024-12-02,Cámaras
+471,Efecto Ultra,14,586.13,317.54,494,Almagro y asociados S.L.L.,2024-10-19,Cámaras
+472,Tuvo Ultra,14,656.28,446.57,316,Rosa Cabello Goñi S.A.,2025-05-25,Cámaras
+473,U X,14,925.58,593.63,185,Soluciones Borrell & Asociados S.Com.,2025-03-30,Cámaras
+474,Peso Plus,14,185.37,128.94,124,Barbero & Asociados S.A.,2025-09-01,Cámaras
+475,Idea Max,14,876.99,473.71,40,Grupo Fernández S.L.N.E,2024-05-13,Cámaras
+476,Todos Lite,14,797.57,405.64,173,Hnos Ayuso S.L.N.E,2026-07-05,Cámaras
+477,Cualquier Ultra,14,450.92,303.33,39,Simó y asociados S.L.,2024-01-15,Cámaras
+478,Derecha Pro,14,1025.85,451.28,261,Promociones del Sur S.Coop.,2024-04-07,Cámaras
+479,Líder Plus,14,395.86,265.89,179,Ocaña & Asociados S.L.L.,2024-08-11,Cámaras
+480,Santa Air,14,1457.47,1000.75,417,Banca Privada Pomares & Asociados S.A.,2025-12-11,Cámaras
+481,Atrás Lite,15,480.17,216.68,101,Hotel Ibérica S.C.P,2025-04-03,Altavoces
+482,Próximo Pro,15,355.25,161.11,388,Hnos Catalán S.L.,2026-01-25,Altavoces
+483,Informe Pro,15,1314.45,607.28,395,Infraestructuras Inteligentes S.L.,2026-03-31,Altavoces
+484,Da Z,15,1259.61,708.38,288,Oller y Segovia S.C.P,2025-06-30,Altavoces
+485,Acciones Elite,15,1522.15,848.02,473,Calatayud y Aguilera S.Coop.,2026-04-30,Altavoces
+486,Entrar X,15,1765.27,1103.38,319,Inversiones Campoy y asociados S.A.,2024-09-08,Altavoces
+487,Siete X,15,653.17,483.24,161,Infraestructuras Martín & Asociados S.A.,2024-07-14,Altavoces
+488,Material Pro,15,310.4,131.58,226,Montenegro y Chaves S.L.,2026-04-20,Altavoces
+489,Nivel Ultra,15,1266.45,859.56,302,Quiroga y Pont S.L.,2025-12-28,Altavoces
+490,Encontrar Lite,15,121.77,70.33,158,Girón y asociados S.L.N.E,2026-05-15,Altavoces
+491,Falta Max,15,928.86,383.77,188,Instalaciones Cabanillas S.Coop.,2024-08-11,Altavoces
+492,Miedo Elite,15,1665.07,710.74,442,Manufacturas Borrell S.A.T.,2024-06-17,Altavoces
+493,Aparece Ultra,15,1954.95,843.76,304,Muñoz y Peral S.C.P,2024-10-05,Altavoces
+494,Tribunal Air,15,1019.05,572.65,283,Balduino Belda Sureda S.L.N.E,2025-08-22,Altavoces
+495,Ellos Z,15,1908.91,1257.25,21,Soluciones Balaguer & Asociados S.A.,2024-05-13,Altavoces
+496,Ahí Z,15,904.96,618.48,333,Eric Molina Escribano S.L.,2025-08-02,Altavoces
+497,Frente X,15,384.59,235.27,256,Familia Sans S.C.P,2024-03-24,Altavoces
+498,Principal Max,15,310.2,130.8,52,Mireia Borja Castilla S.Coop.,2026-03-17,Altavoces
+499,Mediante Z,15,1623.81,1125.43,365,Tejada y Pla S.A.,2025-10-13,Altavoces
+500,Noche X,15,177.8,111.33,20,Hermanos Farré S.A.,2023-07-13,Altavoces
+501,Sentido X,15,503.0,278.27,224,Desarrollo Calderon y asociados S.Coop.,2024-10-24,Altavoces
+502,Uno Pro,15,1052.89,645.88,186,Instalaciones Sarmiento y asociados S.Com.,2026-06-07,Altavoces
+503,Hoy X,15,751.97,375.24,209,Plinio Fabra Cózar S.L.N.E,2025-03-24,Altavoces
+504,Al Lite,15,1551.17,989.05,26,Desarrollo Ibérica S.L.,2026-01-08,Altavoces
+505,Mundial Max,15,1580.55,990.3,33,Promociones HBTN S.Coop.,2023-09-20,Altavoces
+506,Cambios Air,15,666.07,396.5,197,Saldaña y Pinto S.A.,2024-08-02,Altavoces
+507,Capacidad Max,15,575.44,375.94,336,Alimentación Inteligentes S.Com.,2023-12-10,Altavoces
+508,Permite Elite,15,1929.17,1178.62,76,Desarrollo Riquelme & Asociados S.Coop.,2026-02-20,Altavoces
+509,Hacia Ultra,15,673.38,406.69,72,Construcción KKN S.Coop.,2024-05-15,Altavoces

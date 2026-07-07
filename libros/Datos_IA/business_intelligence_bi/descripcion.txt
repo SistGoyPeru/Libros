@@ -1,0 +1,30 @@
+Business Intelligence y Modelado de Datos — Libro 3 de la colección Data & Analytics Mastery
+
+Diseña dashboards profesionales y modela datos como un experto con Power BI. Aprende modelado dimensional, DAX, Power Query, visualizaciones avanzadas, Power BI Service, seguridad RLS y construye un portal BI corporativo completo.
+
+¿Qué aprenderás?
+✓ Arquitectura de datos moderna y modelado dimensional (estrella, copo de nieve)
+✓ Power BI: modelado, DAX básico y avanzado, medidas, contextos de filtro
+✓ Power Query: ETL, transformaciones M, dataflows
+✓ Visualizaciones profesionales con custom visuals y bookmarks
+✓ Power BI Service: workspaces, apps, pipelines de deployment
+✓ Seguridad RLS y seguridad a nivel de objeto
+✓ DAX Studio, Tabular Editor y herramientas profesionales
+✓ 4 proyectos progresivos construyendo sobre TechStore
+
+4 proyectos progresivos:
+Proyecto 1: Modelo Dimensional TechStore
+Proyecto 2: Dashboard Power BI Comercial
+Proyecto 3: Modelo Semántico Corporativo
+Proyecto 4: Portal BI Corporativo Completo
+
+Incluye base de datos SQLite en esquema estrella (TechStore BI), modelos dimensionales listos, medidas DAX, dashboards de muestra, y soluciones a todos los ejercicios.
+
+Perfecto para: analistas de datos que quieren especializarse en BI, profesionales de Power BI que buscan fundamentos sólidos, data analysts que quieren dominar DAX y modelado, y cualquier persona que quiera construir dashboards profesionales.
+
+Colección Data & Analytics Mastery (5 libros):
+1. Los Fundamentos del Analista de Datos
+2. Python para Datos y tu Primer Data Warehouse Cloud
+3. Business Intelligence y Modelado de Datos ← Este libro
+4. Ingeniería de Datos Moderna
+5. Big Data, ML e IA

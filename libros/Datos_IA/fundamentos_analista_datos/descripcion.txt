@@ -1,0 +1,21 @@
+Los Fundamentos del Analista de Datos — Libro 1 de la colección Data & Analytics Mastery
+
+Domina SQL, Excel y Python desde cero con un enfoque 100% práctico basado en proyectos reales. Este libro te guía a través de 4 proyectos integrados analizando los datos de TechStore, una tienda de electrónica con más de 5.000 pedidos y 500 productos.
+
+¿Qué aprenderás?
+✓ SQL completo: SELECT, JOINs, GROUP BY, subconsultas, CTEs y Window Functions
+✓ Excel avanzado: Power Query, tablas dinámicas, DAX, Power Pivot y dashboards profesionales
+✓ Python para datos: pandas, funciones, automatización de pipelines
+✓ Pipeline integrado: SQL + Python + Excel trabajando juntos
+✓ 4 proyectos reales para tu portfolio profesional
+
+Incluye base de datos SQLite real con 5 tablas, archivos CSV listos para importar, scripts Python editables, y soluciones completas a todos los ejercicios.
+
+Perfecto para: principiantes absolutos, profesionales que quieren dar el salto al análisis de datos, y cualquier persona que quiera construir una base sólida en las 3 herramientas más demandadas del mercado.
+
+Colección Data & Analytics Mastery (5 libros):
+1. Los Fundamentos del Analista de Datos ← Este libro
+2. Python para Datos y tu Primer Data Warehouse Cloud
+3. Business Intelligence y Modelado de Datos
+4. Ingeniería de Datos Moderna
+5. Big Data, ML e IA: Especialización Avanzada

@@ -1,0 +1,30 @@
+Ingeniería de Datos Moderna — Libro 4 de la colección Data & Analytics Mastery
+
+Domina el data engineering moderno con Python, Airflow y dbt. Aprende data lakes, formatos de datos (Parquet, Avro), transformaciones con dbt, orquestación con Airflow, Docker para entornos reproducibles y CI/CD para datos.
+
+¿Qué aprenderás?
+✓ Python para data engineering: ETL, pipelines, APIs, buenas prácticas
+✓ Formatos de datos: Parquet, Avro, ORC — cuándo y por qué usarlos
+✓ Data lakes con MinIO y lakehouse architecture
+✓ dbt: modelado, testing, documentación, Jinja, macros y packages
+✓ Airflow: DAGs, TaskFlow, sensores, Airflow + dbt integración
+✓ Docker: contenedores para data engineering, docker-compose multi-servicio
+✓ CI/CD para datos con GitHub Actions
+✓ Monitoreo, alertas y SLAs en pipelines de datos
+
+4 proyectos progresivos:
+Proyecto 1: Data Lake TechStore con MinIO
+Proyecto 2: Pipeline dbt de Transformaciones
+Proyecto 3: Orquestación Completa con Airflow
+Proyecto 4: Data Platform en Producción
+
+Incluye código completo de todos los proyectos, datasets de ejemplo, archivos dbt, DAGs de Airflow, configuraciones Docker y GitHub Actions workflows.
+
+Perfecto para: analistas que quieren dar el salto a data engineering, ingenieros de datos que buscan modernizar su stack, científicos de datos que necesitan pipelines robustos, y cualquier persona que quiera construir infraestructura de datos profesional.
+
+Colección Data & Analytics Mastery (5 libros):
+1. Los Fundamentos del Analista de Datos
+2. Python para Datos y tu Primer Data Warehouse Cloud
+3. Business Intelligence y Modelado de Datos
+4. Ingeniería de Datos Moderna ← Este libro
+5. Big Data, ML e IA

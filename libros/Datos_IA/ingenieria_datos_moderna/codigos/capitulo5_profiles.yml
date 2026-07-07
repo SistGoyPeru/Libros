@@ -1,0 +1,11 @@
+# Capítulo 5: Configuración de perfiles dbt
+# Colocar en ~/.dbt/profiles.yml
+
+techstore_dbt:
+  outputs:
+    dev:
+      type: duckdb
+      path: /data/techstore_warehouse.duckdb
+      schema: main
+      threads: 4
+  target: dev

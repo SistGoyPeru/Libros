@@ -1,0 +1,14 @@
+# Capítulo 5: Definición de fuentes (sources.yml)
+# Colocar en models/sources.yml
+
+version: 2
+
+sources:
+  - name: techstore
+    database: main
+    schema: main
+    tables:
+      - name: orders
+      - name: customers
+      - name: products
+      - name: order_items

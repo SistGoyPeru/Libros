@@ -1,0 +1,21 @@
+Freelancer de Datos — Guía completa para vivir del análisis de datos como independiente
+
+Convierte tu conocimiento en datos en un negocio rentable. Esta guía práctica te enseña cómo conseguir clientes, fijar tus tarifas, crear informes que impacten, usar IA para ser más productivo y escalar tu negocio freelance.
+
+¿Qué aprenderás?
+✓ El mercado freelance en datos: oportunidades, nichos rentables y el perfil del analista independiente
+✓ Habilidades clave y pricing: qué skills se pagan mejor, cómo fijar tarifas y negociar sin miedo
+✓ Cómo conseguir clientes: LinkedIn, plataformas freelance, propuestas ganadoras, portafolio
+✓ Marca personal y reputación: posicionamiento, redes, testimonios, casos de éxito
+✓ Stack técnico del freelancer: herramientas esenciales para el día a día
+✓ IA como asistente de datos: ChatGPT, Claude y Copilot para acelerar tu trabajo
+✓ Automatización de informes: plantillas, dashboards automáticos, pipelines ligeros
+✓ Storytelling con datos: narrativa, estructura, el arte del "¿y entonces?"
+✓ Visualizaciones que impactan: gráficos que comunican, no que decoran
+✓ Entregables profesionales: tipos de entregables, formatos, frecuencia
+✓ Cómo presentar resultados, manejar objeciones y conseguir el siguiente proyecto
+✓ Escalar tu negocio: de vender horas a vender valor, empaquetar servicios, delegar
+
+Sin código técnico. Sin ejercicios. Solo consejos prácticos, estrategias probadas y el conocimiento de años de experiencia como freelancer de datos.
+
+Perfecto para: analistas de datos que quieren independizarse, freelancers que buscan profesionalizar su negocio, estudiantes de datos que quieren entender el mercado, y cualquier persona que quiera vivir del análisis de datos.
