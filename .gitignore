@@ -1,9 +1,17 @@
 venv_epub/
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 .DS_Store
-distribucion/
+.env
 
+# Django and local project artifacts
+epub_visor/db.sqlite3
+epub_visor/staticfiles/
+
+# Generated distribution and promo assets
+distribucion/
 promociones/
 promo_tienda.jpg
 anuncio_facebook.txt
