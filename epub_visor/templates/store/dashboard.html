@@ -1,0 +1,88 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Dashboard de libros{% endblock %}
+
+{% block content %}
+    <section class="dashboard-header panel-card">
+        <div>
+            <span class="eyebrow">Panel Profesional</span>
+            <h1>Administración de libros</h1>
+            <p>Gestiona tu colección, revisa el rendimiento de Payhip y edita libros desde un panel optimizado.</p>
+        </div>
+        <div class="header-actions">
+            <a class="button button-secondary" href="{% url 'home' %}">Ver tienda</a>
+            <a class="button" href="{% url 'book_create' %}">Nuevo libro</a>
+        </div>
+    </section>
+
+    <section class="dashboard-grid">
+        <article class="dashboard-card accent-card">
+            <p class="card-label">Total libros</p>
+            <h2>{{ total_libros }}</h2>
+            <p class="card-note">Libros registrados en el sistema.</p>
+        </article>
+
+        <article class="dashboard-card accent-card secondary">
+            <p class="card-label">Clicks a Payhip</p>
+            <h2>{{ total_clicks }}</h2>
+            <p class="card-note">Visitas que llegaron a tu enlace de compra.</p>
+        </article>
+
+        <article class="dashboard-card">
+            <p class="card-label">Estado general</p>
+            <p class="card-value">{{ libros|length }} libros cargados</p>
+            <p class="card-note">Revisa los detalles y edita los recursos desde la tabla.</p>
+        </article>
+    </section>
+
+    <section class="table-card panel-card">
+        <div class="table-card-header">
+            <div>
+                <h2>Libros</h2>
+                <p>Controla el estado de publicación y el rendimiento de cada libro.</p>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Publicado</th>
+                        <th>Categoría</th>
+                        <th>Precio</th>
+                        <th>Clicks</th>
+                        <th>URL Payhip</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for libro in libros %}
+                        <tr>
+                            <td>{{ libro.titulo }}</td>
+                            <td><span class="badge {{ libro.publicado|yesno:'badge-active,badge-muted' }}">{{ libro.publicado|yesno:'Activo,Inactivo' }}</span></td>
+                            <td>{{ libro.categoria|default:'Sin categoría' }}</td>
+                            <td>{{ libro.precio }} €</td>
+                            <td>{{ libro.payhip_clicks.count }}</td>
+                            <td>
+                                {% if libro.payhip_url %}
+                                    <a class="small-button button-secondary" target="_blank" rel="noopener noreferrer" href="{{ libro.payhip_url }}">Ver enlace</a>
+                                {% else %}
+                                    <span class="badge badge-muted">Sin URL</span>
+                                {% endif %}
+                            </td>
+                            <td class="actions-cell">
+                                <a class="small-button" href="{% url 'book_update' libro.pk %}">Editar</a>
+                                <a class="small-button button-danger" href="{% url 'book_delete' libro.pk %}">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="6">No hay libros aún. Crea uno nuevo para comenzar.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+{% endblock %}

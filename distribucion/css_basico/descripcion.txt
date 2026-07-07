@@ -1,1 +1,0 @@
-Mateo consigue su primer trabajo en PixelLab y debe transformar el sitio web de la revista "Cultura Viva" usando CSS. Desde selectores y colores hasta Flexbox, Grid y animaciones: una novela para aprender CSS desde cero mientras sigues una historia de diseño, creatividad y segundas oportunidades. Sin experiencia previa en CSS necesaria.

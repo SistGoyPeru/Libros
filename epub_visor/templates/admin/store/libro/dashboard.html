@@ -1,0 +1,64 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block title %}Dashboard de Payhip{% endblock %}
+
+{% block content %}
+<h1>Dashboard de Payhip</h1>
+<div class="dashboard-summary">
+    <div class="summary-card">
+        <h2>Total clicks</h2>
+        <p>{{ total_clicks }}</p>
+    </div>
+</div>
+
+<h2>Top 10 libros por clicks</h2>
+<table class="admin-dashboard-table">
+    <thead>
+        <tr>
+            <th>Libro</th>
+            <th>Clicks</th>
+            <th>Publicado</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for libro in top_books %}
+            <tr>
+                <td><a href="{{ libro.get_admin_url }}">{{ libro.titulo }}</a></td>
+                <td>{{ libro.payhip_clicks_count }}</td>
+                <td>{{ libro.publicado|yesno:"Sí,No" }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3">No hay datos disponibles.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h2>Últimos clicks registrados</h2>
+<table class="admin-dashboard-table">
+    <thead>
+        <tr>
+            <th>Libro</th>
+            <th>Fecha</th>
+            <th>IP</th>
+            <th>User Agent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for click in recent_clicks %}
+            <tr>
+                <td>{{ click.libro.titulo }}</td>
+                <td>{{ click.timestamp }}</td>
+                <td>{{ click.ip_address }}</td>
+                <td>{{ click.user_agent|truncatechars:80 }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="4">No hay clicks recientes.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

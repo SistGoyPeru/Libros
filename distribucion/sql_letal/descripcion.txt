@@ -1,1 +1,0 @@
-Un misterio por resolver y una base de datos llena de pistas. Este libro enseña SQL desde cero en formato de novela policíaca: SELECT, WHERE, JOINs, GROUP BY, subconsultas, CTEs, ventanas, índices y normalización. Perfecto para quienes quieren aprender bases de datos mientras ayudan a resolver un crimen donde cada consulta acerca un poco más a la verdad.

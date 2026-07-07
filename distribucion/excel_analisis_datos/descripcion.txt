@@ -1,1 +1,0 @@
-De los datos crudos a las decisiones inteligentes: aprende el proceso completo de análisis de datos con Excel. Limpieza, análisis exploratorio, funciones de búsqueda y referencia, tendencias, tablas dinámicas, visualización, escenarios, Power Query y un proyecto final integrador. Para profesionales que quieren convertir datos en decisiones sin depender de otros programas.

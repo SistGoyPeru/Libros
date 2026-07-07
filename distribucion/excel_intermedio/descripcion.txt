@@ -1,1 +1,0 @@
-La historia continúa: Luis descubre que su abuelo guardaba secretos financieros ocultos en una hoja de cálculo. Para desentrañarlos necesitará BUSCARV, tablas dinámicas, rangos con nombre, validación de datos, funciones SI anidadas y análisis de escenarios. Perfecto para quienes ya saben lo básico de Excel y quieren profundizar mientras resuelven un misterio familiar.

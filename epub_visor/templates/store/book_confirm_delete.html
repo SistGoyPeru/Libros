@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Eliminar libro{% endblock %}
+
+{% block content %}
+    <section class="form-section dashboard-card">
+        <div class="form-header">
+            <div>
+                <span class="eyebrow">Confirmar eliminación</span>
+                <h1>Eliminar libro</h1>
+                <p class="delete-note">¿Estás seguro que quieres eliminar "{{ libro.titulo }}"? Esta acción no se puede deshacer.</p>
+            </div>
+            <a class="button button-secondary" href="{% url 'store_dashboard' %}">Volver al dashboard</a>
+        </div>
+        <form method="post" class="delete-form">
+            {% csrf_token %}
+            <div class="form-actions">
+                <button class="button button-danger" type="submit">Eliminar</button>
+                <a class="button button-secondary" href="{% url 'store_dashboard' %}">Cancelar</a>
+            </div>
+        </form>
+    </section>
+{% endblock %}

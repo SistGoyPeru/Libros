@@ -1,1 +1,0 @@
-Excel aplicado al mundo contable y financiero: catálogo de cuentas, libro diario y mayor, funciones financieras, tablas dinámicas, consolidación, auditoría y macros VBA. Diseñado para contadores, administradores y financieros que buscan dominar las herramientas de Excel específicas para su profesión y optimizar su trabajo diario con datos reales.

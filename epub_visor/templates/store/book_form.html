@@ -1,0 +1,28 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ action }}{% endblock %}
+
+{% block content %}
+    <section class="form-section dashboard-card">
+        <div class="form-header">
+            <div>
+                <span class="eyebrow">Edición</span>
+                <h1>{{ action }}</h1>
+                <p>Actualiza los datos del libro y su enlace de Payhip desde este panel.</p>
+            </div>
+            <a class="button button-secondary" href="{% url 'store_dashboard' %}">Volver al dashboard</a>
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-grid form-grid-2">
+                {{ form.as_p }}
+            </div>
+
+            <div class="form-actions">
+                <button class="button" type="submit">Guardar</button>
+                <a class="button button-secondary" href="{% url 'store_dashboard' %}">Cancelar</a>
+            </div>
+        </form>
+    </section>
+{% endblock %}

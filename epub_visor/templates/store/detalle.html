@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ libro.titulo }} - Tienda de libros</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <h1>{{ libro.titulo }}</h1>
+                <p>Información detallada del libro.</p>
+            </div>
+            <nav class="site-nav">
+                <a href="/">Inicio</a>
+                <a href="/admin/">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="detalle-card">
+            <div class="detalle-imagen">
+                <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
+            </div>
+            <div class="detalle-body">
+                <div class="detalle-topline">
+                    {% if libro.categoria %}
+                        <span class="category-label">{{ libro.categoria }}</span>
+                    {% endif %}
+                    <span class="detalle-status">Publicado: {{ libro.publicado|yesno:'Sí,No' }}</span>
+                </div>
+                <h2>{{ libro.titulo }}</h2>
+                <p class="price">{{ libro.precio }} €</p>
+                <p>{{ libro.descripcion }}</p>
+                {% if libro.payhip_url %}
+                    <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar en Payhip</a>
+                {% else %}
+                    <span class="button disabled">Agregar URL de Payhip</span>
+                {% endif %}
+                <div class="detalle-meta">
+                    <p class="meta-note">Categoría: {{ libro.categoria|default:'Sin categoría' }}</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Proyecto Django para tienda de libros.</p>
+    </footer>
+</body>
+</html>

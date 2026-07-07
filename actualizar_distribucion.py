@@ -1,4 +1,4 @@
-import os, shutil, sys
+import os, shutil, sys, stat
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(BASE, 'distribucion')
@@ -29,14 +29,19 @@ BOOKS = [
     ('agentes_ia_negocios',      'Agentes_IA_Negocios',    'Agentes_IA_Negocios.epub',           'Agentes_IA_Negocios.pdf',              'cover.jpg', 'Datos_IA'),
 ]
 
+def _on_rm_error(func, path, exc_info):
+    os.chmod(path, stat.S_IWRITE)
+    func(path)
+
+if os.path.exists(DIST):
+    shutil.rmtree(DIST, onerror=_on_rm_error)
 os.makedirs(DIST, exist_ok=True)
 
 ok, fail = 0, 0
 for folder, out_name, epub_name, pdf_name, cover_name, category in BOOKS:
     src = os.path.join(BASE, "libros", category, folder)
-    dst = os.path.join(DIST, folder)
+    dst = os.path.join(DIST, category, folder)
     os.makedirs(dst, exist_ok=True)
-
     pairs = [
         (os.path.join(src, epub_name), os.path.join(dst, f'{out_name}.epub')),
         (os.path.join(src, pdf_name),  os.path.join(dst, f'{out_name}.pdf')),

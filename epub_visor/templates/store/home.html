@@ -1,0 +1,79 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Tienda de libros{% endblock %}
+
+{% block content %}
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bienvenido a tu librería digital</h2>
+            <p>Exhibe tus libros con un estilo elegante de librería y prepara el enlace de Payhip para vender desde aquí.</p>
+            <div class="hero-actions">
+                {% if user.is_authenticated %}
+                    <a class="button" href="{% url 'store_dashboard' %}">Ir al dashboard</a>
+                {% else %}
+                    <a class="button" href="{% url 'admin_access' %}">Entrar como admin</a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="catalog-headline">
+            <p>Descubre los libros publicados</p>
+            <h2>Colección disponible</h2>
+        </div>
+
+        <div class="category-filter">
+            <span>Filtrar por categoría:</span>
+            <div class="category-tags">
+                <a class="category-pill {% if not categoria_seleccionada %}active{% endif %}" href="?">Todas</a>
+                {% for categoria in categorias %}
+                    <a class="category-pill {% if categoria == categoria_seleccionada %}active{% endif %}" href="?categoria={{ categoria|urlencode }}">{{ categoria }}</a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="grid">
+            {% for libro in libros %}
+                <article class="card">
+                    <div class="book-3d">
+                        <div class="book-cover">
+                            <div class="book-front">
+                                <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
+                            </div>
+                            <div class="book-pages"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-topline">
+                            {% if libro.categoria %}
+                                <span class="category-label">{{ libro.categoria }}</span>
+                            {% endif %}
+                            <span class="price">{{ libro.precio }} €</span>
+                        </div>
+                        <h3>{{ libro.titulo }}</h3>
+                        <p>{{ libro.descripcion|truncatechars:140 }}</p>
+                        <div class="card-actions">
+                            {% if libro.payhip_url %}
+                                <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar</a>
+                            {% else %}
+                                <span class="button disabled">Agregar URL de Payhip</span>
+                            {% endif %}
+                            <a class="button button-secondary" href="{{ libro.get_absolute_url }}">Detalles</a>
+                        </div>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-state">
+                    <h3>No hay libros listos para comprar todavía.</h3>
+                    <p>Marca los libros como publicados y añade la URL de Payhip en el admin para mostrarlos aquí.</p>
+                    {% if user.is_authenticated %}
+                        <a class="button" href="{% url 'store_dashboard' %}">Ir al dashboard</a>
+                    {% else %}
+                        <a class="button" href="{% url 'admin_access' %}">Entrar como admin</a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock %}
