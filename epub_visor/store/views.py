@@ -1,8 +1,14 @@
+from datetime import timedelta
+import json
+
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
+from django.db.models.functions import TruncDate
 from django.http import Http404
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Libro, PayhipClick
+from django.utils import timezone
+from .models import Libro, PayhipClick, LibroView
 from .forms import LibroForm
 
 
@@ -53,8 +59,12 @@ def detalle_libro(request, pk):
         pk=pk,
         publicado=True,
     )
-    if not libro.payhip_url:
-        raise Http404()
+
+    LibroView.objects.create(
+        libro=libro,
+        ip_address=request.META.get('REMOTE_ADDR', ''),
+        user_agent=request.META.get('HTTP_USER_AGENT', ''),
+    )
     return render(request, 'store/detalle.html', {'libro': libro})
 
 
@@ -79,11 +89,43 @@ def comprar_libro(request, pk):
 def store_dashboard(request):
     libros = Libro.objects.all().order_by('titulo')
     total_libros = libros.count()
+    total_views = LibroView.objects.count()
     total_clicks = PayhipClick.objects.count()
+
+    days = 14
+    today = timezone.localdate()
+    start_date = today - timedelta(days=days - 1)
+    views_by_date = (
+        LibroView.objects
+        .filter(timestamp__date__gte=start_date)
+        .annotate(day=TruncDate('timestamp'))
+        .values('day')
+        .annotate(count=Count('id'))
+        .order_by('day')
+    )
+    clicks_by_date = (
+        PayhipClick.objects
+        .filter(timestamp__date__gte=start_date)
+        .annotate(day=TruncDate('timestamp'))
+        .values('day')
+        .annotate(count=Count('id'))
+        .order_by('day')
+    )
+
+    view_counts = {item['day']: item['count'] for item in views_by_date}
+    click_counts = {item['day']: item['count'] for item in clicks_by_date}
+    daily_labels = [(start_date + timedelta(days=i)).strftime('%d %b') for i in range(days)]
+    daily_views_data = [view_counts.get(start_date + timedelta(days=i), 0) for i in range(days)]
+    daily_clicks_data = [click_counts.get(start_date + timedelta(days=i), 0) for i in range(days)]
+
     return render(request, 'store/dashboard.html', {
         'libros': libros,
         'total_libros': total_libros,
+        'total_views': total_views,
         'total_clicks': total_clicks,
+        'daily_views_labels': json.dumps(daily_labels),
+        'daily_views_data': json.dumps(daily_views_data),
+        'daily_clicks_data': json.dumps(daily_clicks_data),
     })
 
 

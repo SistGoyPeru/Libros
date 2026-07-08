@@ -11,19 +11,23 @@ class LibroAdmin(admin.ModelAdmin):
     change_list_template = 'admin/store/libro/change_list.html'
     list_display = (
         'titulo',
+        'categoria',
         'precio',
         'publicado',
         'payhip_url',
         'payhip_clicks_count',
         'last_payhip_click',
     )
-    list_filter = ('publicado',)
-    search_fields = ('titulo', 'descripcion')
+    list_filter = ('publicado', 'categoria')
+    search_fields = ('titulo', 'descripcion', 'excerpt')
     readonly_fields = ('payhip_clicks_count', 'last_payhip_click')
     fields = (
         'titulo',
         'descripcion',
+        'excerpt',
+        'categoria',
         'portada_url',
+        'pdf_url',
         'precio',
         'payhip_url',
         'publicado',

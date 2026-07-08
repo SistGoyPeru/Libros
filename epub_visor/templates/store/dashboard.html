@@ -23,9 +23,15 @@
         </article>
 
         <article class="dashboard-card accent-card secondary">
+            <p class="card-label">Vistas de detalles</p>
+            <h2>{{ total_views }}</h2>
+            <p class="card-note">Cantidad total de visitas a la página de detalles.</p>
+        </article>
+
+        <article class="dashboard-card accent-card tertiary">
             <p class="card-label">Clicks a Payhip</p>
             <h2>{{ total_clicks }}</h2>
-            <p class="card-note">Visitas que llegaron a tu enlace de compra.</p>
+            <p class="card-note">Clicks que llevan al enlace de compra en Payhip.</p>
         </article>
 
         <article class="dashboard-card">
@@ -33,6 +39,30 @@
             <p class="card-value">{{ libros|length }} libros cargados</p>
             <p class="card-note">Revisa los detalles y edita los recursos desde la tabla.</p>
         </article>
+    </section>
+
+    <section class="panel-card chart-card">
+        <div class="chart-card-header">
+            <div>
+                <h2>Vistas diarias</h2>
+                <p>Resumen de visitas a la página de detalles en las últimas dos semanas.</p>
+            </div>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="dailyViewsChart" aria-label="Gráfico de líneas de vistas diarias" role="img"></canvas>
+        </div>
+    </section>
+
+    <section class="panel-card chart-card">
+        <div class="chart-card-header">
+            <div>
+                <h2>Clicks de compra diarios</h2>
+                <p>Resumen de clicks en el botón de comprar que redirigen a Payhip.</p>
+            </div>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="dailyClicksChart" aria-label="Gráfico de líneas de clicks diarios" role="img"></canvas>
+        </div>
     </section>
 
     <section class="table-card panel-card">
@@ -85,4 +115,83 @@
             </table>
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const chartLabels = {{ daily_views_labels|safe }};
+        const dailyViewsData = {{ daily_views_data|safe }};
+        const dailyClicksData = {{ daily_clicks_data|safe }};
+
+        const viewsCtx = document.getElementById('dailyViewsChart');
+        if (viewsCtx) {
+            new Chart(viewsCtx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Vistas diarias',
+                        data: dailyViewsData,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.15)',
+                        tension: 0.35,
+                        fill: true,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#1d4ed8',
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => `${ctx.parsed.y} visitas`,
+                            },
+                        },
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                    },
+                },
+            });
+        }
+
+        const clicksCtx = document.getElementById('dailyClicksChart');
+        if (clicksCtx) {
+            new Chart(clicksCtx, {
+                type: 'line',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Clicks de compra',
+                        data: dailyClicksData,
+                        borderColor: '#16a34a',
+                        backgroundColor: 'rgba(22, 163, 74, 0.15)',
+                        tension: 0.35,
+                        fill: true,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#15803d',
+                    }],
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => `${ctx.parsed.y} clicks`,
+                            },
+                        },
+                    },
+                    scales: {
+                        x: { grid: { display: false } },
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } },
+                    },
+                },
+            });
+        }
+    </script>
 {% endblock %}

@@ -1,0 +1,20 @@
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Libros SistGoy</title>
+  <desc id="logoDesc">Logotipo de Libros SistGoy con icono de libro y texto</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#0f172a" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="2" y="2" width="56" height="56" rx="14" fill="url(#grad)"/>
+    <path d="M18 18h16c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H18v-2h16V20H18v-2zm0 0L12 16v24l6-2" fill="#fff" opacity="0.9"/>
+    <path d="M18 18v24l8-3V18H18z" fill="#e2e8f0" opacity="0.8"/>
+  </g>
+  <text x="72" y="26" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#111827">Libros</text>
+  <text x="72" y="44" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#1d4ed8">SistGoy</text>
+</svg>

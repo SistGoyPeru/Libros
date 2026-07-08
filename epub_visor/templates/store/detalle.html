@@ -26,6 +26,14 @@
             <div class="detalle-imagen">
                 <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
             </div>
+            {% if libro.pdf_url %}
+                <section class="detalle-pdf-preview pdf-preview-below-cover" id="pdf-preview">
+                    <h3>Vista previa del libro</h3>
+                    <div class="pdf-frame pdf-preview-frame">
+                        <iframe src="{{ libro.pdf_url }}#toolbar=0&navpanes=0&scrollbar=0" title="Vista previa PDF" loading="lazy"></iframe>
+                    </div>
+                </section>
+            {% endif %}
             <div class="detalle-body">
                 <div class="detalle-topline">
                     {% if libro.categoria %}
@@ -35,12 +43,33 @@
                 </div>
                 <h2>{{ libro.titulo }}</h2>
                 <p class="price">{{ libro.precio }} €</p>
-                <p>{{ libro.descripcion }}</p>
+
                 {% if libro.payhip_url %}
-                    <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar en Payhip</a>
+                    <div class="detalle-actions">
+                        <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar en Payhip</a>
+                    </div>
                 {% else %}
-                    <span class="button disabled">Agregar URL de Payhip</span>
+                    <div class="detalle-actions">
+                        <span class="button disabled">Agregar URL de Payhip</span>
+                    </div>
                 {% endif %}
+
+                <p>{{ libro.descripcion }}</p>
+
+                {% if libro.excerpt %}
+                    <aside class="detalle-aside">
+                        <h3>Parte importante del libro</h3>
+                        <p>{{ libro.excerpt }}</p>
+                    </aside>
+                {% endif %}
+
+                {% if not libro.pdf_url %}
+                    <div class="detalle-actions">
+                        <span class="button disabled">No hay visor PDF disponible</span>
+                    </div>
+                    <p class="pdf-note">Añade la URL de `pdf_url` en el administrador para que el visor aparezca aquí.</p>
+                {% endif %}
+
                 <div class="detalle-meta">
                     <p class="meta-note">Categoría: {{ libro.categoria|default:'Sin categoría' }}</p>
                 </div>
@@ -53,3 +82,4 @@
     </footer>
 </body>
 </html>
+

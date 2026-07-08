@@ -1,79 +1,125 @@
 {% extends 'store/base.html' %}
+{% load static %}
 
-{% block title %}Tienda de libros{% endblock %}
+{% block title %}Portafolio Profesional de Datos{% endblock %}
 
 {% block content %}
     <section class="hero">
         <div class="hero-content">
-            <h2>Bienvenido a tu librería digital</h2>
-            <p>Exhibe tus libros con un estilo elegante de librería y prepara el enlace de Payhip para vender desde aquí.</p>
+            <p class="eyebrow">Analista de datos freelance</p>
+            <h1>Transformo tus datos en decisiones estratégicas</h1>
+            <p class="hero-copy">El 80% de las empresas tiene datos pero no los usa para tomar decisiones. Yo ayudo a negocios a crear dashboards, automatizar reportes, limpiar bases de datos y detectar oportunidades de crecimiento.</p>
             <div class="hero-actions">
-                {% if user.is_authenticated %}
-                    <a class="button" href="{% url 'store_dashboard' %}">Ir al dashboard</a>
-                {% else %}
-                    <a class="button" href="{% url 'admin_access' %}">Entrar como admin</a>
-                {% endif %}
+                <a class="button button-primary" href="#contacto">Consultoría gratis</a>
+                <a class="button button-secondary" href="#servicios">Ver servicios</a>
             </div>
         </div>
     </section>
 
-    <main class="container">
-        <div class="catalog-headline">
-            <p>Descubre los libros publicados</p>
-            <h2>Colección disponible</h2>
+    <section class="section about-section">
+        <div class="container about-grid">
+            <div>
+                <h2>Cómo apoyo a tu negocio</h2>
+                <p>Trabajo con dueños de e-commerce, agencias de marketing, PYMES y emprendedores que quieren aprovechar sus datos para crecer y tomar decisiones más rápidas.</p>
+                <ul class="feature-list">
+                    <li>Dashboards en Power BI y Looker Studio para métricas claras.</li>
+                    <li>Automatización de reportes en Excel y Python.</li>
+                    <li>Limpieza y organización de bases de datos desordenadas.</li>
+                    <li>Identificación de tendencias y oportunidades de crecimiento.</li>
+                </ul>
+            </div>
+            <div class="stats-card">
+                <div class="stat-item">
+                    <span class="stat-value">+15</span>
+                    <span class="stat-label">Libros y guías publicados</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">+120</span>
+                    <span class="stat-label">Proyectos y clientes atendidos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">+6</span>
+                    <span class="stat-label">Años de experiencia</span>
+                </div>
+                <div class="stat-item highlight-item">
+                    <span class="stat-value">1</span>
+                    <span class="stat-label">Consultoría inicial gratis de 30 minutos</span>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="category-filter">
-            <span>Filtrar por categoría:</span>
-            <div class="category-tags">
-                <a class="category-pill {% if not categoria_seleccionada %}active{% endif %}" href="?">Todas</a>
-                {% for categoria in categorias %}
-                    <a class="category-pill {% if categoria == categoria_seleccionada %}active{% endif %}" href="?categoria={{ categoria|urlencode }}">{{ categoria }}</a>
+    <section class="section services-section" id="servicios">
+        <div class="container">
+            <div class="section-headline">
+                <p>Servicios profesionales</p>
+                <h2>Qué ofrezco</h2>
+            </div>
+            <div class="service-grid">
+                <article class="service-card">
+                    <h3>Dashboards interactivos</h3>
+                    <p>Tableros ejecutivos en Power BI y Looker Studio para ver ventas, margen y oportunidades al instante.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Automatización en Excel</h3>
+                    <p>Reportes automáticos que antes te tomaban horas, ahora se actualizan con un clic.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Limpieza de datos</h3>
+                    <p>Ordeno tus bases de datos desordenadas para que tus análisis sean confiables y simples de usar.</p>
+                </article>
+                <article class="service-card">
+                    <h3>Análisis avanzado</h3>
+                    <p>Uso SQL y Python para identificar tendencias, áreas de pérdida y oportunidades de crecimiento.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="section projects-section">
+        <div class="container">
+            <div class="section-headline">
+                <p>Portafolio</p>
+                <h2>Libros y proyectos destacados</h2>
+            </div>
+            <div class="project-grid">
+                {% for libro in libros %}
+                    <article class="project-card">
+                        <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
+                        <div class="project-content">
+                            {% if libro.categoria %}<span class="project-tag">{{ libro.categoria }}</span>{% endif %}
+                            <h3>{{ libro.titulo }}</h3>
+                            <p>{{ libro.descripcion|truncatechars:160 }}</p>
+                            <div class="project-actions">
+                                {% if libro.payhip_url %}
+                                    <a class="button button-primary" href="{% url 'libro_comprar' libro.pk %}">Comprar</a>
+                                {% else %}
+                                    <span class="button disabled">Sin venta aún</span>
+                                {% endif %}
+                                <a class="button button-secondary" href="{{ libro.get_absolute_url }}">Detalles</a>
+                            </div>
+                        </div>
+                    </article>
+                {% empty %}
+                    <div class="empty-state">
+                        <h3>No hay libros activos aún.</h3>
+                        <p>Agrega tus libros publicados para que aparezcan en el portafolio.</p>
+                    </div>
                 {% endfor %}
             </div>
         </div>
+    </section>
 
-        <div class="grid">
-            {% for libro in libros %}
-                <article class="card">
-                    <div class="book-3d">
-                        <div class="book-cover">
-                            <div class="book-front">
-                                <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
-                            </div>
-                            <div class="book-pages"></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-topline">
-                            {% if libro.categoria %}
-                                <span class="category-label">{{ libro.categoria }}</span>
-                            {% endif %}
-                            <span class="price">{{ libro.precio }} €</span>
-                        </div>
-                        <h3>{{ libro.titulo }}</h3>
-                        <p>{{ libro.descripcion|truncatechars:140 }}</p>
-                        <div class="card-actions">
-                            {% if libro.payhip_url %}
-                                <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar</a>
-                            {% else %}
-                                <span class="button disabled">Agregar URL de Payhip</span>
-                            {% endif %}
-                            <a class="button button-secondary" href="{{ libro.get_absolute_url }}">Detalles</a>
-                        </div>
-                    </div>
-                </article>
-            {% empty %}
-                <div class="empty-state">
-                    <h3>No hay libros listos para comprar todavía.</h3>
-                    <p>Marca los libros como publicados y añade la URL de Payhip en el admin para mostrarlos aquí.</p>
-                    {% if user.is_authenticated %}
-                        <a class="button" href="{% url 'store_dashboard' %}">Ir al dashboard</a>
-                    {% else %}
-                        <a class="button" href="{% url 'admin_access' %}">Entrar como admin</a>
-                    {% endif %}
+    <section id="contacto" class="section contact-section">
+        <div class="container contact-inner">
+            <div class="contact-card">
+                <h2>Hablemos de tu próximo proyecto</h2>
+                <p>Si necesitas análisis de datos, dashboards, informes o libros educativos, estoy disponible para ayudarte.</p>
+                <div class="contact-actions">
+                    <a class="button button-primary" href="mailto:alexgoyzueta2018@gmail.com">Enviar correo</a>
+                    <a class="button button-secondary" href="https://wa.me/34604858192" target="_blank" rel="noopener">Abrir WhatsApp</a>
                 </div>
-            {% endfor %}
+            </div>
         </div>
-    </main>
+    </section>
 {% endblock %}

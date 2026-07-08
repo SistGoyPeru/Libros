@@ -54,11 +54,15 @@ class Command(BaseCommand):
                 descripcion = self._leer_descripcion(folder_path)
                 epub_filename = self._buscar_epub(folder_path)
                 portada_source = self._buscar_cover(folder_path)
+                pdf_source = self._buscar_pdf(folder_path, epub_filename)
                 titulo = self._formatear_titulo(folder_name, epub_filename)
                 portada_url = self._build_cover_url(category_name, folder_name) if portada_source else ''
+                pdf_url = self._build_pdf_url(category_name, folder_name) if pdf_source else ''
 
                 if portada_source:
                     self._copy_cover(portada_source, category_name, folder_name)
+                if pdf_source:
+                    self._copy_pdf(pdf_source, category_name, folder_name)
 
                 libro, created_flag = Libro.objects.get_or_create(
                     folder_name=folder_name,
@@ -71,6 +75,7 @@ class Command(BaseCommand):
                         'payhip_url': '',
                         'publicado': bool(options['publish']),
                         'epub_filename': epub_filename,
+                        'pdf_url': pdf_url,
                     },
                 )
 
@@ -87,6 +92,9 @@ class Command(BaseCommand):
                         changed = True
                     if portada_url and libro.portada_url != portada_url:
                         libro.portada_url = portada_url
+                        changed = True
+                    if pdf_url and libro.pdf_url != pdf_url:
+                        libro.pdf_url = pdf_url
                         changed = True
                     if libro.categoria != category_name:
                         libro.categoria = category_name
@@ -135,6 +143,11 @@ class Command(BaseCommand):
             return f'/static/covers/{category}/{folder_name}.jpg'
         return f'/static/covers/{folder_name}.jpg'
 
+    def _build_pdf_url(self, category: str, folder_name: str) -> str:
+        if category:
+            return f'/static/pdfs/{category}/{folder_name}.pdf'
+        return f'/static/pdfs/{folder_name}.pdf'
+
     def _copy_cover(self, cover_path: Path, category: str, folder_name: str) -> None:
         if category:
             static_dir = Path(settings.BASE_DIR) / 'static' / 'covers' / category
@@ -143,6 +156,27 @@ class Command(BaseCommand):
         static_dir.mkdir(parents=True, exist_ok=True)
         destination = static_dir / f'{folder_name}.jpg'
         destination.write_bytes(cover_path.read_bytes())
+
+    def _copy_pdf(self, pdf_path: Path, category: str, folder_name: str) -> None:
+        if category:
+            static_dir = Path(settings.BASE_DIR) / 'static' / 'pdfs' / category
+        else:
+            static_dir = Path(settings.BASE_DIR) / 'static' / 'pdfs'
+        static_dir.mkdir(parents=True, exist_ok=True)
+        destination = static_dir / f'{folder_name}.pdf'
+        destination.write_bytes(pdf_path.read_bytes())
+
+    def _buscar_pdf(self, folder_path: Path, epub_filename: str) -> Path | None:
+        candidates = [p for p in folder_path.iterdir() if p.is_file() and p.suffix.lower() == '.pdf']
+        if not candidates:
+            return None
+        # Prefer same-named PDF as the EPUB; otherwise use first PDF file.
+        if epub_filename:
+            base_name = Path(epub_filename).stem
+            for candidate in candidates:
+                if candidate.stem == base_name:
+                    return candidate
+        return candidates[0]
 
     def _formatear_titulo(self, folder_name: str, epub_filename: str) -> str:
         if epub_filename:
