@@ -3,7 +3,7 @@ services:
     name: epub-visor
     runtime: python
     buildCommand: "cd epub_visor && bash build.sh"
-    startCommand: "cd epub_visor && gunicorn epub_visor.wsgi:application --bind 0.0.0.0:$PORT --workers 4"
+    startCommand: "cd epub_visor && python manage.py migrate --no-input && gunicorn epub_visor.wsgi:application --bind 0.0.0.0:$PORT --workers 4"
     envVars:
       - key: DJANGO_SECRET_KEY
         generateValue: true
