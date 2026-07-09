@@ -1,0 +1,2420 @@
+[
+{
+    "model": "store.aboutme",
+    "pk": 1,
+    "fields": {
+        "nombre": "Alex Goyzueta Delgado",
+        "titulo": "Analista de Datos",
+        "hero_title": "Datos que hablan<br><span style=\"color:var(--gold);font-size:1.2em;\">✦ Decisiones que transforman ✦</span>",
+        "hero_subtitle": "",
+        "bio": "Transformo datos en decisiones claras y accionables.\r\n\r\nTrabajo con herramientas como Python, SQL, Power BI y Excel para ayudar a negocios a entender sus números, detectar oportunidades y tomar mejores decisiones.\r\n\r\nMe encanta resolver problemas con datos: crear dashboards que realmente se usan, automatizar reportes que ahorran tiempo y limpiar bases de datos para que la información sea confiable.\r\n\r\nSi tienes datos y quieres sacarles provecho, estaré encantado de ayudarte.",
+        "foto_url": "",
+        "email": "alexgoyzueta2018@gmail.com",
+        "telefono": "+34604858192",
+        "ubicacion": "España",
+        "activo": true
+    }
+},
+{
+    "model": "store.project",
+    "pk": 7,
+    "fields": {
+        "titulo": "Dashboard de Ventas para E-commerce",
+        "descripcion": "Tablero interactivo en Power BI con métricas de ventas diarias, productos más vendidos, margen por categoría y pronóstico de tendencias.",
+        "imagen_url": "",
+        "url": "",
+        "tecnologias": "Power BI, SQL, Excel",
+        "orden": 1,
+        "publicado": true
+    }
+},
+{
+    "model": "store.project",
+    "pk": 8,
+    "fields": {
+        "titulo": "Automatización de Reporte Financiero Mensual",
+        "descripcion": "Script en Python que procesa datos contables, genera gráficos y envía el reporte por correo automáticamente cada mes.",
+        "imagen_url": "",
+        "url": "",
+        "tecnologias": "Python, Pandas, smtplib",
+        "orden": 2,
+        "publicado": true
+    }
+},
+{
+    "model": "store.project",
+    "pk": 9,
+    "fields": {
+        "titulo": "Análisis de Segmentación de Clientes",
+        "descripcion": "Segmentación de clientes mediante clustering con Python para identificar grupos de alto valor y patrones de compra.",
+        "imagen_url": "",
+        "url": "",
+        "tecnologias": "Python, Scikit-learn, Matplotlib",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.project",
+    "pk": 10,
+    "fields": {
+        "titulo": "Portafolio Profesional Data Analyst",
+        "descripcion": "Creacion de portafolios profesionales personalizados para Data Analysts, Cientificos de Datos y profesionales del analisis. Disenos futuristas profesionales y adaptados al rubro de cada cliente, con panel de administracion completo, CRUD de secciones y despliegue en produccion.",
+        "imagen_url": "",
+        "url": "",
+        "tecnologias": "Django, Python, PostgreSQL, Power BI, HTML/CSS, JavaScript",
+        "orden": 0,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 2,
+    "fields": {
+        "titulo": "Python para Análisis de Datos",
+        "descripcion": "Curso completo de Python enfocado en análisis de datos con Pandas, NumPy y Matplotlib.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "",
+        "orden": 1,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 3,
+    "fields": {
+        "titulo": "SQL",
+        "descripcion": "Curso de SQL con ejercicios prácticos para consultas, joins y subconsultas.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "",
+        "orden": 2,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 4,
+    "fields": {
+        "titulo": "Power BI desde Cero",
+        "descripcion": "Aprendiendo a crear dashboards profesionales, medidas DAX y modelado de datos.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 5,
+    "fields": {
+        "titulo": "Excel Básico a Avanzado",
+        "descripcion": "Domina Excel desde cero hasta nivel profesional: fórmulas, tablas dinámicas, macros, Power Query y dashboards.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Udemy",
+        "orden": 1,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 7,
+    "fields": {
+        "titulo": "Excel para Análisis de Datos",
+        "descripcion": "Usa Excel como herramienta de análisis: limpieza, transformación, visualización y modelado de datos con Power Pivot y DAX.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Coursera",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 8,
+    "fields": {
+        "titulo": "Data Analyst: Python + SQL + Power BI",
+        "descripcion": "Formación completa de Data Analyst: Python (Pandas, NumPy), SQL, Power BI, estadística y machine learning básico.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Udemy",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 9,
+    "fields": {
+        "titulo": "Excel: Power Query y Transformación de Datos",
+        "descripcion": "Aprende a limpiar, combinar y transformar datos automáticamente con Power Query. Ideal para automatizar reportes diarios.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Udemy",
+        "orden": 5,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 10,
+    "fields": {
+        "titulo": "Excel: DAX y Power Pivot",
+        "descripcion": "Domina el lenguaje DAX para crear medidas y cálculos avanzados en Power Pivot. Modelado de datos y análisis multidimensional.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Udemy",
+        "orden": 6,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 11,
+    "fields": {
+        "titulo": "Excel: Macros y VBA desde Cero",
+        "descripcion": "Automatiza tareas repetitivas en Excel con macros y programación VBA. Crea formularios, botones y procesos personalizados.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Udemy",
+        "orden": 7,
+        "publicado": true
+    }
+},
+{
+    "model": "store.course",
+    "pk": 12,
+    "fields": {
+        "titulo": "Excel: Power Query + DAX + VBA (Completo)",
+        "descripcion": "Paquete completo de Excel avanzado: Power Query para ETL, DAX para análisis y VBA para automatización. Nivel profesional.",
+        "imagen_url": "",
+        "url": "",
+        "plataforma": "Coursera",
+        "orden": 8,
+        "publicado": true
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 7,
+    "fields": {
+        "nombre": "Python",
+        "categoria": "Lenguajes de Programacion",
+        "nivel": 3,
+        "icono": "🐍",
+        "orden": 1
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 8,
+    "fields": {
+        "nombre": "SQL",
+        "categoria": "Base de datos",
+        "nivel": 3,
+        "icono": "🗄️",
+        "orden": 2
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 9,
+    "fields": {
+        "nombre": "Power BI",
+        "categoria": "Visualización",
+        "nivel": 2,
+        "icono": "📊",
+        "orden": 3
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 10,
+    "fields": {
+        "nombre": "Excel",
+        "categoria": "Ofimatica",
+        "nivel": 3,
+        "icono": "📗",
+        "orden": 4
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 11,
+    "fields": {
+        "nombre": "Pandas",
+        "categoria": "Python",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-table\"></i>",
+        "orden": 5
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 12,
+    "fields": {
+        "nombre": "Git & GitHub",
+        "categoria": "Control de Versiones",
+        "nivel": 2,
+        "icono": "🐙",
+        "orden": 6
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 13,
+    "fields": {
+        "nombre": "PostgreSQL",
+        "categoria": "Base de datos",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-database\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 14,
+    "fields": {
+        "nombre": "MySQL",
+        "categoria": "Base de datos",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-database\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 15,
+    "fields": {
+        "nombre": "SQL Server",
+        "categoria": "Base de datos",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-database\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 16,
+    "fields": {
+        "nombre": "Looker",
+        "categoria": "Visualización",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-chart-bar\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 17,
+    "fields": {
+        "nombre": "NumPy",
+        "categoria": "Python",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-calculator\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 18,
+    "fields": {
+        "nombre": "Matplotlib/Seaborn",
+        "categoria": "Visualización",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-chart-line\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 19,
+    "fields": {
+        "nombre": "Scikit-learn",
+        "categoria": "Machine Learning",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-brain\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 20,
+    "fields": {
+        "nombre": "Plotly",
+        "categoria": "Visualización",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-chart-bar\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 21,
+    "fields": {
+        "nombre": "Jupyter Notebook",
+        "categoria": "Entorno",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-book-open\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 22,
+    "fields": {
+        "nombre": "DAX",
+        "categoria": "Power BI",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-calculator\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 23,
+    "fields": {
+        "nombre": "Power Query",
+        "categoria": "Power BI",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-arrow-right\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 24,
+    "fields": {
+        "nombre": "Modelado de datos",
+        "categoria": "Power BI",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-cubes\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 25,
+    "fields": {
+        "nombre": "Publicación en la nube",
+        "categoria": "Power BI",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-cloud\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 26,
+    "fields": {
+        "nombre": "Integración con Excel",
+        "categoria": "Power BI",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-file-excel\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 27,
+    "fields": {
+        "nombre": "ChatGPT / GPT-4",
+        "categoria": "Inteligencia Artificial",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-robot\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 28,
+    "fields": {
+        "nombre": "Claude",
+        "categoria": "Inteligencia Artificial",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-robot\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 29,
+    "fields": {
+        "nombre": "Copilot",
+        "categoria": "Inteligencia Artificial",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-robot\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 30,
+    "fields": {
+        "nombre": "Hugging Face",
+        "categoria": "Inteligencia Artificial",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-smile\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 31,
+    "fields": {
+        "nombre": "OpenAI API",
+        "categoria": "Inteligencia Artificial",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-code\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 32,
+    "fields": {
+        "nombre": "Google Colab",
+        "categoria": "Plataforma",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-cloud\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 33,
+    "fields": {
+        "nombre": "Kaggle",
+        "categoria": "Plataforma",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-trophy\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 34,
+    "fields": {
+        "nombre": "VS Code",
+        "categoria": "Editor",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-code\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 35,
+    "fields": {
+        "nombre": "JupyterLab",
+        "categoria": "Editor",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-flask\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 36,
+    "fields": {
+        "nombre": "PyCharm",
+        "categoria": "Editor",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-laptop-code\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 37,
+    "fields": {
+        "nombre": "Terminal/Bash",
+        "categoria": "Terminal",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-terminal\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 38,
+    "fields": {
+        "nombre": "PowerShell",
+        "categoria": "Terminal",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-terminal\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 39,
+    "fields": {
+        "nombre": "Command Line",
+        "categoria": "Terminal",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-terminal\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 40,
+    "fields": {
+        "nombre": "C++",
+        "categoria": "Lenguajes de Programacion",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-code\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 41,
+    "fields": {
+        "nombre": "Java",
+        "categoria": "Lenguajes de Programacion",
+        "nivel": 3,
+        "icono": "<i class=\"fab fa-java\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 42,
+    "fields": {
+        "nombre": "PSeInt",
+        "categoria": "Lenguajes de Programacion",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-graduation-cap\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 43,
+    "fields": {
+        "nombre": "C#",
+        "categoria": "Lenguajes de Programacion",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-code\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 44,
+    "fields": {
+        "nombre": "Polars",
+        "categoria": "Python",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-table\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 45,
+    "fields": {
+        "nombre": "Microsoft Word",
+        "categoria": "Ofimatica",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-file-word\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 46,
+    "fields": {
+        "nombre": "Microsoft PowerPoint",
+        "categoria": "Ofimatica",
+        "nivel": 5,
+        "icono": "<i class=\"fas fa-file-powerpoint\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 47,
+    "fields": {
+        "nombre": "Microsoft Access",
+        "categoria": "Ofimatica",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-database\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 48,
+    "fields": {
+        "nombre": "Microsoft Outlook",
+        "categoria": "Ofimatica",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-envelope\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 49,
+    "fields": {
+        "nombre": "Microsoft OneDrive",
+        "categoria": "Ofimatica",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-cloud\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 50,
+    "fields": {
+        "nombre": "Microsoft Teams",
+        "categoria": "Ofimatica",
+        "nivel": 4,
+        "icono": "<i class=\"fas fa-users\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 51,
+    "fields": {
+        "nombre": "Microsoft SharePoint",
+        "categoria": "Ofimatica",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-share-alt\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.tool",
+    "pk": 52,
+    "fields": {
+        "nombre": "Microsoft OneNote",
+        "categoria": "Ofimatica",
+        "nivel": 3,
+        "icono": "<i class=\"fas fa-sticky-note\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 3,
+    "fields": {
+        "titulo": "Mi ruta de aprendizaje en análisis de datos",
+        "contenido": "Cuando empecé en el mundo de los datos, no sabía por dónde empezar. Había demasiada información y pocas guías claras. Por eso hoy quiero compartir mi ruta de aprendizaje real, la que me llevó de cero a Data Analyst.\n\nFase 1: Fundamentos (Mes 1-2)\n- Excel básico a avanzado (tablas dinámicas, BUSCARV, macros)\n- SQL: SELECT, JOIN, GROUP BY, subconsultas\n- Estadística descriptiva: media, mediana, desviación estándar, correlación\n\nFase 2: Programación (Mes 3-4)\n- Python: variables, funciones, listas, diccionarios\n- Pandas: leer datos, limpiar, transformar, agrupar\n- Matplotlib y Seaborn: gráficos básicos\n\nFase 3: Visualización (Mes 5-6)\n- Power BI: modelado de datos, DAX, medidas, tableros\n- Creación de dashboards con datos reales\n- Publicación en Power BI Service\n\nFase 4: Proyectos (Mes 7-8)\n- 3 proyectos completos con datos reales\n- Limpieza, análisis y visualización\n- Publicación en GitHub y portafolio web\n\nFase 5: Especialización (Mes 9+)\n- Machine Learning básico (Scikit-learn)\n- Web scraping y APIs\n- Automatización con Python\n\nMi mayor consejo: no intentes aprender todo a la vez. Crea proyectos pequeños, falla rápido, y repite. El portafolio que ves aquí es el resultado de meses de trabajo constante.",
+        "resumen": "Te cuento mi camino paso a paso para convertirme en Data Analyst: herramientas, cursos y recursos que usé.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-02-01",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 4,
+    "fields": {
+        "titulo": "Primeros pasos con Python y Pandas",
+        "contenido": "Python es el lenguaje más usado en análisis de datos. Y Pandas es la librería estrella. Aquí te muestro cómo dar tus primeros pasos.\n\nInstalación rápida:\npip install pandas matplotlib jupyter\n\nTu primer script:\nimport pandas as pd\n\n# Leer datos\ndf = pd.read_csv('ventas.csv')\ndf = pd.read_excel('reporte.xlsx')\n\n# Explorar\nprint(df.head())\nprint(df.info())\nprint(df.describe())\n\n# Limpiar\ndf = df.dropna()\ndf['fecha'] = pd.to_datetime(df['fecha'])\n\n# Analizar\nventas_por_mes = df.groupby(df['fecha'].dt.to_period('M'))['total'].sum()\nprint(ventas_por_mes)\n\n# Filtrar\naltos = df[df['total'] > 1000]\npor_categoria = df.groupby('categoria')['total'].sum().sort_values(ascending=False)\n\n# Guardar resultados\ndf.to_csv('resultado.csv', index=False)\n\n¿Qué sigue después de Pandas?\n- NumPy para cálculos numéricos\n- Matplotlib/Seaborn para gráficos\n- Plotly para gráficos interactivos\n\nMi recomendación: busca un dataset que te guste (deportes, música, finanzas) y juega con él. La práctica es la única forma de aprender.",
+        "resumen": "Guía práctica para empezar a analizar datos con Python desde cero.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-01-15",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 5,
+    "fields": {
+        "titulo": "Cómo crear tu primer dashboard en Power BI",
+        "contenido": "Power BI es la herramienta de visualización más usada en empresas. En esta guía te muestro cómo crear tu primer dashboard paso a paso.\n\nPaso 1: Obtén los datos\nDescarga datasets públicos de Kaggle o usa datos de ventas de ejemplo que vienen con Power BI.\n\nPaso 2: Carga y transforma\n- Abre Power BI Desktop\n- Haz clic en \"Obtener datos\" → Excel o CSV\n- Usa Power Query para limpiar: elimina columnas innecesarias, cambia tipos de datos, filtra filas\n\nPaso 3: Modela los datos\n- Crea relaciones entre tablas (arrastra y suelta)\n- Estrella de dimensiones vs tablas de hechos\n\nPaso 4: Crea medidas con DAX\nMedidas esenciales:\n- Ventas totales = SUM(Ventas[Total])\n- Ventas PY = CALCULATE([Ventas Totales], SAMEPERIODLASTYEAR(Calendario[Fecha])\n- % Crecimiento = DIVIDE([Ventas Totales] - [Ventas PY], [Ventas PY])\n\nPaso 5: Diseña el dashboard\n- Tarjetas: ventas totales, clientes, productos vendidos\n- Gráfico de barras: ventas por mes\n- Gráfico de pastel: ventas por categoría\n- Mapa: ventas por región\n- Segmentaciones: filtros interactivos por fecha, categoría, vendedor\n\nPaso 6: Publica\nSube a Power BI Service para compartir con tu equipo o clientes.\n\n¿Quieres aprender más? Revisa la sección de cursos donde encuentras formación completa en DAX, Power Query y power bi.",
+        "resumen": "Aprende a construir un dashboard profesional desde cero con datos reales.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-02-15",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 6,
+    "fields": {
+        "titulo": "Power BI vs Tableau: ¿Cuál elegir en 2026?",
+        "contenido": "Si trabajas con datos, seguro te has hecho esta pregunta: ¿Power BI o Tableau? Ambas son herramientas líderes en visualización de datos, pero tienen enfoques diferentes.\n\nPower BI se destaca por:\n- Integración nativa con el ecosistema Microsoft (Excel, Azure, SQL Server)\n- DAX como lenguaje de modelado (curva de aprendizaje media)\n- Precio imbatible: desde $10/usuario/mes\n- Publicación en la nube con Power BI Service\n\nTableau brilla en:\n- Visualizaciones más flexibles y vistosas\n- Sin límites técnicos en la construcción de gráficos\n- Mejor para audiencias no técnicas gracias a su interfaz drag & drop\n- Comunidad muy activa con Tableau Public gratuito\n\nMi recomendación: Si tu empresa ya usa Microsoft, Power BI es la opción natural. Si buscas máxima flexibilidad visual y trabajas con datos complejos, Tableau puede ser mejor. Pero en 2026, Power BI está ganando terreno rápidamente gracias a su integración con IA y actualizaciones mensuales.",
+        "resumen": "Comparativa completa entre las dos herramientas de BI más populares del mercado.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 7,
+    "fields": {
+        "titulo": "El auge del Data Analyst en Latinoamérica",
+        "contenido": "Latinoamérica está viviendo una transformación digital acelerada. Empresas de todos los tamaños están entendiendo que los datos son el nuevo petróleo, y necesitan profesionales que sepan extraerlos, procesarlos y convertirlos en decisiones.\n\n¿Por qué está creciendo tanto la demanda?\n1. Digitalización post-pandemia: miles de empresas migraron a lo digital y ahora generan datos que necesitan analizar.\n2. Herramientas accesibles: Power BI, Python y SQL son gratuitos o de bajo costo. Cualquiera puede empezar.\n3. Salarios competitivos: un Data Analyst en LATAM puede ganar entre $1,500 y $4,000 USD/mes, muy por encima del promedio regional.\n4. Trabajo remoto: las empresas de USA y Europa contratan talento latinoamericano activamente.\n\n¿Qué skills necesitas?\n- SQL (obligatorio)\n- Python (Pandas, NumPy, Matplotlib)\n- Power BI o Tableau\n- Estadística descriptiva\n- Storytelling con datos\n\nEl momento es ahora. El mercado recién está despegando y los profesionales preparados escasean.",
+        "resumen": "Por qué la demanda de analistas de datos está disparada en la región y cómo aprovecharlo.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 8,
+    "fields": {
+        "titulo": "Automatización de reportes con Python: Guía práctica",
+        "contenido": "¿Sigues generando reportes manualmente en Excel? Es hora de automatizar. Aquí te muestro cómo usar Python para crear un pipeline de reportes automáticos.\n\nPaso 1: Extraer datos\nUsa pandas para leer desde Excel, CSV, SQL o APIs:\nimport pandas as pd\ndf = pd.read_sql('SELECT * FROM ventas', conexion)\n\nPaso 2: Limpiar y transformar\nElimina nulos, filtra fechas, crea columnas calculadas:\ndf = df.dropna()\ndf['mes'] = df['fecha'].dt.to_period('M')\nventas_por_mes = df.groupby('mes')['total'].sum()\n\nPaso 3: Visualizar\nGenera gráficos con matplotlib o seaborn:\nimport matplotlib.pyplot as plt\nventas_por_mes.plot(kind='bar')\nplt.savefig('reporte_mensual.png')\n\nPaso 4: Exportar\nGuarda todo en un Excel con múltiples hojas:\nwith pd.ExcelWriter('reporte.xlsx') as writer:\n    df.to_excel(writer, sheet_name='Datos')\n    ventas_por_mes.to_excel(writer, sheet_name='Resumen')\n\nPaso 5: Programar\nUsa Windows Task Scheduler o cron para que se ejecute solo cada mañana.\n\nResultado: pasas de 2 horas diarias a 0. El reporte se genera solo y llega a tu bandeja de entrada.",
+        "resumen": "Aprende a automatizar tus reportes diarios con Python y ahorrar horas de trabajo.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 9,
+    "fields": {
+        "titulo": "SQL para Data Analytics: Los 5 comandos que todo analista debe dominar",
+        "contenido": "SQL es el lenguaje universal de los datos. No importa si usas Power BI, Python o Excel, tarde o temprano necesitarás SQL. Aquí los 5 comandos esenciales:\n\n1. SELECT + GROUP BY\nLo básico pero poderoso:\nSELECT categoria, SUM(ventas) as total\nFROM productos\nGROUP BY categoria\n\n2. Window Functions (PARTITION BY)\nPara rankings y comparaciones sin perder detalle:\nSELECT nombre, categoria, ventas,\n    RANK() OVER (PARTITION BY categoria ORDER BY ventas DESC) as ranking\nFROM productos\n\n3. CTEs (WITH)\nPara consultas legibles y reutilizables:\nWITH ventas_por_mes AS (\n    SELECT DATE_TRUNC('month', fecha) as mes,\n           SUM(total) as total\n    FROM pedidos\n    GROUP BY mes\n)\nSELECT * FROM ventas_por_mes\nWHERE total > 10000\n\n4. JOINs bien entendidos\nLEFT JOIN para no perder datos, INNER JOIN para precisión.\n\n5. CASE WHEN\nPara crear categorías y segmentaciones sobre la marcha.\n\nCon estos 5 comandos resuelves el 80% de los problemas de análisis. El 20% restante lo resuelves con práctica.",
+        "resumen": "Domina estos 5 comandos SQL y resolverás el 80% de los problemas de datos.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 10,
+    "fields": {
+        "titulo": "Cómo crear un portafolio de datos que consiga entrevistas",
+        "contenido": "Tu portafolio es tu carta de presentación. Un buen portafolio puede conseguirte entrevistas incluso sin experiencia laboral previa. Aquí los elementos clave:\n\n1. Proyectos reales\nNo uses datasets de Kaggle sin más. Busca datos que te interesen: deportes, música, finanzas personales. El entusiasmo se nota.\n\n2. Dashboard funcional\nIncluye al menos un dashboard interactivo (Power BI o Tableau) con filtros, segmentaciones y conclusiones claras.\n\n3. Código limpio\nSi muestras código Python, que sea legible. Comenta las secciones importantes y usa nombres descriptivos.\n\n4. Storytelling\nCada proyecto debe contar una historia: \"Este es el problema, así exploré los datos, esto encontré, esta es la recomendación.\"\n\n5. Presencia online\nLinkedIn actualizado, GitHub con repositorios ordenados, y un sitio web como este que unifique todo.\n\n6. Variedad\nMuestra diferentes habilidades: SQL, Python, Power BI, estadística. Un proyecto de cada uno basta.\n\nMi portafolio (el que estás viendo) fue construido con Django y está diseñado para causar impacto en segundos. Si quieres uno similar, contáctame.",
+        "resumen": "Los reclutadores revisan tu portafolio en segundos. Así haces que destaque.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 11,
+    "fields": {
+        "titulo": "Limpieza de datos: el paso más importante del análisis",
+        "contenido": "Todos los que trabajamos con datos lo sabemos: el dato sucio es el enemigo número 1. Si entra basura, sale basura (garbage in, garbage out).\n\nLos problemas más comunes:\n1. Valores nulos o vacíos\n2. Datos duplicados\n3. Formatos inconsistentes (fechas en texto, números con comas)\n4. Valores atípicos (outliers)\n5. Datos mal escritos (\"Lima\" vs \"lima\" vs \"LIMA\")\n\nCómo limpiar en Python con Pandas:\nimport pandas as pd\ndf = pd.read_csv('datos.csv')\n\n# 1. Ver nulos\nprint(df.isnull().sum())\ndf = df.dropna(subset=['columna_importante'])\ndf['columna'] = df['columna'].fillna(0)\n\n# 2. Eliminar duplicados\ndf = df.drop_duplicates()\n\n# 3. Estandarizar texto\ndf['ciudad'] = df['ciudad'].str.strip().str.title()\n\n# 4. Convertir tipos\ndf['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')\ndf['precio'] = pd.to_numeric(df['precio'], errors='coerce')\n\n# 5. Detectar outliers\nQ1 = df['ventas'].quantile(0.25)\nQ3 = df['ventas'].quantile(0.75)\nIQR = Q3 - Q1\ndf = df[(df['ventas'] >= Q1 - 1.5*IQR) & (df['ventas'] <= Q3 + 1.5*IQR)]\n\nUna buena limpieza te ahorra horas de análisis incorrectos. Nunca la saltes.",
+        "resumen": "El 80% del tiempo de un Data Analyst se va en limpiar datos. Aprende a hacerlo bien.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 12,
+    "fields": {
+        "titulo": "Estadística descriptiva para Data Analysts",
+        "contenido": "No necesitas ser matemático para ser Data Analyst, pero hay conceptos básicos que debes dominar.\n\nMedidas de tendencia central:\n- Media: el promedio (cuidado con outliers)\n- Mediana: el valor del medio (más robusta)\n- Moda: el valor que más se repite\n\nMedidas de dispersión:\n- Rango: máximo - mínimo\n- Varianza: qué tan dispersos están los datos\n- Desviación estándar: la raíz de la varianza (más interpretable)\n- IQR: rango intercuartil (Q3 - Q1)\n\nVisualizaciones clave:\n- Histograma: distribución de una variable\n- Box plot: outliers y distribución visual\n- Scatter plot: relación entre dos variables\n- Heatmap: correlación entre múltiples variables\n\nRegla práctica:\n- Si la media > mediana: datos sesgados a la derecha\n- Si la media < mediana: datos sesgados a la izquierda\n- Si son iguales: distribución simétrica\n\nNo necesitas memorizar fórmulas. Entiende el concepto y usa Python (df.describe()) o Power BI para los cálculos.",
+        "resumen": "Los conceptos estadísticos que todo analista de datos debe conocer explicados de forma simple.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.blogarticle",
+    "pk": 13,
+    "fields": {
+        "titulo": "Recursos recomendados para aprender análisis de datos",
+        "contenido": "Aquí comparto los recursos que realmente me sirvieron en mi camino como Data Analyst. Organizados por categoría para que encuentres lo que necesites.\n\n📚 CURSOS RECOMENDADOS\n\nGratuitos:\n- FreeCodeCamp - Data Analysis with Python (gratis, certificado)\n- Kaggle Learn - Micro-cursos prácticos de SQL, Python, Pandas\n- Google Data Analytics Certification (Coursera - 7 días gratis)\n- Microsoft Learn - Power BI y DAX (completamente gratis)\n\nDe pago (valen cada centavo):\n- Udemy: \"Python for Data Science and Machine Learning Bootcamp\" (~$15 en oferta)\n- DataCamp: Suscripción mensual, ejercicios interactivos\n- Platzi: Escuela de Data Science e Inteligencia Artificial\n\n📖 LIBROS QUE RECOMIENDO\n- \"Python for Data Analysis\" - Wes McKinney (el creador de Pandas)\n- \"Storytelling with Data\" - Cole Nussbaumer Knaflic\n- \"SQL for Data Analytics\" - Upom Malik\n- \"The Art of Statistics\" - David Spiegelhalter\n\n🎥 CANALES DE YOUTUBE\n- Alex The Analyst (rutas de aprendizaje, proyectos reales)\n- Luke Barousse (data careers, mercado laboral)\n- Chandoo (Excel, Power BI)\n- Data with Decision (Power BI avanzado)\n\n🛠️ HERRAMIENTAS GRATUITAS\n- Kaggle: datasets, notebooks, competiciones\n- Google Colab: Jupyter en la nube, gratis con GPU\n- GitHub: portafolio de código, proyectos\n- Tableau Public: visualizaciones gratuitas\n- Power BI Desktop: gratuito\n\n🌐 COMUNIDADES\n- Reddit: r/datascience, r/dataanalysis\n- LinkedIn: sigue a creadores de contenido data\n- Discord: servidores de data science en español\n- Meetup: grupos locales de análisis de datos\n\n🚀 MI RUTA RECOMENDADA\n1. Empieza con SQL (W3Schools o SQLZoo)\n2. Sigue con Python y Pandas (Kaggle Learn)\n3. Power BI (Microsoft Learn es gratis)\n4. Crea 3 proyectos (Kaggle tiene datasets)\n5. Arma tu portafolio (como este que ves aquí)\n6. Aplica a trabajos mientras sigues aprendiendo\n\n¿Necesitas ayuda con algún recurso en específico? Contáctame y te guío.",
+        "resumen": "Los mejores cursos, libros, canales y herramientas que recomiendo a todo Data Analyst.",
+        "imagen_url": "",
+        "url": "",
+        "fecha": "2026-07-09",
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 8,
+    "fields": {
+        "titulo": "Dashboards Interactivos",
+        "descripcion": "Tableros en Power BI para visualizar ventas, métricas y KPIs de tu negocio en tiempo real.",
+        "icono": "📊",
+        "orden": 1,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 9,
+    "fields": {
+        "titulo": "Automatización de Reportes",
+        "descripcion": "Reportes automáticos en Excel y Python que se actualizan solos, ahorrándote horas de trabajo cada semana.",
+        "icono": "⚡",
+        "orden": 2,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 10,
+    "fields": {
+        "titulo": "Limpieza y Organización de Datos",
+        "descripcion": "Pongo orden en tus bases de datos: elimino duplicados, corrijo errores y dejo todo listo para analizar.",
+        "icono": "🧹",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 11,
+    "fields": {
+        "titulo": "Análisis de Datos y Consultoría",
+        "descripcion": "Analizo tus datos para encontrar tendencias, oportunidades de mejora y áreas de crecimiento.",
+        "icono": "🔍",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 12,
+    "fields": {
+        "titulo": "📚 Clases y Asesorías Personalizadas",
+        "descripcion": "Aprende Power BI, Python, SQL y más con clases adaptadas a tu nivel y ritmo. Desde fundamentos hasta técnicas avanzadas con ejemplos reales.",
+        "icono": "",
+        "orden": 10,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 13,
+    "fields": {
+        "titulo": "📖 Ayuda con Ejercicios Académicos y Proyectos",
+        "descripcion": "¿Tienes trabajos universitarios o proyectos de datos? Te ayudo a resolverlos, explicarte paso a paso y asegurarte de que aprendas en el proceso.",
+        "icono": "",
+        "orden": 10,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 14,
+    "fields": {
+        "titulo": "🎯 Creación de Portafolio Profesional",
+        "descripcion": "Construye un portafolio de Data Analyst como este. Te guío en la selección de proyectos, visualización de resultados y presentación profesional.",
+        "icono": "",
+        "orden": 10,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 15,
+    "fields": {
+        "titulo": "🤖 Automatización con IA",
+        "descripcion": "Bots y scripts inteligentes que automatizan tareas repetitivas, procesamiento de datos y generación de informes con inteligencia artificial.",
+        "icono": "",
+        "orden": 15,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 16,
+    "fields": {
+        "titulo": "🔍 Auditoría de Datos (Gratis)",
+        "descripcion": "Diagnóstico inicial sin costo de tu situación actual: calidad de datos, herramientas que usas y oportunidades de mejora concretas.",
+        "icono": "",
+        "orden": 15,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 17,
+    "fields": {
+        "titulo": "🎓 Mentoría 1:1 en Data",
+        "descripcion": "Sesiones semanales personalizadas para crecer en análisis de datos, definir tu ruta de aprendizaje y alcanzar tus metas profesionales.",
+        "icono": "",
+        "orden": 15,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 18,
+    "fields": {
+        "titulo": "🌐 Web Scraping y Extracción de Datos",
+        "descripcion": "Extraigo datos de sitios web, redes sociales y APIs para convertirlos en información estructurada y lista para analizar.",
+        "icono": "",
+        "orden": 15,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 19,
+    "fields": {
+        "titulo": "💼 Preparación de Entrevistas Data",
+        "descripcion": "Simulacros de entrevistas técnicas y de negocio, revisión de CV y LinkedIn, y estrategias para conseguir tu primer empleo en datos.",
+        "icono": "",
+        "orden": 15,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 20,
+    "fields": {
+        "titulo": "📗 Excel Básico",
+        "descripcion": "Domina lo esencial: formato condicional, tablas dinámicas, filtros, fórmulas básicas (SI, BUSCARV, SUMAR.SI) y creación de gráficos simples.",
+        "icono": "",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 21,
+    "fields": {
+        "titulo": "📘 Excel Intermedio",
+        "descripcion": "Funciones avanzadas (ÍNDICE, COINCIDIR, SUMAPRODUCTO), validación de datos, macros básicas, tablas dinámicas avanzadas y segmentación de datos.",
+        "icono": "",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 22,
+    "fields": {
+        "titulo": "📙 Excel Avanzado",
+        "descripcion": "Power Query, Power Pivot, DAX en Excel, automatización con VBA, dashboards interactivos y modelado de datos profesionales.",
+        "icono": "",
+        "orden": 3,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 23,
+    "fields": {
+        "titulo": "📊 Excel para Contadores",
+        "descripcion": "Libros contables automatizados, conciliaciones bancarias, depreciaciones, asientos contables, estados financieros y reportes tributarios en Excel.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 24,
+    "fields": {
+        "titulo": "💰 Excel para Finanzas",
+        "descripcion": "Modelos financieros, VAN/TIR, flujo de caja proyectado, amortización de préstamos, análisis de inversiones y paneles de control financiero.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 25,
+    "fields": {
+        "titulo": "🏢 Excel para Mobiliarias e Inmobiliarias",
+        "descripcion": "Control de inventario de muebles, seguimiento de ventas por comisión, cálculo de cuotas, cronogramas de entrega y rentabilidad por proyecto.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 26,
+    "fields": {
+        "titulo": "🏪 Excel para Comercios y Ventas",
+        "descripcion": "Control de stock, facturación, análisis de ventas por producto/vendedor/sucursal, márgenes de ganancia y proyecciones de demanda.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 27,
+    "fields": {
+        "titulo": "🏥 Excel para Salud y Clínicas",
+        "descripcion": "Agenda de pacientes, historial clínico simplificado, control de insumos, ingresos por consulta y reportes de productividad médica.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 28,
+    "fields": {
+        "titulo": "🏗️ Excel para Construcción",
+        "descripcion": "Presupuestos de obra, cronogramas Gantt en Excel, control de avance, costos por partida y reportes de gastos vs presupuesto.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.service",
+    "pk": 29,
+    "fields": {
+        "titulo": "🎓 Excel para Educación",
+        "descripcion": "Registro de notas automatizado, cálculo de promedios ponderados, reportes de rendimiento, asistencias y estadísticas por curso.",
+        "icono": "",
+        "orden": 4,
+        "publicado": true
+    }
+},
+{
+    "model": "store.sociallink",
+    "pk": 4,
+    "fields": {
+        "nombre": "LinkedIn",
+        "url": "https://www.linkedin.com/in/alex-goyzueta-delgado",
+        "icono": "<i class=\"fab fa-linkedin\"></i>",
+        "orden": 0
+    }
+},
+{
+    "model": "store.sociallink",
+    "pk": 5,
+    "fields": {
+        "nombre": "GitHub",
+        "url": "https://github.com/SistGoyPeru",
+        "icono": "<i class=\"fab fa-github\"></i>",
+        "orden": 1
+    }
+},
+{
+    "model": "store.sociallink",
+    "pk": 6,
+    "fields": {
+        "nombre": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=61591287196407",
+        "icono": "<i class=\"fab fa-facebook\"></i>",
+        "orden": 2
+    }
+},
+{
+    "model": "store.contactinfo",
+    "pk": 1,
+    "fields": {
+        "email": "alexgoyzueta2018@gmail.com",
+        "telefono": "604858192",
+        "whatsapp": "+34604858192",
+        "ubicacion": "calle mareme 114 Barcelona",
+        "mensaje_bienvenida": ""
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 1,
+    "fields": {
+        "titulo": "Agentes IA Negocios",
+        "descripcion": "Agentes de IA para Pequeñas Empresas — Guía práctica para transformar tu negocio con inteligencia artificial sin ser técnico\n\nDueño de negocio, ¿estás agotado de responder las mismas preguntas, hacer facturas a mano, publicar en redes sin tiempo, perseguir clientes, olvidar citas y trabajar 12 horas al día?\n\nLa inteligencia artificial no es magia. Es una herramienta que ya está disponible, que es gratis o casi gratis, y que puedes usar hoy mismo sin saber programar.\n\nEste libro te enseña, paso a paso, cómo montar agentes de IA que hagan el trabajo pesado por ti. Desde un asistente que responda WhatsApp automáticamente hasta un sistema que te recuerde pagos y te ayude a crear contenido.\n\n¿Qué aprenderás?\n✓ Qué es un agente de IA (explicado en 30 segundos, sin tecnicismos)\n✓ Las herramientas gratuitas que ya tienes y cómo usarlas desde ya\n✓ Dónde NO usar IA para no meterte en problemas\n✓ Cómo automatizar la atención al cliente sin que parezca robot\n✓ Marketing y redes sociales con IA — contenido que vende sin esfuerzo\n✓ Administración y finanzas automatizadas\n✓ Organización y productividad con agentes inteligentes\n✓ Cómo montar tu primer agente en 30 minutos\n✓ 5 casos de estudio reales: panadería, taller, tienda online, restaurante, despacho de abogados\n✓ El plan 12 meses para transformar tu negocio paso a paso\n\nSin código. Sin técnicos. Sin teoría. Solo herramientas que funcionan, ejemplos de negocios reales y un plan para empezar hoy.\n\nPerfecto para: dueños de panaderías, talleres, tiendas, restaurantes, despachos profesionales, freelancers, y cualquier persona que quiera usar IA para trabajar menos y vivir mejor.",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/agentes_ia_negocios.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/agentes_ia_negocios.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/9no5V",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "agentes_ia_negocios",
+        "epub_filename": "Agentes_IA_Negocios.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 2,
+    "fields": {
+        "titulo": "Big Data ML IA",
+        "descripcion": "Big Data, ML e IA — Libro 5 de la colección Data & Analytics Mastery\n\nDomina el big data, machine learning e inteligencia artificial con proyectos prácticos. Aprende PySpark para procesamiento a escala, scikit-learn y XGBoost para ML, TensorFlow para deep learning, LangChain para IA generativa y Vertex AI para despliegue cloud.\n\n¿Qué aprenderás?\n✓ Big Data con PySpark: RDDs, DataFrames, Spark SQL, optimización, streaming\n✓ Machine Learning: regresión, clasificación, clustering, recomendación, XGBoost\n✓ Deep Learning: redes neuronales, CNN, LSTM, transfer learning con TensorFlow\n✓ NLP: tokenización, embeddings, word2vec, análisis de sentimiento, LSTM\n✓ Series Temporales: ARIMA, Prophet, LSTM para forecasting de ventas\n✓ MLOps: MLflow, experiment tracking, model registry, data drift\n✓ IA Generativa: LLMs, RAG, LangChain, agentes, Vector Stores\n✓ ML en la nube: BigQuery ML, Vertex AI AutoML, endpoints, pipelines serverless\n\n4 proyectos progresivos:\nProyecto 1: Pipeline de Big Data con TechStore\nProyecto 2: Modelo Predictivo para TechStore\nProyecto 3: Pipeline de ML Completo (MLflow + NLP + Forecast)\nProyecto 4: Plataforma de IA Integral (RAG + Cloud + Dashboard)\n\nIncluye código PySpark, notebooks de ML, experimentos de MLflow, RAG con LangChain, FastAPI endpoints, dashboard Streamlit y Docker Compose.\n\nPerfecto para: científicos de datos que quieren escalar a big data, ingenieros de ML que buscan MLOps, analistas que quieren dominar IA generativa, y profesionales que buscan la plataforma de datos completa.\n\nColección Data & Analytics Mastery (5 libros):\n1. Los Fundamentos del Analista de Datos\n2. Python para Datos y tu Primer Data Warehouse Cloud\n3. Business Intelligence y Modelado de Datos\n4. Ingeniería de Datos Moderna\n5. Big Data, ML e IA ← Este libro",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/big_data_ml_ia.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/big_data_ml_ia.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/nXN3K",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "big_data_ml_ia",
+        "epub_filename": "Big_Data_ML_IA.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 3,
+    "fields": {
+        "titulo": "Business Intelligence BI",
+        "descripcion": "Business Intelligence y Modelado de Datos — Libro 3 de la colección Data & Analytics Mastery\n\nDiseña dashboards profesionales y modela datos como un experto con Power BI. Aprende modelado dimensional, DAX, Power Query, visualizaciones avanzadas, Power BI Service, seguridad RLS y construye un portal BI corporativo completo.\n\n¿Qué aprenderás?\n✓ Arquitectura de datos moderna y modelado dimensional (estrella, copo de nieve)\n✓ Power BI: modelado, DAX básico y avanzado, medidas, contextos de filtro\n✓ Power Query: ETL, transformaciones M, dataflows\n✓ Visualizaciones profesionales con custom visuals y bookmarks\n✓ Power BI Service: workspaces, apps, pipelines de deployment\n✓ Seguridad RLS y seguridad a nivel de objeto\n✓ DAX Studio, Tabular Editor y herramientas profesionales\n✓ 4 proyectos progresivos construyendo sobre TechStore\n\n4 proyectos progresivos:\nProyecto 1: Modelo Dimensional TechStore\nProyecto 2: Dashboard Power BI Comercial\nProyecto 3: Modelo Semántico Corporativo\nProyecto 4: Portal BI Corporativo Completo\n\nIncluye base de datos SQLite en esquema estrella (TechStore BI), modelos dimensionales listos, medidas DAX, dashboards de muestra, y soluciones a todos los ejercicios.\n\nPerfecto para: analistas de datos que quieren especializarse en BI, profesionales de Power BI que buscan fundamentos sólidos, data analysts que quieren dominar DAX y modelado, y cualquier persona que quiera construir dashboards profesionales.\n\nColección Data & Analytics Mastery (5 libros):\n1. Los Fundamentos del Analista de Datos\n2. Python para Datos y tu Primer Data Warehouse Cloud\n3. Business Intelligence y Modelado de Datos ← Este libro\n4. Ingeniería de Datos Moderna\n5. Big Data, ML e IA",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/business_intelligence_bi.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/business_intelligence_bi.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/aA8HL",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "business_intelligence_bi",
+        "epub_filename": "Business_Intelligence_BI.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 4,
+    "fields": {
+        "titulo": "Codigo Asesino",
+        "descripcion": "En el Neo-Cusco del futuro, donde la tecnología inca y los algoritmos modernos chocan, la analista Wayra Condori debe descifrar un asesinato usando Python y pandas. Este libro combina una novela de misterio con una guía práctica de análisis de datos: listas, diccionarios, DataFrames, limpieza de datos y visualización. Ideal para quienes quieren aprender Python para datos mientras resuelven un crimen ancestral.",
+        "categoria": "Programacion",
+        "portada_url": "/static/covers/Programacion/codigo_asesino.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Programacion/codigo_asesino.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/cx87Y",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "codigo_asesino",
+        "epub_filename": "Codigo_Asesino.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 5,
+    "fields": {
+        "titulo": "Codigo De Olas",
+        "descripcion": "Mateo, un surfista de Ancón, descubre un misterio oculto en las olas mientras aprende a visualizar datos con matplotlib y seaborn. Este libro enseña Python aplicado a la visualización de datos marinos: gráficos de líneas, dispersión, barras, mapas de calor y más. Perfecto para principiantes que quieren dominar la visualización de datos envueltos en una historia de surf, mar y secretos.",
+        "categoria": "Programacion",
+        "portada_url": "/static/covers/Programacion/codigo_de_olas.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Programacion/codigo_de_olas.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/cx87Y",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "codigo_de_olas",
+        "epub_filename": "Codigo_De_Olas.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 6,
+    "fields": {
+        "titulo": "CSS Basico",
+        "descripcion": "Mateo consigue su primer trabajo en PixelLab y debe transformar el sitio web de la revista \"Cultura Viva\" usando CSS. Desde selectores y colores hasta Flexbox, Grid y animaciones: una novela para aprender CSS desde cero mientras sigues una historia de diseño, creatividad y segundas oportunidades. Sin experiencia previa en CSS necesaria.",
+        "categoria": "Web",
+        "portada_url": "/static/covers/Web/css_basico.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Web/css_basico.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/xPBDo",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "css_basico",
+        "epub_filename": "CSS_Basico.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 7,
+    "fields": {
+        "titulo": "Estadistica Mortal",
+        "descripcion": "Un asesinato en Barcelona, un conjunto de datos vacío y una analista dispuesta a todo. Esta novela de misterio enseña estadística con Python desde cero: probabilidad, distribuciones, pruebas de hipótesis, regresión, correlación y series temporales. Para quienes quieren aprender estadística de verdad mientras siguen una investigación criminal que los mantendrá al borde del asiento.",
+        "categoria": "Programacion",
+        "portada_url": "/static/covers/Programacion/estadistica_mortal.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Programacion/estadistica_mortal.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/5YiwP",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "estadistica_mortal",
+        "epub_filename": "Estadistica_Mortal.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 8,
+    "fields": {
+        "titulo": "Excel Analisis Datos",
+        "descripcion": "De los datos crudos a las decisiones inteligentes: aprende el proceso completo de análisis de datos con Excel. Limpieza, análisis exploratorio, funciones de búsqueda y referencia, tendencias, tablas dinámicas, visualización, escenarios, Power Query y un proyecto final integrador. Para profesionales que quieren convertir datos en decisiones sin depender de otros programas.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_analisis_datos.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_analisis_datos.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/vJXlt",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_analisis_datos",
+        "epub_filename": "Excel_Analisis_Datos.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 9,
+    "fields": {
+        "titulo": "Excel Avanzado",
+        "descripcion": "El caso judicial que cambiará el destino de la familia depende del análisis de datos. Power Query, Power Pivot, modelos de datos, funciones avanzadas, dashboards interactivos y automatización con macros. Una novela para expertos que quieren llevar Excel al límite y descubrir el poder del análisis de datos en la toma de decisiones críticas.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_avanzado.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_avanzado.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/v1z96",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_avanzado",
+        "epub_filename": "Excel_Avanzado.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 10,
+    "fields": {
+        "titulo": "Excel Basico",
+        "descripcion": "Luis hereda el taller de carpintería de su abuelo y descubre que la clave del negocio está en las fórmulas de Excel. Desde cero: celdas, referencias, suma, resta, multiplicación, formato condicional y presupuestos. Una novela para aprender Excel básico mientras sigues una historia de legado familiar, sueños y segundas oportunidades. Sin experiencia previa necesaria.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_basico.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_basico.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/vJXlt",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_basico",
+        "epub_filename": "Excel_Basico.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 11,
+    "fields": {
+        "titulo": "Excel Para Contadores",
+        "descripcion": "Excel aplicado al mundo contable y financiero: catálogo de cuentas, libro diario y mayor, funciones financieras, tablas dinámicas, consolidación, auditoría y macros VBA. Diseñado para contadores, administradores y financieros que buscan dominar las herramientas de Excel específicas para su profesión y optimizar su trabajo diario con datos reales.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_contadores.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_contadores.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/Fym1x",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_contadores",
+        "epub_filename": "Excel_Para_Contadores.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 12,
+    "fields": {
+        "titulo": "Excel con Copilot",
+        "descripcion": "Andrea Castillo, analista financiera, descubre que Microsoft 365 Copilot puede transformar su trabajo. Desde activar el asistente por primera vez hasta crear dashboards ejecutivos automatizados, esta novela te enseña a usar Copilot en Excel a través de una historia de crecimiento profesional, retos laborales y el poder de hacer las preguntas correctas. Ideal para profesionales que quieren dominar la inteligencia artificial aplicada al análisis de datos sin manuales aburridos.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_copilot.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_copilot.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/ESfyV",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_copilot",
+        "epub_filename": "Excel_con_Copilot.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 13,
+    "fields": {
+        "titulo": "Excel Intermedio",
+        "descripcion": "La historia continúa: Luis descubre que su abuelo guardaba secretos financieros ocultos en una hoja de cálculo. Para desentrañarlos necesitará BUSCARV, tablas dinámicas, rangos con nombre, validación de datos, funciones SI anidadas y análisis de escenarios. Perfecto para quienes ya saben lo básico de Excel y quieren profundizar mientras resuelven un misterio familiar.",
+        "categoria": "Excel",
+        "portada_url": "/static/covers/Excel/excel_intermedio.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Excel/excel_intermedio.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/eINW5",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "excel_intermedio",
+        "epub_filename": "Excel_Intermedio.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 14,
+    "fields": {
+        "titulo": "Freelancer Datos",
+        "descripcion": "Freelancer de Datos — Guía completa para vivir del análisis de datos como independiente\n\nConvierte tu conocimiento en datos en un negocio rentable. Esta guía práctica te enseña cómo conseguir clientes, fijar tus tarifas, crear informes que impacten, usar IA para ser más productivo y escalar tu negocio freelance.\n\n¿Qué aprenderás?\n✓ El mercado freelance en datos: oportunidades, nichos rentables y el perfil del analista independiente\n✓ Habilidades clave y pricing: qué skills se pagan mejor, cómo fijar tarifas y negociar sin miedo\n✓ Cómo conseguir clientes: LinkedIn, plataformas freelance, propuestas ganadoras, portafolio\n✓ Marca personal y reputación: posicionamiento, redes, testimonios, casos de éxito\n✓ Stack técnico del freelancer: herramientas esenciales para el día a día\n✓ IA como asistente de datos: ChatGPT, Claude y Copilot para acelerar tu trabajo\n✓ Automatización de informes: plantillas, dashboards automáticos, pipelines ligeros\n✓ Storytelling con datos: narrativa, estructura, el arte del \"¿y entonces?\"\n✓ Visualizaciones que impactan: gráficos que comunican, no que decoran\n✓ Entregables profesionales: tipos de entregables, formatos, frecuencia\n✓ Cómo presentar resultados, manejar objeciones y conseguir el siguiente proyecto\n✓ Escalar tu negocio: de vender horas a vender valor, empaquetar servicios, delegar\n\nSin código técnico. Sin ejercicios. Solo consejos prácticos, estrategias probadas y el conocimiento de años de experiencia como freelancer de datos.\n\nPerfecto para: analistas de datos que quieren independizarse, freelancers que buscan profesionalizar su negocio, estudiantes de datos que quieren entender el mercado, y cualquier persona que quiera vivir del análisis de datos.",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/freelancer_datos.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/freelancer_datos.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/p2JIt",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "freelancer_datos",
+        "epub_filename": "Freelancer_Datos.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 15,
+    "fields": {
+        "titulo": "Fundamentos Analista Datos",
+        "descripcion": "Los Fundamentos del Analista de Datos — Libro 1 de la colección Data & Analytics Mastery\n\nDomina SQL, Excel y Python desde cero con un enfoque 100% práctico basado en proyectos reales. Este libro te guía a través de 4 proyectos integrados analizando los datos de TechStore, una tienda de electrónica con más de 5.000 pedidos y 500 productos.\n\n¿Qué aprenderás?\n✓ SQL completo: SELECT, JOINs, GROUP BY, subconsultas, CTEs y Window Functions\n✓ Excel avanzado: Power Query, tablas dinámicas, DAX, Power Pivot y dashboards profesionales\n✓ Python para datos: pandas, funciones, automatización de pipelines\n✓ Pipeline integrado: SQL + Python + Excel trabajando juntos\n✓ 4 proyectos reales para tu portfolio profesional\n\nIncluye base de datos SQLite real con 5 tablas, archivos CSV listos para importar, scripts Python editables, y soluciones completas a todos los ejercicios.\n\nPerfecto para: principiantes absolutos, profesionales que quieren dar el salto al análisis de datos, y cualquier persona que quiera construir una base sólida en las 3 herramientas más demandadas del mercado.\n\nColección Data & Analytics Mastery (5 libros):\n1. Los Fundamentos del Analista de Datos ← Este libro\n2. Python para Datos y tu Primer Data Warehouse Cloud\n3. Business Intelligence y Modelado de Datos\n4. Ingeniería de Datos Moderna\n5. Big Data, ML e IA: Especialización Avanzada",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/fundamentos_analista_datos.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/fundamentos_analista_datos.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/XiRlZ",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "fundamentos_analista_datos",
+        "epub_filename": "Fundamentos_Analista_Datos.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 16,
+    "fields": {
+        "titulo": "HTML Basico",
+        "descripcion": "Valentina hereda el proyecto web inconcluso del periodista Don Eduardo y descubre que la clave está en el código HTML. Desde cero: estructura, etiquetas, enlaces, tablas, formularios, multimedia, SEO y accesibilidad web. Una novela para aprender HTML básico mientras sigues una historia de legado periodístico, comunidad y segundas oportunidades. Sin experiencia previa necesaria.",
+        "categoria": "Web",
+        "portada_url": "/static/covers/Web/html_basico.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Web/html_basico.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/sFBhW",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "html_basico",
+        "epub_filename": "HTML_Basico.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 17,
+    "fields": {
+        "titulo": "Ingenieria Datos Moderna",
+        "descripcion": "Ingeniería de Datos Moderna — Libro 4 de la colección Data & Analytics Mastery\n\nDomina el data engineering moderno con Python, Airflow y dbt. Aprende data lakes, formatos de datos (Parquet, Avro), transformaciones con dbt, orquestación con Airflow, Docker para entornos reproducibles y CI/CD para datos.\n\n¿Qué aprenderás?\n✓ Python para data engineering: ETL, pipelines, APIs, buenas prácticas\n✓ Formatos de datos: Parquet, Avro, ORC — cuándo y por qué usarlos\n✓ Data lakes con MinIO y lakehouse architecture\n✓ dbt: modelado, testing, documentación, Jinja, macros y packages\n✓ Airflow: DAGs, TaskFlow, sensores, Airflow + dbt integración\n✓ Docker: contenedores para data engineering, docker-compose multi-servicio\n✓ CI/CD para datos con GitHub Actions\n✓ Monitoreo, alertas y SLAs en pipelines de datos\n\n4 proyectos progresivos:\nProyecto 1: Data Lake TechStore con MinIO\nProyecto 2: Pipeline dbt de Transformaciones\nProyecto 3: Orquestación Completa con Airflow\nProyecto 4: Data Platform en Producción\n\nIncluye código completo de todos los proyectos, datasets de ejemplo, archivos dbt, DAGs de Airflow, configuraciones Docker y GitHub Actions workflows.\n\nPerfecto para: analistas que quieren dar el salto a data engineering, ingenieros de datos que buscan modernizar su stack, científicos de datos que necesitan pipelines robustos, y cualquier persona que quiera construir infraestructura de datos profesional.\n\nColección Data & Analytics Mastery (5 libros):\n1. Los Fundamentos del Analista de Datos\n2. Python para Datos y tu Primer Data Warehouse Cloud\n3. Business Intelligence y Modelado de Datos\n4. Ingeniería de Datos Moderna ← Este libro\n5. Big Data, ML e IA",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/ingenieria_datos_moderna.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/ingenieria_datos_moderna.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/H3ebS",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "ingenieria_datos_moderna",
+        "epub_filename": "Ingenieria_Datos_Moderna.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 18,
+    "fields": {
+        "titulo": "JS Basico",
+        "descripcion": "Camila Ríos es diseñadora UX y debe convertir una plataforma educativa estática en una experiencia interactiva usando JavaScript. Desde cero: variables, condicionales, funciones, arrays, DOM, eventos, formularios, localStorage, fetch y APIs. Una novela para aprender JavaScript básico mientras sigues una historia de diseño, código y segundas oportunidades. Sin experiencia previa necesaria.",
+        "categoria": "Web",
+        "portada_url": "/static/covers/Web/js_basico.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Web/js_basico.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/cfE5w",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "js_basico",
+        "epub_filename": "JS_Basico.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 19,
+    "fields": {
+        "titulo": "El Motor Cuantitativo",
+        "descripcion": "Un recorrido completo por los fundamentos matemáticos y estadísticos del análisis de datos con Python. Álgebra lineal, cálculo, probabilidad, distribuciones, pruebas de hipótesis, regresión, PCA, clustering y series temporales. Pensado para analistas, científicos de datos y financieros cuantitativos que quieren construir una base sólida para modelos y toma de decisiones basada en datos.",
+        "categoria": "Matematicas",
+        "portada_url": "/static/covers/Matematicas/motor_cuantitativo.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Matematicas/motor_cuantitativo.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/RDSzU",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "motor_cuantitativo",
+        "epub_filename": "El_Motor_Cuantitativo.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 20,
+    "fields": {
+        "titulo": "print Sigo Aqui",
+        "descripcion": "La historia real de un hombre que dejó su país, su pareja y su hijo para empezar de cero en Madrid. Desde la llegada con miedo en migración hasta las noches de código en la madrugada y el reencuentro con su familia. Un relato honesto y crudo sobre la inmigración, el sacrificio y la esperanza. Para quienes han tenido que irse o están pensando en hacerlo.",
+        "categoria": "Crecimiento_Personal",
+        "portada_url": "/static/covers/Crecimiento_Personal/print_Sigo_Aqui.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Crecimiento_Personal/print_Sigo_Aqui.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "print_Sigo_Aqui",
+        "epub_filename": "print_Sigo_Aqui.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 21,
+    "fields": {
+        "titulo": "Python Data Cloud",
+        "descripcion": "Python para Datos y tu Primer Data Warehouse Cloud — Libro 2 de la colección Data & Analytics Mastery\n\nDe Pandas a BigQuery: lleva tu análisis de datos a la nube con proyectos reales. Aprende Python avanzado para análisis de datos, Google BigQuery como data warehouse cloud, Looker Studio para dashboards profesionales, y automatización serverless con Cloud Functions.\n\n¿Qué aprenderás?\n✓ Python avanzado con pandas: merge, groupby, pivot, apply, limpieza de datos reales\n✓ Visualización profesional con matplotlib y seaborn\n✓ Análisis Exploratorio de Datos (EDA) completo\n✓ Cloud computing y Google Cloud Platform desde cero\n✓ BigQuery: data warehouse serverless, SQL analítico, nested fields, particiones y clustering\n✓ Looker Studio: dashboards interactivos, campos calculados, blending y parámetros\n✓ Data pipelines ETL/ELT con Python y BigQuery\n✓ Automatización serverless con Cloud Functions y Cloud Scheduler\n✓ Sistema de reporting cloud completamente automatizado\n\n4 proyectos progresivos construyendo sobre TechStore:\nProyecto 1: Python Avanzado para Análisis de Datos\nProyecto 2: Introducción al Cloud y BigQuery — migra TechStore a la nube\nProyecto 3: Dashboards Cloud con Looker Studio\nProyecto 4: Automatización en la Nube — pipeline completo\n\nIncluye base de datos SQLite con 5 tablas, scripts Python listos para ejecutar, migración guiada a BigQuery, consultas SQL analíticas, y soluciones a todos los ejercicios.\n\nPerfecto para: analistas de datos que quieren dar el salto a la nube, profesionales con Python básico que buscan especializarse, estudiantes de data analytics, y cualquier persona que quiera construir sistemas de reporting cloud profesionales.\n\nColección Data & Analytics Mastery (5 libros):\n1. Los Fundamentos del Analista de Datos\n2. Python para Datos y tu Primer Data Warehouse Cloud ← Este libro\n3. Business Intelligence y Modelado de Datos\n4. Ingeniería de Datos Moderna\n5. Big Data, ML e IA: Especialización Avanzada",
+        "categoria": "Datos_IA",
+        "portada_url": "/static/covers/Datos_IA/python_data_cloud.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Datos_IA/python_data_cloud.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/2UiWJ",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "python_data_cloud",
+        "epub_filename": "Python_Data_Cloud.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 22,
+    "fields": {
+        "titulo": "Raices Nuevas",
+        "descripcion": "Una guía práctica y cálida para quienes emigran y enfrentan la ansiedad, el duelo migratorio y la soledad en un país nuevo. Sin tecnicismos ni falsas promesas, este libro comparte herramientas reales para anclarte, construir rutinas, poner límites sanos y celebrar lo pequeño. Escrito por alguien que vivió el proceso en primera persona y quiere tenderte la mano.",
+        "categoria": "Crecimiento_Personal",
+        "portada_url": "/static/covers/Crecimiento_Personal/raices_nuevas.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Crecimiento_Personal/raices_nuevas.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/jc4Gz",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "raices_nuevas",
+        "epub_filename": "Raices_Nuevas.epub"
+    }
+},
+{
+    "model": "store.libro",
+    "pk": 23,
+    "fields": {
+        "titulo": "SQL Letal",
+        "descripcion": "Un misterio por resolver y una base de datos llena de pistas. Este libro enseña SQL desde cero en formato de novela policíaca: SELECT, WHERE, JOINs, GROUP BY, subconsultas, CTEs, ventanas, índices y normalización. Perfecto para quienes quieren aprender bases de datos mientras ayudan a resolver un crimen donde cada consulta acerca un poco más a la verdad.",
+        "categoria": "Programacion",
+        "portada_url": "/static/covers/Programacion/sql_letal.jpg",
+        "portada_archivo": "",
+        "pdf_url": "/static/pdfs/Programacion/sql_letal.pdf",
+        "pdf_archivo": "",
+        "epub_archivo": "",
+        "precio": "1.00",
+        "payhip_url": "https://payhip.com/b/BnZMC",
+        "publicado": true,
+        "excerpt": "",
+        "folder_name": "sql_letal",
+        "epub_filename": "SQL_Letal.epub"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 1,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T21:05:15.767Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 2,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T21:05:26.133Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 3,
+    "fields": {
+        "libro": 13,
+        "timestamp": "2026-07-07T21:55:02.587Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 4,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T22:52:30.340Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 5,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T22:52:35.756Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 6,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T22:52:45.496Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 7,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T22:52:49.994Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 8,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:00:52.407Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 9,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:01:03.778Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 10,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:02:44.464Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 11,
+    "fields": {
+        "libro": 6,
+        "timestamp": "2026-07-07T23:02:50.868Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 12,
+    "fields": {
+        "libro": 14,
+        "timestamp": "2026-07-07T23:07:04.552Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 13,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-07T23:07:33.828Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 14,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-08T00:19:44.019Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.payhipclick",
+    "pk": 15,
+    "fields": {
+        "libro": 16,
+        "timestamp": "2026-07-09T14:27:25.249Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 1,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:05:11.222Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 2,
+    "fields": {
+        "libro": 15,
+        "timestamp": "2026-07-07T23:07:07.986Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 3,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-07T23:07:32.399Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 4,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:14:36.895Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 5,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:15:29.351Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 6,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:15:32.395Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 7,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:15:33.224Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 8,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:15:49.566Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 9,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:15:51.486Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 10,
+    "fields": {
+        "libro": 9,
+        "timestamp": "2026-07-07T23:15:55.472Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 11,
+    "fields": {
+        "libro": 11,
+        "timestamp": "2026-07-07T23:17:03.170Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 12,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-07T23:17:10.565Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 13,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-07T23:17:38.513Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 14,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:19:55.115Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 15,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:25:56.125Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 16,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:26:01.152Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 17,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:27:35.605Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 18,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:29:53.212Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 19,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:30:21.362Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 20,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:31:14.454Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 21,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:31:16.760Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 22,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:31:17.527Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 23,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:31:55.464Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 24,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:32:11.664Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 25,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:32:13.373Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 26,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:32:30.929Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 27,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:32:32.503Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 28,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:33:10.892Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 29,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:33:12.210Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 30,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:33:41.751Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 31,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:33:43.055Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 32,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:34:23.868Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 33,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:34:25.401Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 34,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:35:03.941Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 35,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:35:05.783Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 36,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:36:08.644Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 37,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:36:13.960Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 38,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:36:55.887Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 39,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:37:30.783Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 40,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:39:04.597Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 41,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:39:45.603Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 42,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:39:47.267Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 43,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:40:31.987Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 44,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:40:41.585Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 45,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:40:42.573Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 46,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:41:03.515Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 47,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:42:09.815Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 48,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:42:32.410Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 49,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:42:37.442Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 50,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:43:25.367Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 51,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:43:26.383Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 52,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:43:56.326Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 53,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-07T23:44:47.153Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 54,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T23:45:01.299Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 55,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T23:45:36.268Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 56,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T23:45:51.242Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 57,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-07T23:47:07.894Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 58,
+    "fields": {
+        "libro": 2,
+        "timestamp": "2026-07-08T00:19:31.963Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 59,
+    "fields": {
+        "libro": 17,
+        "timestamp": "2026-07-09T13:56:59.332Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 60,
+    "fields": {
+        "libro": 17,
+        "timestamp": "2026-07-09T13:57:05.981Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 61,
+    "fields": {
+        "libro": 8,
+        "timestamp": "2026-07-09T14:27:14.999Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 62,
+    "fields": {
+        "libro": 16,
+        "timestamp": "2026-07-09T14:27:22.535Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 63,
+    "fields": {
+        "libro": 1,
+        "timestamp": "2026-07-09T14:34:31.201Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 64,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-09T14:42:25.728Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 65,
+    "fields": {
+        "libro": 10,
+        "timestamp": "2026-07-09T14:43:35.294Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "store.libroview",
+    "pk": 66,
+    "fields": {
+        "libro": 4,
+        "timestamp": "2026-07-09T15:42:49.259Z",
+        "ip_address": "127.0.0.1",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1200000$RbgK3qREl6YJUSgUUEDgao$7xy80FOil3vEy7r4O2QADCMrqIFkQRrHXc/AiiYUix4=",
+        "last_login": "2026-07-09T13:23:05.105Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Alex",
+        "last_name": "",
+        "email": "alexgoyzueta2018@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2026-07-07T20:41:17.950Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
