@@ -10,6 +10,8 @@
             <p>Gestiona tu colección, revisa el rendimiento de Payhip y edita libros desde un panel optimizado.</p>
         </div>
         <div class="header-actions">
+            <a class="button button-secondary" href="{% url 'admin_profile' %}">Mi perfil</a>
+            <a class="button button-secondary" href="{% url 'sections_dashboard' %}">Secciones</a>
             <a class="button button-secondary" href="{% url 'home' %}">Ver tienda</a>
             <a class="button" href="{% url 'book_create' %}">Nuevo libro</a>
         </div>
@@ -41,29 +43,31 @@
         </article>
     </section>
 
-    <section class="panel-card chart-card">
-        <div class="chart-card-header">
-            <div>
-                <h2>Vistas diarias</h2>
-                <p>Resumen de visitas a la página de detalles en las últimas dos semanas.</p>
+    <div class="chart-grid">
+        <section class="panel-card chart-card">
+            <div class="chart-card-header">
+                <div>
+                    <h2>Vistas diarias</h2>
+                    <p>Resumen de visitas a la página de detalles en las últimas dos semanas.</p>
+                </div>
             </div>
-        </div>
-        <div class="chart-wrapper">
-            <canvas id="dailyViewsChart" aria-label="Gráfico de líneas de vistas diarias" role="img"></canvas>
-        </div>
-    </section>
+            <div class="chart-wrapper">
+                <canvas id="dailyViewsChart" aria-label="Gráfico de líneas de vistas diarias" role="img"></canvas>
+            </div>
+        </section>
 
-    <section class="panel-card chart-card">
-        <div class="chart-card-header">
-            <div>
-                <h2>Clicks de compra diarios</h2>
-                <p>Resumen de clicks en el botón de comprar que redirigen a Payhip.</p>
+        <section class="panel-card chart-card">
+            <div class="chart-card-header">
+                <div>
+                    <h2>Clicks de compra diarios</h2>
+                    <p>Resumen de clicks en el botón de comprar que redirigen a Payhip.</p>
+                </div>
             </div>
-        </div>
-        <div class="chart-wrapper">
-            <canvas id="dailyClicksChart" aria-label="Gráfico de líneas de clicks diarios" role="img"></canvas>
-        </div>
-    </section>
+            <div class="chart-wrapper">
+                <canvas id="dailyClicksChart" aria-label="Gráfico de líneas de clicks diarios" role="img"></canvas>
+            </div>
+        </section>
+    </div>
 
     <section class="table-card panel-card">
         <div class="table-card-header">

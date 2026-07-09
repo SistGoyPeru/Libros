@@ -1,0 +1,77 @@
+{% extends 'store/base.html' %}
+
+{% block title %}Mi Perfil{% endblock %}
+
+{% block content %}
+<section class="dashboard-header panel-card">
+    <div>
+        <span class="eyebrow">Configuración</span>
+        <h1>Mi perfil</h1>
+        <p>Actualiza tu nombre, correo electrónico o cambia tu contraseña.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-secondary" href="{% url 'store_dashboard' %}">Volver al dashboard</a>
+    </div>
+</section>
+
+{% if error %}
+    <div class="summary-card" style="border-left: 4px solid #dc2626; margin-bottom: 20px;">
+        <p style="color: #dc2626;">{{ error }}</p>
+    </div>
+{% endif %}
+{% if success %}
+    <div class="summary-card" style="border-left: 4px solid #16a34a; margin-bottom: 20px;">
+        <p style="color: #16a34a;">{{ success }}</p>
+    </div>
+{% endif %}
+
+<section class="table-card panel-card" style="margin-bottom: 24px;">
+    <div class="table-card-header">
+        <h2>Datos personales</h2>
+    </div>
+    <form method="post" class="form-grid" style="padding: 0;">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="profile">
+        <div>
+            <label for="id_username">Usuario</label>
+            <input type="text" id="id_username" value="{{ user.username }}" disabled style="opacity: 0.6;">
+        </div>
+        <div>
+            <label for="id_first_name">Nombre</label>
+            <input type="text" id="id_first_name" name="first_name" value="{{ user.first_name }}" placeholder="Tu nombre">
+        </div>
+        <div style="grid-column: 1 / -1;">
+            <label for="id_email">Correo electrónico</label>
+            <input type="email" id="id_email" name="email" value="{{ user.email }}" placeholder="tu@email.com">
+        </div>
+        <div class="form-actions" style="grid-column: 1 / -1;">
+            <button type="submit" class="button">Guardar cambios</button>
+        </div>
+    </form>
+</section>
+
+<section class="table-card panel-card">
+    <div class="table-card-header">
+        <h2>Cambiar contraseña</h2>
+    </div>
+    <form method="post" class="form-grid" style="padding: 0;">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="password">
+        <div>
+            <label for="id_old_password">Contraseña actual</label>
+            <input type="password" id="id_old_password" name="old_password" required>
+        </div>
+        <div>
+            <label for="id_new_password">Nueva contraseña</label>
+            <input type="password" id="id_new_password" name="new_password" required>
+        </div>
+        <div>
+            <label for="id_confirm_password">Confirmar nueva contraseña</label>
+            <input type="password" id="id_confirm_password" name="confirm_password" required>
+        </div>
+        <div class="form-actions" style="grid-column: 1 / -1;">
+            <button type="submit" class="button">Cambiar contraseña</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

@@ -5,36 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Portafolio de Alex Goyzueta Delgado{% endblock %}</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3">
+    <link rel="icon" href="{% static 'logo.jpg' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="brand logo-brand">
-                <img src="{% static 'logo.jpg' %}" alt="Alex Goyzueta Delgado" class="brand-logo">
-                <div>
-                    <h1>Alex Goyzueta Delgado</h1>
-                    <p>Analista de datos freelance y autor de libros digitales.</p>
-                </div>
+
+<div id="loader" class="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-ring" style="width: 100px; height: 100px; animation-direction: reverse; animation-duration: 1.5s;"></div>
+    <div class="loader-ring" style="width: 50px; height: 50px; animation-duration: 1s;"></div>
+    <p class="loader-text">INICIANDO SISTEMA</p>
+</div>
+
+<header class="site-header">
+    <div class="header-inner">
+        <div class="brand logo-brand">
+            <img src="{% static 'logo.jpg' %}" alt="Alex Goyzueta Delgado" class="brand-logo">
+            <div>
+                <h1>Alex Goyzueta Delgado</h1>
+                <p>Data Analyst</p>
             </div>
-            <nav class="site-nav">
-                <a href="/">Inicio</a>
-                <a href="{% url 'store_dashboard' %}">Dashboard</a>
-                {% if user.is_authenticated %}
-                    <a href="{% url 'admin_logout' %}">Salir</a>
-                {% else %}
-                    <a href="{% url 'admin_access' %}">Admin</a>
-                {% endif %}
-            </nav>
         </div>
-    </header>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="site-nav" id="siteNav">
+            <a href="/" data-section="hero">🏠 Inicio</a>
+            <a href="/#about" data-section="about">👤 Sobre mí</a>
+            <a href="/#proyectos" data-section="proyectos">📊 Proyectos</a>
+            <a href="/#libros" data-section="libros">📚 Libros</a>
+            <a href="/#cursos" data-section="cursos">🎓 Cursos</a>
+            <a href="/#herramientas" data-section="herramientas">🛠️ Skills</a>
+            <a href="/#blog" data-section="blog">📝 Blog</a>
+            <a href="/#servicios" data-section="servicios">💼 Servicios</a>
+            <a href="/#testimonios" data-section="testimonios">💬 Testimonios</a>
+            <a href="/#contacto" data-section="contacto">📞 Contacto</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'store_dashboard' %}" class="admin-lock" title="Dashboard">⚙️</a>
+                <a href="{% url 'admin_logout' %}">Salir</a>
+            {% else %}
+                <a href="{% url 'admin_access' %}" class="admin-lock" title="Admin">🔒</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
 
-    <main class="container">
-        {% block content %}{% endblock %}
-    </main>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-    <footer class="site-footer">
-        <p>Portafolio de Alex Goyzueta Delgado — Analista de datos freelance.</p>
-    </footer>
+<a href="#" id="backToTop" class="back-to-top" title="Volver arriba">↑</a>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-line"></div>
+        <p>© <span id="currentYear"></span> · Alex Goyzueta Delgado · Data Analyst</p>
+        <div class="footer-line"></div>
+    </div>
+</footer>
+
+<script>
+// Loader
+window.addEventListener('load', function() {
+    const loader = document.getElementById('loader');
+    loader.classList.add('loader-hidden');
+    setTimeout(() => loader.style.display = 'none', 800);
+});
+
+// Dynamic year
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('siteNav').classList.toggle('nav-open');
+    this.classList.toggle('active');
+});
+
+// Typewriter
+const typeEl = document.getElementById('typewriterText');
+if (typeEl) {
+    const text = typeEl.dataset.text || 'Análisis de datos profesional';
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            typeEl.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        } else {
+            typeEl.style.borderRight = '2px solid #ffd700';
+            setInterval(() => {
+                typeEl.style.borderRight = typeEl.style.borderRight === '2px solid transparent' ? '2px solid #ffd700' : '2px solid transparent';
+            }, 500);
+        }
+    }
+    typeWriter();
+}
+
+// Close nav on link click
+document.querySelectorAll('.site-nav a').forEach(a => {
+    a.addEventListener('click', () => {
+        document.getElementById('siteNav').classList.remove('nav-open');
+        document.getElementById('hamburger').classList.remove('active');
+    });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+});
+
+// Active nav on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.site-nav a[data-section]');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+        const top = s.offsetTop - 150;
+        if (window.scrollY >= top) current = s.getAttribute('id');
+    });
+    navLinks.forEach(l => {
+        l.classList.toggle('nav-active', l.dataset.section === current);
+    });
+});
+
+// Back to top
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// Scroll reveal animation
+const revealElements = document.querySelectorAll('.project-card, .service-card, .section-headline, .about-grid');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+revealElements.forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+});
+
+// 3D Tilt on cards
+document.querySelectorAll('.project-card, .service-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 20;
+        const rotateY = (centerX - x) / 20;
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+});
+</script>
 </body>
 </html>

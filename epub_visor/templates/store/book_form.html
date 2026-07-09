@@ -13,11 +13,20 @@
             <a class="button button-secondary" href="{% url 'store_dashboard' %}">Volver al dashboard</a>
         </div>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-grid form-grid-2">
                 {{ form.as_p }}
             </div>
+            {% if not is_create and libro.portada_archivo %}
+            <p><strong>Portada actual:</strong> <img src="{{ libro.portada_archivo.url }}" alt="Portada" style="max-width:150px;border-radius:8px;"></p>
+            {% endif %}
+            {% if not is_create and libro.pdf_archivo %}
+            <p><strong>PDF actual:</strong> <a href="{{ libro.pdf_archivo.url }}" target="_blank">Ver PDF</a></p>
+            {% endif %}
+            {% if not is_create and libro.epub_archivo %}
+            <p><strong>EPUB actual:</strong> <a href="{{ libro.epub_archivo.url }}" target="_blank">Descargar EPUB</a></p>
+            {% endif %}
 
             <div class="form-actions">
                 <button class="button" type="submit">Guardar</button>

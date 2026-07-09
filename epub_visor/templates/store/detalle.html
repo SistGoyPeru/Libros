@@ -1,85 +1,58 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ libro.titulo }} - Tienda de libros</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-</head>
-<body>
-    <header class="site-header">
-        <div class="header-inner">
-            <div class="brand">
-                <h1>{{ libro.titulo }}</h1>
-                <p>Información detallada del libro.</p>
-            </div>
-            <nav class="site-nav">
-                <a href="/">Inicio</a>
-                <a href="/admin/">Admin</a>
-            </nav>
-        </div>
-    </header>
+{% extends 'store/base.html' %}
+{% load static %}
+{% block title %}{{ libro.titulo }}{% endblock %}
+{% block content %}
+<section class="section" style="padding: 60px 0;">
+    <div class="container" style="max-width: 1000px;">
+        <a href="/#libros" class="button button-secondary" style="margin-bottom: 24px;">← Volver a libros</a>
 
-    <main class="container">
-        <section class="detalle-card">
-            <div class="detalle-imagen">
-                <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
-            </div>
-            {% if libro.pdf_url %}
-                <section class="detalle-pdf-preview pdf-preview-below-cover" id="pdf-preview">
-                    <h3>Vista previa del libro</h3>
-                    <div class="pdf-frame pdf-preview-frame">
-                        <iframe src="{{ libro.pdf_url }}#toolbar=0&navpanes=0&scrollbar=0" title="Vista previa PDF" loading="lazy"></iframe>
-                    </div>
-                </section>
-            {% endif %}
-            <div class="detalle-body">
-                <div class="detalle-topline">
-                    {% if libro.categoria %}
-                        <span class="category-label">{{ libro.categoria }}</span>
-                    {% endif %}
-                    <span class="detalle-status">Publicado: {{ libro.publicado|yesno:'Sí,No' }}</span>
+        <div class="panel-card" style="padding: 32px;">
+            <span class="corner-bracket tl"></span>
+            <span class="corner-bracket tr"></span>
+            <span class="corner-bracket bl"></span>
+            <span class="corner-bracket br"></span>
+
+            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 32px; align-items: start;">
+                <div>
+                    <img src="{% if libro.portada_archivo %}{{ libro.portada_archivo.url }}{% else %}{{ libro.portada_url|default:'https://via.placeholder.com/300x450?text=Portada' }}{% endif %}" alt="{{ libro.titulo }}" style="width: 100%; border-radius: 12px; box-shadow: 0 0 30px rgba(0,212,255,.3);">
                 </div>
-                <h2>{{ libro.titulo }}</h2>
-                <p class="price">{{ libro.precio }} €</p>
 
-                {% if libro.payhip_url %}
-                    <div class="detalle-actions">
+                <div>
+                    <p class="eyebrow" style="margin-bottom: 4px;">{{ libro.categoria|default:'Sin categoría' }}</p>
+                    <h1 style="font-size: 1.8rem;">{{ libro.titulo }}</h1>
+                    <p class="price" style="font-size: 1.5rem; color: var(--gold); margin: 12px 0;">{{ libro.precio }} €</p>
+
+                    {% if libro.payhip_url %}
+                    <div style="display: flex; gap: 12px; margin: 20px 0;">
                         <a class="button" href="{% url 'libro_comprar' libro.pk %}">Comprar en Payhip</a>
                     </div>
-                {% else %}
-                    <div class="detalle-actions">
-                        <span class="button disabled">Agregar URL de Payhip</span>
-                    </div>
-                {% endif %}
+                    {% endif %}
 
-                <p>{{ libro.descripcion }}</p>
+                    <p style="line-height: 1.8;">{{ libro.descripcion }}</p>
 
-                {% if libro.excerpt %}
-                    <aside class="detalle-aside">
-                        <h3>Parte importante del libro</h3>
-                        <p>{{ libro.excerpt }}</p>
+                    {% if libro.excerpt %}
+                    <aside style="margin-top: 20px; padding: 16px; border-left: 3px solid var(--primary); background: rgba(0,212,255,.05); border-radius: 8px;">
+                        <strong style="color: var(--primary);">Fragmento destacado</strong>
+                        <p style="margin-top: 8px; font-style: italic;">{{ libro.excerpt }}</p>
                     </aside>
-                {% endif %}
-
-                {% if not libro.pdf_url %}
-                    <div class="detalle-actions">
-                        <span class="button disabled">No hay visor PDF disponible</span>
-                    </div>
-                    <p class="pdf-note">Añade la URL de `pdf_url` en el administrador para que el visor aparezca aquí.</p>
-                {% endif %}
-
-                <div class="detalle-meta">
-                    <p class="meta-note">Categoría: {{ libro.categoria|default:'Sin categoría' }}</p>
+                    {% endif %}
+                    <p style="margin-top: 16px; font-size: 0.85rem; color: var(--muted);">👁️ Visto {{ total_views }} vez{% if total_views != 1 %}es{% endif %}</p>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="site-footer">
-        <p>Proyecto Django para tienda de libros.</p>
-    </footer>
-</body>
-</html>
-
+            {% if libro.pdf_archivo or libro.pdf_url %}
+            <hr style="border-color: var(--glass-border); margin: 32px 0;">
+            <h3 style="margin-bottom: 16px;">📖 Vista previa del libro</h3>
+            <div class="pdf-frame pdf-preview-frame">
+                <iframe src="{% if libro.pdf_archivo %}{{ libro.pdf_archivo.url }}{% else %}{{ libro.pdf_url }}{% endif %}#toolbar=0&navpanes=0&scrollbar=0" title="Vista previa PDF" loading="lazy" style="width: 100%; height: 500px; border: none; border-radius: 12px;"></iframe>
+            </div>
+            {% endif %}
+            {% if libro.epub_archivo %}
+            <hr style="border-color: var(--glass-border); margin: 32px 0;">
+            <h3 style="margin-bottom: 16px;">📱 Descargar EPUB</h3>
+            <a href="{{ libro.epub_archivo.url }}" class="button" download>Descargar EPUB</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -15,3 +15,6 @@ distribucion/
 promociones/
 promo_tienda.jpg
 anuncio_facebook.txt
+
+# Media files (user uploads)
+media/

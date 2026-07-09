@@ -1,0 +1,20 @@
+{% extends 'store/base.html' %}
+{% block title %}Eliminar{% endblock %}
+{% block content %}
+<section class="dashboard-header panel-card">
+    <div>
+        <span class="eyebrow">Secciones del portafolio</span>
+        <h1>Eliminar</h1>
+        <p>¿Estás seguro de eliminar "{{ obj }}"?</p>
+    </div>
+</section>
+<section class="form-section panel-card">
+    <form method="post" class="delete-form">
+        {% csrf_token %}
+        <div class="form-actions">
+            <button type="submit" class="button button-danger">Eliminar</button>
+            <a class="button button-secondary" href="{% url 'sections_dashboard' %}">Cancelar</a>
+        </div>
+    </form>
+</section>
+{% endblock %}

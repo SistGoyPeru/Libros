@@ -1,0 +1,52 @@
+{% extends 'store/base.html' %}
+{% block title %}{{ item.titulo }}{% endblock %}
+{% block content %}
+<article class="section" style="padding: 80px 0;">
+    <div class="container" style="max-width: 800px;">
+        <a href="/#blog" class="button button-secondary" style="margin-bottom: 24px;">← Volver</a>
+        <div class="panel-card" style="padding: 40px;">
+            <span class="corner-bracket tl"></span>
+            <span class="corner-bracket tr"></span>
+            <span class="corner-bracket bl"></span>
+            <span class="corner-bracket br"></span>
+            <p class="eyebrow">{{ item.fecha|date:'d/m/Y' }}</p>
+            <h1>{{ item.titulo }}</h1>
+            {% if item.imagen_url %}
+            <img src="{{ item.imagen_url }}" alt="{{ item.titulo }}" style="width: 100%; border-radius: 12px; margin: 20px 0;">
+            {% endif %}
+            <div style="line-height: 1.9; font-size: 1.05rem;">
+                {{ item.contenido|linebreaks }}
+            </div>
+        </div>
+
+        <div class="panel-card" style="padding: 32px; margin-top: 24px;">
+            <span class="corner-bracket tl"></span>
+            <span class="corner-bracket tr"></span>
+            <span class="corner-bracket bl"></span>
+            <span class="corner-bracket br"></span>
+            <h3>💬 Comentarios ({{ comentarios|length }})</h3>
+
+            {% for c in comentarios %}
+            <div style="padding: 16px 0; border-bottom: 1px solid var(--glass-border);">
+                <strong style="color: var(--primary);">{{ c.nombre }}</strong>
+                <span style="font-size: 0.8rem; color: var(--muted); margin-left: 8px;">{{ c.fecha|date:'d/m/Y H:i' }}</span>
+                <p style="margin: 6px 0 0;">{{ c.texto }}</p>
+            </div>
+            {% empty %}
+            <p style="color: var(--muted);">No hay comentarios aún. ¡Sé el primero!</p>
+            {% endfor %}
+
+            <hr style="border-color: var(--glass-border); margin: 24px 0;">
+            <h4>Deja tu comentario</h4>
+            <form method="post" style="margin-top: 12px;">
+                {% csrf_token %}
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <input type="text" name="nombre" placeholder="Tu nombre" required style="padding: 10px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-card); color: var(--text-bright);">
+                    <textarea name="texto" rows="3" placeholder="Escribe tu comentario..." required style="padding: 10px; border-radius: 8px; border: 1px solid var(--glass-border); background: var(--bg-card); color: var(--text-bright);"></textarea>
+                    <button type="submit" class="button" style="align-self: flex-start;">Enviar comentario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</article>
+{% endblock %}

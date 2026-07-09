@@ -4,122 +4,315 @@
 {% block title %}Portafolio Profesional de Datos{% endblock %}
 
 {% block content %}
-    <section class="hero">
-        <div class="hero-content">
-            <p class="eyebrow">Analista de datos freelance</p>
-            <h1>Transformo tus datos en decisiones estratégicas</h1>
-            <p class="hero-copy">El 80% de las empresas tiene datos pero no los usa para tomar decisiones. Yo ayudo a negocios a crear dashboards, automatizar reportes, limpiar bases de datos y detectar oportunidades de crecimiento.</p>
-            <div class="hero-actions">
-                <a class="button button-primary" href="#contacto">Consultoría gratis</a>
-                <a class="button button-secondary" href="#servicios">Ver servicios</a>
-            </div>
+<section class="hero">
+    <div class="hero-particles">
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+        <div class="hero-particle"></div>
+    </div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="hero-ring"></div>
+    <div class="scan-corner scan-corner-tl"></div>
+    <div class="scan-corner scan-corner-tr"></div>
+    <div class="scan-corner scan-corner-bl"></div>
+    <div class="scan-corner scan-corner-br"></div>
+    <div class="data-stream"></div>
+    <div class="data-stream" style="top: 70%; animation-delay: 1.5s; width: 40%;"></div>
+    <div class="data-stream" style="top: 85%; animation-delay: 3s; width: 30%;"></div>
+    <div class="scroll-indicator">
+        <span>Desplázate</span>
+        <div class="scroll-arrow"></div>
+    </div>
+    <div class="hero-content">
+        <p class="eyebrow" id="typewriterText" data-text="{{ about.hero_subtitle|default:'Análisis de datos profesional' }}"></p>
+        <h1>{% if about.hero_title %}{{ about.hero_title|safe }}{% else %}Transforma datos<br>en <span class="glitch-word" style="color: var(--gold); text-shadow: 0 0 30px var(--gold-glow);">poder</span>{% endif %}</h1>
+        <p class="hero-copy">{{ about.hero_subtitle|default:'Dashboards interactivos, automatización inteligente y análisis profundo para llevar tu negocio al siguiente nivel.' }}</p>
+        <div class="hero-actions">
+            <a class="button" href="#contacto">ACTIVAR CONSULTORÍA</a>
+            <a class="button button-secondary" href="#proyectos">VER PROYECTOS</a>
         </div>
-    </section>
-
-    <section class="section about-section">
-        <div class="container about-grid">
-            <div>
-                <h2>Cómo apoyo a tu negocio</h2>
-                <p>Trabajo con dueños de e-commerce, agencias de marketing, PYMES y emprendedores que quieren aprovechar sus datos para crecer y tomar decisiones más rápidas.</p>
-                <ul class="feature-list">
-                    <li>Dashboards en Power BI y Looker Studio para métricas claras.</li>
-                    <li>Automatización de reportes en Excel y Python.</li>
-                    <li>Limpieza y organización de bases de datos desordenadas.</li>
-                    <li>Identificación de tendencias y oportunidades de crecimiento.</li>
-                </ul>
-            </div>
-            <div class="stats-card">
-                <div class="stat-item">
-                    <span class="stat-value">+15</span>
-                    <span class="stat-label">Libros y guías publicados</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">+120</span>
-                    <span class="stat-label">Proyectos y clientes atendidos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-value">+6</span>
-                    <span class="stat-label">Años de experiencia</span>
-                </div>
-                <div class="stat-item highlight-item">
-                    <span class="stat-value">1</span>
-                    <span class="stat-label">Consultoría inicial gratis de 30 minutos</span>
-                </div>
-            </div>
+        <div class="hero-status">
+            <span class="status-dot"></span> SISTEMA LISTO · TODOS LOS MÓDULOS OPERATIVOS
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="section services-section" id="servicios">
-        <div class="container">
-            <div class="section-headline">
-                <p>Servicios profesionales</p>
-                <h2>Qué ofrezco</h2>
-            </div>
-            <div class="service-grid">
-                <article class="service-card">
-                    <h3>Dashboards interactivos</h3>
-                    <p>Tableros ejecutivos en Power BI y Looker Studio para ver ventas, margen y oportunidades al instante.</p>
-                </article>
-                <article class="service-card">
-                    <h3>Automatización en Excel</h3>
-                    <p>Reportes automáticos que antes te tomaban horas, ahora se actualizan con un clic.</p>
-                </article>
-                <article class="service-card">
-                    <h3>Limpieza de datos</h3>
-                    <p>Ordeno tus bases de datos desordenadas para que tus análisis sean confiables y simples de usar.</p>
-                </article>
-                <article class="service-card">
-                    <h3>Análisis avanzado</h3>
-                    <p>Uso SQL y Python para identificar tendencias, áreas de pérdida y oportunidades de crecimiento.</p>
-                </article>
-            </div>
+{% if about %}
+<section id="about" class="section">
+    <div class="container about-grid">
+        <div>
+            <h2>{{ about.nombre }}</h2>
+            {% if about.titulo %}<p class="eyebrow">{{ about.titulo }}</p>{% endif %}
+            <p>{{ about.bio|linebreaksbr }}</p>
+            {% if about.ubicacion %}<p>📍 {{ about.ubicacion }}</p>{% endif %}
         </div>
-    </section>
+    </div>
+</section>
+{% endif %}
 
-    <section id="proyectos" class="section projects-section">
-        <div class="container">
-            <div class="section-headline">
-                <p>Portafolio</p>
-                <h2>Libros y proyectos destacados</h2>
-            </div>
-            <div class="project-grid">
-                {% for libro in libros %}
-                    <article class="project-card">
-                        <img src="{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada+no+disponible' }}" alt="Portada de {{ libro.titulo }}">
-                        <div class="project-content">
-                            {% if libro.categoria %}<span class="project-tag">{{ libro.categoria }}</span>{% endif %}
-                            <h3>{{ libro.titulo }}</h3>
-                            <p>{{ libro.descripcion|truncatechars:160 }}</p>
-                            <div class="project-actions">
-                                {% if libro.payhip_url %}
-                                    <a class="button button-primary" href="{% url 'libro_comprar' libro.pk %}">Comprar</a>
-                                {% else %}
-                                    <span class="button disabled">Sin venta aún</span>
-                                {% endif %}
-                                <a class="button button-secondary" href="{{ libro.get_absolute_url }}">Detalles</a>
-                            </div>
-                        </div>
-                    </article>
-                {% empty %}
-                    <div class="empty-state">
-                        <h3>No hay libros activos aún.</h3>
-                        <p>Agrega tus libros publicados para que aparezcan en el portafolio.</p>
+{% if proyectos %}
+<section id="proyectos" class="section projects-section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Portafolio</p>
+            <h2>Proyectos de análisis de datos</h2>
+        </div>
+        <div class="project-grid">
+            {% for item in proyectos %}
+            <article class="project-card">
+                <span class="corner-bracket tl"></span>
+                <span class="corner-bracket tr"></span>
+                <span class="corner-bracket bl"></span>
+                <span class="corner-bracket br"></span>
+                {% if item.imagen_url %}
+                <img src="{{ item.imagen_url }}" alt="{{ item.titulo }}" loading="lazy">
+                {% endif %}
+                <div class="project-content">
+                    <h3>{{ item.titulo }}</h3>
+                    <p>{{ item.descripcion|truncatechars:160 }}</p>
+                    {% if item.tecnologias %}
+                    <p style="font-size: 0.85rem; color: var(--muted);">🔧 {{ item.tecnologias }}</p>
+                    {% endif %}
+                    {% if item.url %}
+                    <a class="button button-primary" href="{{ item.url }}" target="_blank" rel="noopener">Ver proyecto</a>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if libros %}
+<section id="libros" class="section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Publicaciones</p>
+            <h2>Libros publicados</h2>
+        </div>
+        {% if categorias %}
+        <div class="category-filter">
+            <a class="category-pill {% if not categoria_seleccionada %}active{% endif %}" href="{% url 'home' %}">Todos</a>
+            {% for cat in categorias %}
+            <a class="category-pill {% if categoria_seleccionada == cat %}active{% endif %}" href="{% url 'home' %}?categoria={{ cat|urlencode }}">{{ cat }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div class="project-grid">
+            {% for libro in libros %}
+            <article class="project-card">
+                <img src="{% if libro.portada_archivo %}{{ libro.portada_archivo.url }}{% else %}{{ libro.portada_url|default:'https://via.placeholder.com/600x900?text=Portada' }}{% endif %}" alt="Portada de {{ libro.titulo }}">
+                <div class="project-content">
+                    {% if libro.categoria %}<span class="project-tag">{{ libro.categoria }}</span>{% endif %}
+                    <h3>{{ libro.titulo }}</h3>
+                    <p>{{ libro.descripcion|truncatechars:160 }}</p>
+                    <div class="project-actions">
+                        {% if libro.payhip_url %}
+                        <a class="button button-primary" href="{% url 'libro_comprar' libro.pk %}">Comprar</a>
+                        {% else %}
+                        <span class="button disabled">Sin venta aún</span>
+                        {% endif %}
+                        <a class="button button-secondary" href="{{ libro.get_absolute_url }}">Detalles</a>
                     </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="section contact-section">
-        <div class="container contact-inner">
-            <div class="contact-card">
-                <h2>Hablemos de tu próximo proyecto</h2>
-                <p>Si necesitas análisis de datos, dashboards, informes o libros educativos, estoy disponible para ayudarte.</p>
-                <div class="contact-actions">
-                    <a class="button button-primary" href="mailto:alexgoyzueta2018@gmail.com">Enviar correo</a>
-                    <a class="button button-secondary" href="https://wa.me/34604858192" target="_blank" rel="noopener">Abrir WhatsApp</a>
                 </div>
+            </article>
+            {% empty %}
+            <div class="empty-state">
+                <h3>No hay libros activos aún.</h3>
+                <p>Agrega tus libros publicados para que aparezcan en el portafolio.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if cursos %}
+<section id="cursos" class="section services-section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Formación</p>
+            <h2>Cursos y formación</h2>
+        </div>
+        <div class="service-grid">
+            {% for item in cursos %}
+            <article class="service-card">
+                {% if item.imagen_url %}
+                <img src="{{ item.imagen_url }}" alt="{{ item.titulo }}" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
+                {% endif %}
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.descripcion|truncatechars:120 }}</p>
+                {% if item.plataforma %}<p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">{{ item.plataforma }}</p>{% endif %}
+                {% if item.url %}
+                <a class="button button-primary" href="{{ item.url }}" target="_blank" rel="noopener" style="margin-top: 12px;">Ver curso</a>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if herramientas %}
+<section id="herramientas" class="section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Skills</p>
+            <h2>Herramientas y tecnologías</h2>
+        </div>
+        {% regroup herramientas by categoria as grouped %}
+        {% for group in grouped %}
+        <h3 style="color: var(--primary); margin: 32px 0 16px; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase;">{{ group.grouper }}</h3>
+        <div class="service-grid">
+            {% for item in group.list %}
+            <article class="service-card" style="text-align: center;">
+                {% if item.icono %}<div style="font-size: 2rem;">{{ item.icono|safe }}</div>{% endif %}
+                <h3>{{ item.nombre }}</h3>
+                <div class="power-bar">
+                    <div class="power-bar-fill" style="width: {% widthratio item.nivel 5 100 %}%;"></div>
+                    <span class="power-label">{{ item.nivel }}/5</span>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% if blog %}
+<section id="blog" class="section services-section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Blog</p>
+            <h2>Artículos y publicaciones</h2>
+        </div>
+        <div class="service-grid">
+            {% for item in blog %}
+            <article class="service-card">
+                <span class="corner-bracket tl"></span>
+                <span class="corner-bracket tr"></span>
+                <span class="corner-bracket bl"></span>
+                <span class="corner-bracket br"></span>
+                {% if item.imagen_url %}
+                <img src="{{ item.imagen_url }}" alt="{{ item.titulo }}" style="width: 100%; border-radius: 12px; margin-bottom: 12px;">
+                {% endif %}
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.resumen|default:item.contenido|truncatechars:120 }}</p>
+                <p style="font-size: 0.85rem; color: var(--muted); margin-top: 8px;">{{ item.fecha|date:'d/m/Y' }}</p>
+                <a class="button button-primary" href="{% url 'blog_detail' item.pk %}" style="margin-top: 12px;">Leer más</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if servicios %}
+<section id="servicios" class="section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Servicios</p>
+            <h2>Servicios profesionales</h2>
+        </div>
+        <div class="service-grid">
+            {% for item in servicios %}
+            <article class="service-card">
+                <span class="corner-bracket tl"></span>
+                <span class="corner-bracket tr"></span>
+                <span class="corner-bracket bl"></span>
+                <span class="corner-bracket br"></span>
+                {% if item.icono %}<div style="font-size: 2rem; margin-bottom: 8px;">{{ item.icono }}</div>{% endif %}
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.descripcion|truncatechars:160 }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if contacto %}
+<section id="contacto" class="section contact-section">
+    <div class="container contact-inner">
+        <div class="contact-card">
+            <h2>Hablemos de tu próximo proyecto</h2>
+            {% if contacto.mensaje_bienvenida %}
+            <p>{{ contacto.mensaje_bienvenida }}</p>
+            {% else %}
+            <p>Si necesitas análisis de datos, dashboards, informes o libros educativos, estoy disponible para ayudarte.</p>
+            {% endif %}
+            <div class="contact-actions">
+                {% if contacto.email %}
+                <a class="button button-primary" href="mailto:{{ contacto.email }}">Enviar correo</a>
+                {% endif %}
+                {% if contacto.whatsapp %}
+                <a class="button button-secondary" href="https://wa.me/{{ contacto.whatsapp }}" target="_blank" rel="noopener">Abrir WhatsApp</a>
+                {% endif %}
+                {% if contacto.telefono %}
+                <a class="button button-secondary" href="tel:{{ contacto.telefono }}">Llamar</a>
+                {% endif %}
             </div>
         </div>
-    </section>
+    </div>
+</section>
+{% endif %}
+
+{% if testimonios %}
+<section id="testimonios" class="section services-section">
+    <div class="container">
+        <div class="section-headline">
+            <p>Testimonios</p>
+            <h2>Lo que dicen mis clientes</h2>
+        </div>
+        <div class="service-grid">
+            {% for item in testimonios %}
+            <article class="service-card">
+                <span class="corner-bracket tl"></span>
+                <span class="corner-bracket tr"></span>
+                <span class="corner-bracket bl"></span>
+                <span class="corner-bracket br"></span>
+                <div style="font-size: 2.5rem; margin-bottom: 12px; color: var(--gold);">❝</div>
+                <p style="font-style: italic; line-height: 1.8;">{{ item.texto }}</p>
+                <div style="margin-top: 16px; display: flex; align-items: center; gap: 12px;">
+                    {% if item.foto_url %}
+                    <img src="{{ item.foto_url }}" alt="{{ item.nombre }}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary);">
+                    {% endif %}
+                    <div>
+                        <strong style="color: var(--text-bright);">{{ item.nombre }}</strong>
+                        {% if item.cargo %}<p style="font-size: 0.8rem; color: var(--muted); margin: 0;">{{ item.cargo }}</p>{% endif %}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if sociales %}
+<section id="social" class="section" style="padding: 40px 0;">
+    <div class="container" style="text-align: center;">
+        <div class="section-headline">
+            <p>Redes</p>
+            <h2>Sígueme en redes sociales</h2>
+        </div>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+            {% for item in sociales %}
+            <a href="{{ item.url }}" target="_blank" rel="noopener" class="button button-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                {% if item.icono %}{{ item.icono|safe }}{% endif %}
+                {{ item.nombre }}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
 {% endblock %}

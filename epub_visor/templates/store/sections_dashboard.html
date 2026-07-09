@@ -1,0 +1,70 @@
+{% extends 'store/base.html' %}
+{% block title %}Secciones del Portafolio{% endblock %}
+{% block content %}
+<section class="dashboard-header panel-card">
+    <div>
+        <span class="eyebrow">Portafolio</span>
+        <h1>Secciones del portafolio</h1>
+        <p>Administra todo el contenido de tu portafolio profesional.</p>
+    </div>
+    <div class="header-actions">
+        <a class="button button-secondary" href="{% url 'store_dashboard' %}">Volver al dashboard</a>
+    </div>
+</section>
+
+<div class="dashboard-grid">
+    <a href="{% url 'about_edit' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">👤 Sobre mí</p>
+        <h2>{{ has_about|yesno:'Editado,Pendiente' }}</h2>
+        <p class="card-note">Configura tu biografía y datos personales.</p>
+    </a>
+
+    <a href="{% url 'project_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">📊 Proyectos</p>
+        <h2>{{ total_projects }}</h2>
+        <p class="card-note">Proyectos de análisis de datos.</p>
+    </a>
+
+    <a href="{% url 'course_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">🎓 Cursos</p>
+        <h2>{{ total_courses }}</h2>
+        <p class="card-note">Cursos y formación.</p>
+    </a>
+
+    <a href="{% url 'tool_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">🛠️ Herramientas</p>
+        <h2>{{ total_tools }}</h2>
+        <p class="card-note">Skills y herramientas técnicas.</p>
+    </a>
+
+    <a href="{% url 'blog_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">📝 Blog</p>
+        <h2>{{ total_blog }}</h2>
+        <p class="card-note">Artículos y publicaciones.</p>
+    </a>
+
+    <a href="{% url 'service_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">💼 Servicios</p>
+        <h2>{{ total_services }}</h2>
+        <p class="card-note">Servicios profesionales.</p>
+    </a>
+
+    <a href="{% url 'testimonial_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">💬 Testimonios</p>
+        <h2>{{ total_testimonios }}</h2>
+        <p class="card-note">Opiniones de clientes.</p>
+    </a>
+
+    <a href="{% url 'social_list' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">🔗 Redes Sociales</p>
+        <h2>{{ total_social }}</h2>
+        <p class="card-note">Enlaces a tus redes.</p>
+    </a>
+
+    <a href="{% url 'section_contact' %}" class="dashboard-card" style="display: block; text-decoration: none;">
+        <p class="card-label">📞 Contacto</p>
+        <h2>{{ has_contact|yesno:'Configurado,Pendiente' }}</h2>
+        <p class="card-note">Información de contacto.</p>
+    </a>
+</div>
+{% endblock %}
